@@ -98,12 +98,12 @@ export default function AIFeedbackMiniToolPage() {
       {/* ✅ Main nav */}
       <SiteHeader />
 
-      <Container className="py-14">
-        {/* Header */}
-        <div className="flex items-start justify-between gap-4">
-          <div>
+      <Container className="py-8 sm:py-14">
+        {/* Header (mobile-first) */}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="min-w-0">
             <h1 className="text-2xl font-semibold tracking-tight">AI Feedback Mini-Tool</h1>
-            <p className="mt-2 text-zinc-600 dark:text-zinc-300">
+            <p className="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-300">
               Lightweight tool that turns raw session text into structured, actionable feedback.
             </p>
 
@@ -114,11 +114,13 @@ export default function AIFeedbackMiniToolPage() {
             </div>
           </div>
 
-          <Badge variant="success">Open source</Badge>
+          <div className="flex items-center gap-2 sm:pt-1">
+            <Badge variant="success">Open source</Badge>
+          </div>
         </div>
 
         {/* Tabs top */}
-        <div className="mt-8 flex items-center justify-between gap-4">
+        <div className="mt-7">
           <Tabs
             items={[
               { key: "tool", label: "Tool" },
@@ -145,36 +147,37 @@ export default function AIFeedbackMiniToolPage() {
 
               {/* Framework segmented (no <select>) */}
               <div className="mt-4 flex flex-wrap gap-2">
-              {FRAMEWORKS.map((f) => {
-                const active = f.key === framework;
+                {FRAMEWORKS.map((f) => {
+                  const active = f.key === framework;
 
-                return (
+                  return (
                     <button
-                    key={f.key}
-                    type="button"
-                    onClick={() => setFramework(f.key)}
-                    className={[
+                      key={f.key}
+                      type="button"
+                      onClick={() => setFramework(f.key)}
+                      className={[
                         "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200",
+                        "max-w-full",
                         !active &&
-                        "border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:hover:bg-zinc-900",
+                          "border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:hover:bg-zinc-900",
                         active &&
-                        "border-zinc-900 bg-zinc-900 text-white hover:bg-zinc-800 dark:border-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200",
-                    ].join(" ")}
+                          "border-zinc-900 bg-zinc-900 text-white hover:bg-zinc-800 dark:border-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200",
+                      ].join(" ")}
                     >
-                    <span className="font-medium">{f.label}</span>
+                      <span className="font-medium">{f.label}</span>
 
-                    <span
+                      <span
                         className={[
-                        "text-xs hidden sm:inline transition-opacity",
-                        active
+                          "text-xs hidden sm:inline transition-opacity",
+                          active
                             ? "opacity-80 text-white dark:text-zinc-700"
                             : "opacity-70 text-zinc-600 dark:text-zinc-400",
                         ].join(" ")}
-                    >
+                      >
                         {f.blurb}
-                    </span>
+                      </span>
                     </button>
-                );
+                  );
                 })}
               </div>
 
@@ -183,12 +186,12 @@ export default function AIFeedbackMiniToolPage() {
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   placeholder="Paste session transcript..."
-                  className="min-h-[260px] w-full rounded-2xl border border-zinc-200 bg-white p-4 text-sm leading-relaxed
+                  className="min-h-[220px] sm:min-h-[260px] w-full rounded-2xl border border-zinc-200 bg-white p-4 text-sm leading-relaxed
                              text-zinc-900 outline-none transition-colors
                              focus:border-zinc-400
                              dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-600"
                 />
-                <div className="mt-3 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
+                <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-zinc-500 dark:text-zinc-400">
                   <span>{wordCount} words</span>
                   <span className={wordCount < 30 ? "text-rose-600 dark:text-rose-400" : ""}>
                     {wordCount < 30 ? "Add more text (min ~30 words)" : "Ready"}
@@ -203,12 +206,14 @@ export default function AIFeedbackMiniToolPage() {
               ) : null}
 
               <CardFooter className="mt-5">
-                <Button variant="outline" onClick={() => setText(SAMPLE_TEXT)}>
-                  Load sample
-                </Button>
-                <Button onClick={run} disabled={!canRun}>
-                  {loading ? "Analyzing..." : "Run analysis"}
-                </Button>
+                <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-between">
+                  <Button variant="outline" onClick={() => setText(SAMPLE_TEXT)} className="w-full sm:w-auto">
+                    Load sample
+                  </Button>
+                  <Button onClick={run} disabled={!canRun} className="w-full sm:w-auto">
+                    {loading ? "Analyzing..." : "Run analysis"}
+                  </Button>
+                </div>
               </CardFooter>
             </Card>
 
@@ -229,9 +234,11 @@ export default function AIFeedbackMiniToolPage() {
               ) : (
                 <div className="mt-4 space-y-4">
                   <div className="rounded-2xl border border-zinc-200 p-4 dark:border-zinc-800">
-                    <div className="flex items-center justify-between gap-3">
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                       <div className="text-sm font-semibold">Overall level</div>
-                      <Badge variant="success">{data.report.overallLevel}</Badge>
+                      <div className="sm:pt-0">
+                        <Badge variant="success">{data.report.overallLevel}</Badge>
+                      </div>
                     </div>
                     <div className="mt-3 text-sm text-zinc-700 dark:text-zinc-200">
                       <span className="font-medium">Reformulation:</span>{" "}
@@ -268,16 +275,16 @@ export default function AIFeedbackMiniToolPage() {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    <Button variant="outline" onClick={() => setOpenJson(true)}>
+                  <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-2 pt-1">
+                    <Button variant="outline" onClick={() => setOpenJson(true)} className="w-full sm:w-auto">
                       View JSON
                     </Button>
-                    <Button variant="outline" onClick={() => setOpenMd(true)}>
+                    <Button variant="outline" onClick={() => setOpenMd(true)} className="w-full sm:w-auto">
                       View Markdown
                     </Button>
                   </div>
 
-                  <div className="text-xs text-zinc-500 dark:text-zinc-400">
+                  <div className="text-xs text-zinc-500 dark:text-zinc-400 break-words">
                     {data.meta?.model ? <>Model: {data.meta.model} • </> : null}
                     Framework: {data.framework}
                     {typeof data.meta?.wordCount === "number" ? <> • Words: {data.meta.wordCount}</> : null}
@@ -326,9 +333,16 @@ export default function AIFeedbackMiniToolPage() {
               </CardHeader>
 
               <div className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-200">
-                <p>• <span className="font-medium">JSON</span> = ideal para guardar en DB, versionar y renderizar UI.</p>
-                <p>• <span className="font-medium">Markdown</span> = ideal para copiar/pegar, PDF, Notion, Docs.</p>
-                <p>• Mantienes un pipeline limpio: <span className="font-medium">Text → JSON → UI + Export</span>.</p>
+                <p>
+                  • <span className="font-medium">JSON</span> = ideal para guardar en DB, versionar y renderizar UI.
+                </p>
+                <p>
+                  • <span className="font-medium">Markdown</span> = ideal para copiar/pegar, PDF, Notion, Docs.
+                </p>
+                <p>
+                  • Mantienes un pipeline limpio:{" "}
+                  <span className="font-medium">Text → JSON → UI + Export</span>.
+                </p>
               </div>
             </Card>
           </div>

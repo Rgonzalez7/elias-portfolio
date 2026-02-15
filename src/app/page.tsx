@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
 import Reveal from "@/components/Reveal";
 import EditorialGrid from "@/components/EditorialGrid";
 import SiteHeader from "@/components/SiteHeader";
@@ -20,70 +19,114 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300">
+    <main
+      className="
+        min-h-screen overflow-x-hidden
+        bg-white text-zinc-900
+        dark:bg-zinc-950 dark:text-zinc-100
+        transition-colors duration-300
+      "
+    >
       <EditorialGrid enabled={showGrid} />
 
       {/* ✅ Shared header */}
       <SiteHeader />
 
       {/* Hero */}
-      <section id="top" className="mx-auto max-w-5xl px-5 pt-20 pb-14">
-        <div className="relative">
+      <section
+        id="top"
+        className="mx-auto max-w-5xl px-5 pt-12 sm:pt-20 pb-12 sm:pb-14"
+      >
+        {/* ✅ overflow-hidden para que los glows NO empujen el ancho */}
+        <div className="relative overflow-hidden">
           {/* micro blur glow (behind) */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
             <div
-              className="absolute right-[-80px] top-[-60px] h-[280px] w-[280px] rounded-full bg-zinc-200/70 blur-3xl
-                        dark:bg-zinc-800/40"
+              className="
+                absolute right-[-80px] top-[-60px]
+                h-[260px] w-[260px] sm:h-[280px] sm:w-[280px]
+                rounded-full bg-zinc-200/70 blur-3xl dark:bg-zinc-800/40
+              "
             />
             <div
-              className="absolute right-[120px] top-[120px] h-[220px] w-[220px] rounded-full bg-emerald-200/40 blur-3xl
-                        dark:bg-emerald-900/20"
+              className="
+                absolute right-[60px] sm:right-[120px]
+                top-[110px] sm:top-[120px]
+                h-[200px] w-[200px] sm:h-[220px] sm:w-[220px]
+                rounded-full bg-emerald-200/40 blur-3xl dark:bg-emerald-900/20
+              "
             />
           </div>
 
           {/* content */}
-          <div className="ml-auto max-w-3xl text-right">
+          <div className="mx-auto max-w-3xl text-center sm:ml-auto sm:text-right">
             <Reveal>
               {/* Availability line */}
               <div
-                className="mb-5 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600
-                          dark:border-zinc-800 dark:bg-zinc-950/60 dark:text-zinc-300 transition-colors duration-300"
+                className="
+                  mb-5 inline-flex items-center gap-2 rounded-full
+                  border border-zinc-200 bg-white/70 px-3 py-1
+                  text-xs font-medium text-zinc-600
+                  dark:border-zinc-800 dark:bg-zinc-950/60 dark:text-zinc-300
+                  transition-colors duration-300
+                "
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                 <span>Available for remote — Full-Stack / AI workflows</span>
               </div>
 
-              <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
+              <h1 className="text-3xl font-semibold tracking-tight sm:text-6xl">
                 Building AI-powered SaaS products with clean UX and real-world workflows.
               </h1>
 
-              <p className="mt-5 ml-auto max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-300 transition-colors duration-300">
+              <p
+                className="
+                  mt-4 sm:mt-5 mx-auto sm:ml-auto max-w-2xl
+                  text-base sm:text-lg leading-relaxed
+                  text-zinc-600 dark:text-zinc-300
+                  transition-colors duration-300
+                "
+              >
                 Full-stack engineer building scalable apps and practical AI tooling—focused on speed,
                 clarity, and product execution.
               </p>
             </Reveal>
 
             <Reveal delay={80}>
-              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-end">
+              <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:justify-end">
                 <a
                   href="#projects"
-                  className="inline-flex h-11 w-full sm:w-auto items-center justify-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white
-                            transition-colors duration-200 hover:bg-zinc-800
-                            dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+                  className="
+                    inline-flex h-11 w-full sm:w-auto items-center justify-center
+                    rounded-full bg-zinc-900 px-6 text-sm font-medium text-white
+                    transition-colors duration-200 hover:bg-zinc-800
+                    dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200
+                  "
                 >
                   View Projects
                 </a>
 
                 <a
                   href="#contact"
-                  className="inline-flex h-11 w-full sm:w-auto items-center justify-center rounded-full border border-zinc-300 bg-transparent px-6 text-sm font-medium text-zinc-900
-                            transition-colors duration-200 hover:bg-zinc-50
-                            dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-900"
+                  className="
+                    inline-flex h-11 w-full sm:w-auto items-center justify-center
+                    rounded-full border border-zinc-300 bg-transparent px-6
+                    text-sm font-medium text-zinc-900
+                    transition-colors duration-200 hover:bg-zinc-50
+                    dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-900
+                  "
                 >
                   Contact
                 </a>
 
-                <div className="mt-2 sm:mt-0 sm:ml-1 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-zinc-600 dark:text-zinc-300 transition-colors duration-300 justify-end">
+                <div
+                  className="
+                    mt-2 sm:mt-0 sm:ml-1 flex flex-wrap items-center gap-x-4 gap-y-2
+                    text-sm text-zinc-600 dark:text-zinc-300
+                    transition-colors duration-300
+                    justify-center sm:justify-end
+                  "
+                >
                   <a
                     className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
                     href="https://github.com/rgonzalez7"
@@ -114,7 +157,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="mx-auto max-w-5xl px-5 py-12">
+      <section id="projects" className="mx-auto max-w-5xl px-5 py-10 sm:py-12">
         <Reveal>
           <h2 className="text-xl font-semibold tracking-tight">Projects</h2>
           <p className="mt-2 text-zinc-600 dark:text-zinc-300 transition-colors duration-300">
@@ -122,10 +165,10 @@ export default function Home() {
           </p>
         </Reveal>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <div className="mt-7 sm:mt-8 grid gap-4 sm:grid-cols-2">
           {/* Featured: Guibbo */}
           <article
-            className="rounded-2xl border border-zinc-200 p-7 sm:p-6 dark:border-zinc-800 dark:bg-zinc-950
+            className="rounded-2xl border border-zinc-200 p-6 sm:p-6 dark:border-zinc-800 dark:bg-zinc-950
                        transition-transform duration-200 will-change-transform
                        hover:-translate-y-[2px]
                        hover:shadow-[0_12px_30px_-18px_rgba(0,0,0,0.35)]
@@ -249,7 +292,6 @@ export default function Home() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {/* ✅ UPDATED: go to /ui-kit */}
               <Link
                 href="/ui-kit"
                 className="text-sm font-medium text-zinc-900 hover:underline dark:text-white transition-colors duration-200"
@@ -305,7 +347,7 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section id="about" className="mx-auto max-w-5xl px-5 py-12">
+      <section id="about" className="mx-auto max-w-5xl px-5 py-10 sm:py-12">
         <Reveal>
           <h2 className="text-xl font-semibold tracking-tight">About</h2>
         </Reveal>
@@ -330,7 +372,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="mx-auto max-w-5xl px-5 py-12">
+      <section id="contact" className="mx-auto max-w-5xl px-5 py-10 sm:py-12">
         <Reveal>
           <div className="rounded-2xl border border-zinc-200 p-6 dark:border-zinc-800 transition-colors duration-300">
             <h2 className="text-xl font-semibold tracking-tight">Let’s build something.</h2>
@@ -341,7 +383,7 @@ export default function Home() {
             <div className="mt-5 flex flex-wrap items-center gap-3">
               <a
                 href="mailto:rmngzps@gmail.com"
-                className="inline-flex h-11 items-center justify-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white hover:bg-zinc-800
+                className="inline-flex h-11 w-full sm:w-auto items-center justify-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white hover:bg-zinc-800
                            dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200
                            transition-colors duration-200"
               >

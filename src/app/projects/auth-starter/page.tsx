@@ -86,12 +86,16 @@ export default function AuthStarterPage() {
   }
 
   async function register() {
-    const j = (await call("/api/auth/register", { name, email, password })) as AuthResponse | null;
+    const j = (await call("/api/auth/register", { name, email, password })) as
+      | AuthResponse
+      | null;
     if (j?.ok) await getMe();
   }
 
   async function login() {
-    const j = (await call("/api/auth/login", { email, password })) as AuthResponse | null;
+    const j = (await call("/api/auth/login", { email, password })) as
+      | AuthResponse
+      | null;
     if (j?.ok) await getMe();
   }
 
@@ -101,10 +105,11 @@ export default function AuthStarterPage() {
     setLast(null);
 
     try {
-      const r = await fetch("/api/auth/me", { method: "GET" });
+      const r = await fetch("/api/auth/me", { method: "GET", cache: "no-store" });
       const j = (await r.json().catch(() => ({}))) as MeResponse;
       setLast({ endpoint: "/api/auth/me", status: r.status, body: j });
       setMe(j);
+
       if (!r.ok || (j as any)?.ok === false) {
         throw new Error((j as any)?.error || `Request failed (${r.status})`);
       }
@@ -123,16 +128,18 @@ export default function AuthStarterPage() {
     setMe(null);
   }
 
+  const authed = Boolean(me && (me as any)?.user);
+
   return (
-    <main className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300">
+    <main className="min-h-screen overflow-x-hidden bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300">
       <SiteHeader />
 
-      <Container className="py-14">
+      <Container className="py-10 sm:py-14">
         {/* Header */}
-        <div className="flex items-start justify-between gap-4">
-          <div>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="min-w-0">
             <h1 className="text-2xl font-semibold tracking-tight">Auth + API Starter</h1>
-            <p className="mt-2 text-zinc-600 dark:text-zinc-300">
+            <p className="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-300">
               A clean full-stack starter for MVPs: auth, protected routes, and production-ready API patterns.
             </p>
 
@@ -143,12 +150,16 @@ export default function AuthStarterPage() {
             </div>
           </div>
 
-          <Badge variant="success">Open source</Badge>
+          <div className="flex items-center gap-2 sm:pt-1">
+            <Badge variant="success">Open source</Badge>
+          </div>
         </div>
 
-        {/* Tabs */}
-        <div className="mt-8 flex items-center justify-between gap-4">
-          <Tabs items={tabs} value={tab} onChange={(k) => setTab(k as any)} />
+        {/* ✅ Tabs: scroll horizontal en mobile (cero overflow) */}
+        <div className="mt-7 -mx-1 px-1 overflow-x-auto no-scrollbar">
+          <div className="min-w-max">
+            <Tabs items={tabs} value={tab} onChange={(k) => setTab(k as any)} />
+          </div>
         </div>
 
         {/* OVERVIEW */}
@@ -158,7 +169,9 @@ export default function AuthStarterPage() {
               <CardHeader>
                 <div>
                   <CardTitle>What you get</CardTitle>
-                  <CardDescription>A real starter that you can extend without rewriting everything.</CardDescription>
+                  <CardDescription>
+                    A real starter that you can extend without rewriting everything.
+                  </CardDescription>
                 </div>
                 <Badge>Features</Badge>
               </CardHeader>
@@ -172,10 +185,14 @@ export default function AuthStarterPage() {
               </ul>
 
               <CardFooter className="mt-5">
-                <Button variant="outline" onClick={() => setTab("env")}>
-                  Configure env
-                </Button>
-                <Button onClick={() => setTab("demo")}>Open live demo</Button>
+                <div className="flex w-full flex-col gap-2 sm:flex-row sm:justify-between">
+                  <Button variant="outline" onClick={() => setTab("env")} className="w-full sm:w-auto">
+                    Configure env
+                  </Button>
+                  <Button onClick={() => setTab("demo")} className="w-full sm:w-auto">
+                    Open live demo
+                  </Button>
+                </div>
               </CardFooter>
             </Card>
 
@@ -183,12 +200,14 @@ export default function AuthStarterPage() {
               <CardHeader>
                 <div>
                   <CardTitle>Folder structure</CardTitle>
-                  <CardDescription>App Router layout that stays clean as your project grows.</CardDescription>
+                  <CardDescription>
+                    App Router layout that stays clean as your project grows.
+                  </CardDescription>
                 </div>
                 <Badge>Structure</Badge>
               </CardHeader>
 
-              <pre className="mt-4 overflow-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+              <pre className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
 {`/src
   /app
     /api
@@ -213,7 +232,7 @@ export default function AuthStarterPage() {
           </div>
         ) : null}
 
-        {/* API PATTERNS */}
+        {/* API */}
         {tab === "api" ? (
           <div className="mt-6 grid gap-4 lg:grid-cols-2">
             <Card>
@@ -225,7 +244,7 @@ export default function AuthStarterPage() {
                 <Badge>REST</Badge>
               </CardHeader>
 
-              <pre className="mt-4 overflow-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+              <pre className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
 {`POST   /api/auth/register
 POST   /api/auth/login
 GET    /api/auth/me         (protected)
@@ -268,12 +287,14 @@ POST   /api/auth/logout     (optional)
               <CardHeader>
                 <div>
                   <CardTitle>Environment variables</CardTitle>
-                  <CardDescription>Set these locally (.env.local) and in Vercel (Preview + Production).</CardDescription>
+                  <CardDescription>
+                    Set these locally (.env.local) and in Vercel (Preview + Production).
+                  </CardDescription>
                 </div>
                 <Badge>.env</Badge>
               </CardHeader>
 
-              <pre className="mt-4 overflow-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+              <pre className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
 {`JWT_SECRET=super_long_random_secret
 JWT_EXPIRES_IN=7d
 AUTH_COOKIE_NAME=auth_token
@@ -290,10 +311,14 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
               </div>
 
               <CardFooter className="mt-5">
-                <Button variant="outline" onClick={() => setTab("deploy")}>
-                  Deploy guide
-                </Button>
-                <Button onClick={() => setTab("demo")}>Try demo</Button>
+                <div className="flex w-full flex-col gap-2 sm:flex-row sm:justify-between">
+                  <Button variant="outline" onClick={() => setTab("deploy")} className="w-full sm:w-auto">
+                    Deploy guide
+                  </Button>
+                  <Button onClick={() => setTab("demo")} className="w-full sm:w-auto">
+                    Try demo
+                  </Button>
+                </div>
               </CardFooter>
             </Card>
 
@@ -306,7 +331,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
                 <Badge>TS</Badge>
               </CardHeader>
 
-              <pre className="mt-4 overflow-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+              <pre className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
 {`npm i -D @types/jsonwebtoken`}
               </pre>
 
@@ -359,10 +384,14 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
               </ul>
 
               <CardFooter className="mt-5">
-                <Button variant="outline" onClick={() => setTab("overview")}>
-                  Back to overview
-                </Button>
-                <Button onClick={() => setTab("demo")}>Open demo</Button>
+                <div className="flex w-full flex-col gap-2 sm:flex-row sm:justify-between">
+                  <Button variant="outline" onClick={() => setTab("overview")} className="w-full sm:w-auto">
+                    Back to overview
+                  </Button>
+                  <Button onClick={() => setTab("demo")} className="w-full sm:w-auto">
+                    Open demo
+                  </Button>
+                </div>
               </CardFooter>
             </Card>
           </div>
@@ -371,7 +400,6 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
         {/* DEMO */}
         {tab === "demo" ? (
           <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_1fr]">
-            {/* Actions */}
             <Card>
               <CardHeader>
                 <div>
@@ -380,8 +408,8 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
                     Register → Login → Check session → Visit the protected dashboard.
                   </CardDescription>
                 </div>
-                <Badge variant={me && (me as any)?.user ? "success" : undefined}>
-                  {me && (me as any)?.user ? "Authenticated" : "Guest"}
+                <Badge variant={authed ? "success" : undefined}>
+                  {authed ? "Authenticated" : "Guest"}
                 </Badge>
               </CardHeader>
 
@@ -393,6 +421,8 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
                   <input
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    autoComplete="name"
+                    spellCheck={false}
                     className="h-11 w-full rounded-2xl border border-zinc-200 bg-white px-4 text-sm text-zinc-900 outline-none
                                focus:border-zinc-400
                                dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-600"
@@ -407,6 +437,9 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
                   <input
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    autoComplete="email"
+                    inputMode="email"
+                    spellCheck={false}
                     className="h-11 w-full rounded-2xl border border-zinc-200 bg-white px-4 text-sm text-zinc-900 outline-none
                                focus:border-zinc-400
                                dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-600"
@@ -422,6 +455,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
                     value={password}
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="current-password"
                     className="h-11 w-full rounded-2xl border border-zinc-200 bg-white px-4 text-sm text-zinc-900 outline-none
                                focus:border-zinc-400
                                dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-600"
@@ -436,26 +470,33 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
                 ) : null}
               </div>
 
-              <CardFooter className="mt-5 flex flex-wrap gap-2">
-                <Button variant="outline" onClick={register} disabled={busy}>
-                  {busy ? "Working..." : "Register"}
-                </Button>
-                <Button onClick={login} disabled={busy}>
-                  {busy ? "Working..." : "Login"}
-                </Button>
-                <Button variant="outline" onClick={getMe} disabled={busy}>
-                  {busy ? "Working..." : "Check session (/me)"}
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => (window.location.href = "/dashboard")}
-                  disabled={busy}
-                >
-                  Go to dashboard
-                </Button>
-                <Button onClick={logout} disabled={busy}>
-                  Logout
-                </Button>
+              <CardFooter className="mt-5">
+                <div className="grid w-full gap-2 sm:grid-cols-2">
+                  <Button variant="outline" onClick={register} disabled={busy} className="w-full">
+                    {busy ? "Working..." : "Register"}
+                  </Button>
+
+                  <Button onClick={login} disabled={busy} className="w-full">
+                    {busy ? "Working..." : "Login"}
+                  </Button>
+
+                  <Button variant="outline" onClick={getMe} disabled={busy} className="w-full">
+                    {busy ? "Working..." : "Check session (/me)"}
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    onClick={() => window.location.assign("/dashboard")}
+                    disabled={busy}
+                    className="w-full"
+                  >
+                    Go to dashboard
+                  </Button>
+
+                  <Button onClick={logout} disabled={busy} className="w-full sm:col-span-2">
+                    Logout
+                  </Button>
+                </div>
               </CardFooter>
 
               <div className="mt-4 text-xs text-zinc-500 dark:text-zinc-400">
@@ -463,46 +504,69 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
               </div>
             </Card>
 
-            {/* Status */}
             <Card className="h-fit">
               <CardHeader>
                 <div>
                   <CardTitle>Session status</CardTitle>
                   <CardDescription>Current user returned by /api/auth/me.</CardDescription>
                 </div>
-                <Badge variant={me && (me as any)?.user ? "success" : undefined}>
-                  {me && (me as any)?.user ? "User" : "None"}
+                <Badge variant={authed ? "success" : undefined}>
+                  {authed ? "User" : "None"}
                 </Badge>
               </CardHeader>
 
-              <div className="mt-4">
-                {me && (me as any)?.user ? (
-                  <div className="space-y-2 text-sm text-zinc-700 dark:text-zinc-200">
-                    <div>
-                      <span className="font-medium">Name:</span> {(me as any).user.name}
-                    </div>
-                    <div>
-                      <span className="font-medium">Email:</span> {(me as any).user.email}
-                    </div>
-                    <div>
-                      <span className="font-medium">Role:</span> {(me as any).user.role}
-                    </div>
-                    <div className="pt-2 text-xs text-zinc-500 dark:text-zinc-400">
-                      If this is populated, cookies + JWT verification are working.
+              <div className="mt-4 min-w-0">
+                {authed ? (
+                  <div className="rounded-2xl border border-zinc-200 bg-white p-4 text-sm dark:border-zinc-800 dark:bg-zinc-950">
+                    <div className="grid gap-3">
+                      <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                          Name
+                        </span>
+                        <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                          {(me as any).user.name}
+                        </span>
+                      </div>
+
+                      <div className="h-[1px] bg-zinc-200/70 dark:bg-zinc-800/70" />
+
+                      <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between min-w-0">
+                        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                          Email
+                        </span>
+                        <span className="font-medium text-zinc-900 dark:text-zinc-100 break-all sm:break-normal">
+                          {(me as any).user.email}
+                        </span>
+                      </div>
+
+                      <div className="h-[1px] bg-zinc-200/70 dark:bg-zinc-800/70" />
+
+                      <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                          Role
+                        </span>
+                        <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                          {(me as any).user.role}
+                        </span>
+                      </div>
+
+                      <div className="pt-1 text-xs text-zinc-500 dark:text-zinc-400">
+                        If this is populated, cookies + JWT verification are working.
+                      </div>
                     </div>
                   </div>
                 ) : (
-                  <div className="text-sm text-zinc-600 dark:text-zinc-300">
+                  <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-3 text-sm text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900/30 dark:text-zinc-200">
                     No authenticated user yet. Use Register/Login, then check session.
                   </div>
                 )}
               </div>
 
-              <div className="mt-5">
+              <div className="mt-5 min-w-0">
                 <div className="text-xs font-medium text-zinc-600 dark:text-zinc-300 mb-2">
                   Last response
                 </div>
-                <pre className="max-h-[320px] overflow-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+                <pre className="max-h-[240px] sm:max-h-[320px] overflow-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
 {last ? pretty(last) : "—"}
                 </pre>
               </div>
