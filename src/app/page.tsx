@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import Reveal from "@/components/Reveal";
 import EditorialGrid from "@/components/EditorialGrid";
+import SiteHeader from "@/components/SiteHeader";
 
 export default function Home() {
   const year = new Date().getFullYear();
@@ -21,61 +23,8 @@ export default function Home() {
     <main className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300">
       <EditorialGrid enabled={showGrid} />
 
-      {/* Top */}
-      <header
-        className="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/80 backdrop-blur
-                  dark:border-zinc-800/70 dark:bg-zinc-950/75 transition-colors duration-300"
-      >
-        <div className="mx-auto flex max-w-5xl items-center px-5 py-4">
-          {/* Logo stays left */}
-          <a
-            href="#top"
-            className="flex items-center gap-2 text-sm font-medium tracking-tight transition-opacity duration-200 hover:opacity-90"
-          >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-900 text-xs font-semibold text-white dark:bg-white dark:text-zinc-900 transition-colors duration-300">
-              EG
-            </span>
-            <span>Elias Gonzalez</span>
-          </a>
-
-          {/* Push everything else to the right */}
-          <div className="ml-auto flex items-center gap-5 text-right">
-            {/* Desktop nav */}
-            <nav className="hidden sm:flex items-center gap-6 text-sm text-zinc-600 dark:text-zinc-300">
-              <a
-                className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
-                href="#projects"
-              >
-                Projects
-              </a>
-              <a
-                className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
-                href="#about"
-              >
-                About
-              </a>
-              <a
-                className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
-                href="#contact"
-              >
-                Contact
-              </a>
-            </nav>
-
-            {/* Mobile CTA */}
-            <a
-              href="#contact"
-              className="sm:hidden inline-flex h-11 items-center justify-center rounded-full border border-zinc-300 px-4 text-sm font-medium
-                        text-zinc-900 transition-colors duration-200 hover:bg-zinc-50
-                        dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-900"
-            >
-              Contact
-            </a>
-
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
+      {/* ✅ Shared header */}
+      <SiteHeader />
 
       {/* Hero */}
       <section id="top" className="mx-auto max-w-5xl px-5 pt-20 pb-14">
@@ -300,12 +249,13 @@ export default function Home() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="#projects"
+              {/* ✅ UPDATED: go to /ui-kit */}
+              <Link
+                href="/ui-kit"
                 className="text-sm font-medium text-zinc-900 hover:underline dark:text-white transition-colors duration-200"
               >
                 View components
-              </a>
+              </Link>
             </div>
           </article>
 
