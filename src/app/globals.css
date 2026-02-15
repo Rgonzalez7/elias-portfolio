@@ -5,3 +5,16 @@ html,
 body {
   height: 100%;
 }
+
+/* Subtle reveal (no show-off) */
+.reveal {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 300ms ease, transform 300ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal--show {
+  opacity: 1;
+  transform: translateY(0);
+}
