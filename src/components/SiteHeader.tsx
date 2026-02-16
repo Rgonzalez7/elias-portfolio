@@ -42,6 +42,20 @@ export default function SiteHeader() {
     return PROJECTS.some((p) => isActive(pathname, p.href));
   }, [pathname]);
 
+  // Optional: mark products/services/contact active when onHome and hash matches
+  const [hash, setHash] = useState("");
+  useEffect(() => {
+    if (!onHome) return;
+    const onHash = () => setHash(window.location.hash || "");
+    onHash();
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, [onHome]);
+
+  const productsActive = onHome && hash === "#products";
+  const servicesActive = onHome && hash === "#services";
+  const contactActive = onHome && hash === "#contact";
+
   function cancelClose() {
     if (closeTimer.current) {
       window.clearTimeout(closeTimer.current);
@@ -219,9 +233,17 @@ export default function SiteHeader() {
             {onHome ? (
               <a
                 href="#services"
-                className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
+                className={cn(
+                  "transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white",
+                  servicesActive ? "text-zinc-900 dark:text-white" : ""
+                )}
               >
-                Services
+                <span className="relative">
+                  Services
+                  {servicesActive ? (
+                    <span className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-zinc-900 dark:bg-white" />
+                  ) : null}
+                </span>
               </a>
             ) : (
               <Link
@@ -232,13 +254,46 @@ export default function SiteHeader() {
               </Link>
             )}
 
+            {/* ✅ Products */}
+            {onHome ? (
+              <a
+                href="#products"
+                className={cn(
+                  "transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white",
+                  productsActive ? "text-zinc-900 dark:text-white" : ""
+                )}
+              >
+                <span className="relative">
+                  Products
+                  {productsActive ? (
+                    <span className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-zinc-900 dark:bg-white" />
+                  ) : null}
+                </span>
+              </a>
+            ) : (
+              <Link
+                href="/#products"
+                className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
+              >
+                Products
+              </Link>
+            )}
+
             {/* Contact */}
             {onHome ? (
               <a
                 href="#contact"
-                className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
+                className={cn(
+                  "transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white",
+                  contactActive ? "text-zinc-900 dark:text-white" : ""
+                )}
               >
-                Contact
+                <span className="relative">
+                  Contact
+                  {contactActive ? (
+                    <span className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-zinc-900 dark:bg-white" />
+                  ) : null}
+                </span>
               </a>
             ) : (
               <Link
@@ -384,6 +439,36 @@ export default function SiteHeader() {
                 </Link>
               )}
 
+              {/* ✅ Products */}
+              {onHome ? (
+                <a
+                  href="#products"
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
+                    "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
+                    "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white"
+                  )}
+                >
+                  <span>Products</span>
+                  <span className="text-xs opacity-70">↗</span>
+                </a>
+              ) : (
+                <Link
+                  href="/#products"
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
+                    "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
+                    "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white"
+                  )}
+                >
+                  <span>Products</span>
+                  <span className="text-xs opacity-70">↗</span>
+                </Link>
+              )}
+
+              {/* Contact */}
               {onHome ? (
                 <a
                   href="#contact"
