@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ThemeToggle from "@/app/ThemeToggle";
+import { cn } from "@/lib/cn";
 
 type ProjectItem = {
   label: string;
@@ -60,7 +61,7 @@ export default function SiteHeader() {
     setMobileProjectsOpen(false);
   }, [pathname]);
 
-  // ✅ Close dropdown/panels on outside click / esc (mobile-safe)
+  // Close dropdown/panels on outside click / esc
   useEffect(() => {
     function onDocPointerDown(e: PointerEvent) {
       const t = e.target as Node;
@@ -70,12 +71,10 @@ export default function SiteHeader() {
         setOpen(false);
       }
 
-      // Mobile panel (exclude the hamburger button itself)
+      // Mobile panel (exclude hamburger)
       if (mobileOpen) {
-        const clickedInsidePanel =
-          mobilePanelRef.current?.contains(t) ?? false;
-        const clickedHamburger =
-          mobileButtonRef.current?.contains(t) ?? false;
+        const clickedInsidePanel = mobilePanelRef.current?.contains(t) ?? false;
+        const clickedHamburger = mobileButtonRef.current?.contains(t) ?? false;
 
         if (!clickedInsidePanel && !clickedHamburger) {
           setMobileOpen(false);
@@ -92,7 +91,6 @@ export default function SiteHeader() {
       }
     }
 
-    // ✅ pointerdown works on iOS; capture helps when elements stop propagation
     document.addEventListener("pointerdown", onDocPointerDown, true);
     document.addEventListener("keydown", onKey);
 
@@ -104,12 +102,12 @@ export default function SiteHeader() {
 
   return (
     <header
-      className="
-        sticky top-0 z-50
-        border-b border-zinc-200 bg-white
-        dark:border-zinc-800 dark:bg-zinc-950
-        transition-colors duration-300
-      "
+      className={cn(
+        "sticky top-0 z-50",
+        "border-b border-zinc-200 bg-white",
+        "dark:border-zinc-800 dark:bg-zinc-950",
+        "transition-colors duration-300"
+      )}
     >
       <div className="mx-auto flex max-w-5xl items-center px-5 py-4">
         {/* Logo */}
@@ -130,10 +128,10 @@ export default function SiteHeader() {
             {/* Portfolio */}
             <Link
               href="/"
-              className={[
+              className={cn(
                 "transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white",
-                pathname === "/" ? "text-zinc-900 dark:text-white" : "",
-              ].join(" ")}
+                pathname === "/" ? "text-zinc-900 dark:text-white" : ""
+              )}
             >
               <span className="relative">
                 Portfolio
@@ -160,16 +158,14 @@ export default function SiteHeader() {
                 onClick={() => setOpen((v) => !v)}
                 aria-haspopup="menu"
                 aria-expanded={open}
-                className={[
+                className={cn(
                   "transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white",
-                  projectsActive ? "text-zinc-900 dark:text-white" : "",
-                ].join(" ")}
+                  projectsActive ? "text-zinc-900 dark:text-white" : ""
+                )}
               >
                 <span className="relative inline-flex items-center gap-1">
                   Projects
-                  <span className="text-[10px] translate-y-[1px] opacity-70">
-                    ▾
-                  </span>
+                  <span className="text-[10px] translate-y-[1px] opacity-70">▾</span>
                   {projectsActive ? (
                     <span className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-zinc-900 dark:bg-white" />
                   ) : null}
@@ -179,21 +175,18 @@ export default function SiteHeader() {
               {/* bridge */}
               <div
                 aria-hidden="true"
-                className={[
-                  "absolute left-0 right-0 top-full h-4",
-                  open ? "block" : "hidden",
-                ].join(" ")}
+                className={cn("absolute left-0 right-0 top-full h-4", open ? "block" : "hidden")}
               />
 
               {open ? (
                 <div
                   role="menu"
-                  className="
-                    absolute right-0 top-full mt-2 w-[260px]
-                    rounded-2xl border border-zinc-200 bg-white p-2
-                    shadow-[0_16px_40px_-24px_rgba(0,0,0,0.35)]
-                    dark:border-zinc-800 dark:bg-zinc-950
-                  "
+                  className={cn(
+                    "absolute right-0 top-full mt-2 w-[260px]",
+                    "rounded-2xl border border-zinc-200 bg-white p-2",
+                    "shadow-[0_16px_40px_-24px_rgba(0,0,0,0.35)]",
+                    "dark:border-zinc-800 dark:bg-zinc-950"
+                  )}
                   onMouseEnter={() => cancelClose()}
                   onMouseLeave={() => scheduleClose()}
                 >
@@ -205,24 +198,39 @@ export default function SiteHeader() {
                         href={p.href}
                         role="menuitem"
                         onClick={() => setOpen(false)}
-                        className={[
+                        className={cn(
                           "flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors",
                           "hover:bg-zinc-100 dark:hover:bg-zinc-900",
                           active
                             ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-white"
-                            : "",
-                        ].join(" ")}
+                            : ""
+                        )}
                       >
                         <span className="font-medium">{p.label}</span>
-                        <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                          ↗
-                        </span>
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400">↗</span>
                       </Link>
                     );
                   })}
                 </div>
               ) : null}
             </div>
+
+            {/* Services */}
+            {onHome ? (
+              <a
+                href="#services"
+                className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
+              >
+                Services
+              </a>
+            ) : (
+              <Link
+                href="/#services"
+                className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
+              >
+                Services
+              </Link>
+            )}
 
             {/* Contact */}
             {onHome ? (
@@ -260,49 +268,24 @@ export default function SiteHeader() {
                 setMobileOpen((v) => !v);
                 if (!mobileOpen) setMobileProjectsOpen(false);
               }}
-              className="
-                inline-flex h-11 w-11 items-center justify-center rounded-full
-                border border-zinc-300 text-zinc-900
-                hover:bg-zinc-50 transition-colors duration-200
-                dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-900
-              "
+              className={cn(
+                "inline-flex h-11 w-11 items-center justify-center rounded-full",
+                "border border-zinc-300 text-zinc-900",
+                "hover:bg-zinc-50 transition-colors duration-200",
+                "dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-900"
+              )}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 {mobileOpen ? (
                   <>
-                    <path
-                      d="M6 6L18 18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M18 6L6 18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
+                    <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                   </>
                 ) : (
                   <>
-                    <path
-                      d="M4 7H20"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M4 12H20"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M4 17H20"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
+                    <path d="M4 7H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M4 12H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M4 17H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                   </>
                 )}
               </svg>
@@ -319,12 +302,12 @@ export default function SiteHeader() {
               <Link
                 href="/"
                 onClick={() => setMobileOpen(false)}
-                className={[
+                className={cn(
                   "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
                   "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
                   "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white",
-                  pathname === "/" ? "ring-1 ring-zinc-300 dark:ring-zinc-700" : "",
-                ].join(" ")}
+                  pathname === "/" ? "ring-1 ring-zinc-300 dark:ring-zinc-700" : ""
+                )}
               >
                 <span>Portfolio</span>
                 <span className="text-xs opacity-70">↗</span>
@@ -333,17 +316,15 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setMobileProjectsOpen((v) => !v)}
-                className={[
+                className={cn(
                   "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
                   "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
                   "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white",
-                  projectsActive ? "ring-1 ring-zinc-300 dark:ring-zinc-700" : "",
-                ].join(" ")}
+                  projectsActive ? "ring-1 ring-zinc-300 dark:ring-zinc-700" : ""
+                )}
               >
                 <span>Projects</span>
-                <span className="text-xs opacity-70">
-                  {mobileProjectsOpen ? "▴" : "▾"}
-                </span>
+                <span className="text-xs opacity-70">{mobileProjectsOpen ? "▴" : "▾"}</span>
               </button>
 
               {mobileProjectsOpen ? (
@@ -358,33 +339,60 @@ export default function SiteHeader() {
                           setMobileProjectsOpen(false);
                           setMobileOpen(false);
                         }}
-                        className={[
+                        className={cn(
                           "flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors",
                           "hover:bg-zinc-100 dark:hover:bg-zinc-900",
                           active
                             ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-white"
-                            : "text-zinc-900 dark:text-white",
-                        ].join(" ")}
+                            : "text-zinc-900 dark:text-white"
+                        )}
                       >
                         <span className="font-medium">{p.label}</span>
-                        <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                          ↗
-                        </span>
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400">↗</span>
                       </Link>
                     );
                   })}
                 </div>
               ) : null}
 
+              {/* Services */}
+              {onHome ? (
+                <a
+                  href="#services"
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
+                    "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
+                    "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white"
+                  )}
+                >
+                  <span>Services</span>
+                  <span className="text-xs opacity-70">↗</span>
+                </a>
+              ) : (
+                <Link
+                  href="/#services"
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
+                    "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
+                    "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white"
+                  )}
+                >
+                  <span>Services</span>
+                  <span className="text-xs opacity-70">↗</span>
+                </Link>
+              )}
+
               {onHome ? (
                 <a
                   href="#contact"
                   onClick={() => setMobileOpen(false)}
-                  className="
-                    flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors
-                    border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900
-                    dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white
-                  "
+                  className={cn(
+                    "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
+                    "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
+                    "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white"
+                  )}
                 >
                   <span>Contact</span>
                   <span className="text-xs opacity-70">↗</span>
@@ -393,11 +401,11 @@ export default function SiteHeader() {
                 <Link
                   href="/#contact"
                   onClick={() => setMobileOpen(false)}
-                  className="
-                    flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors
-                    border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900
-                    dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white
-                  "
+                  className={cn(
+                    "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
+                    "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
+                    "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white"
+                  )}
                 >
                   <span>Contact</span>
                   <span className="text-xs opacity-70">↗</span>
