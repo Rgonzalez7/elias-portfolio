@@ -14,19 +14,18 @@ export default function ProjectsSection() {
       </Reveal>
 
       <div className="mt-7 sm:mt-8 grid gap-4 sm:grid-cols-2">
-
         {/* ===== Featured: Guibbo ===== */}
         <article
-          className="
-            sm:col-span-2 relative overflow-hidden
-            rounded-2xl border border-zinc-200 p-6 sm:p-7
-            bg-zinc-950 text-white
-            dark:bg-white dark:text-zinc-900 dark:border-zinc-200
-            transition-transform duration-200 will-change-transform
-            hover:-translate-y-[2px]
-            hover:shadow-[0_18px_50px_-28px_rgba(0,0,0,0.55)]
-            dark:hover:shadow-[0_18px_50px_-28px_rgba(0,0,0,0.25)]
-          "
+          className={[
+            "sm:col-span-2 relative overflow-hidden",
+            "rounded-2xl border border-zinc-200 p-6 sm:p-7",
+            "bg-zinc-950 text-white",
+            "dark:bg-white dark:text-zinc-900 dark:border-zinc-200",
+            "transition-transform duration-200 will-change-transform",
+            "hover:-translate-y-[2px]",
+            "hover:shadow-[0_18px_50px_-28px_rgba(0,0,0,0.55)]",
+            "dark:hover:shadow-[0_18px_50px_-28px_rgba(0,0,0,0.25)]",
+          ].join(" ")}
         >
           {/* glow */}
           <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -74,18 +73,24 @@ export default function ProjectsSection() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="mailto:rmngzps@gmail.com?subject=Guibbo%20Demo%20Request"
-              className="inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-medium
-                         bg-white text-zinc-900 hover:bg-zinc-200
-                         dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800 transition-colors"
+              className={[
+                "inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-medium",
+                "bg-white text-zinc-900 hover:bg-zinc-200",
+                "dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800",
+                "transition-colors",
+              ].join(" ")}
             >
               Request demo →
             </a>
 
             <a
               href="#services"
-              className="inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-medium
-                         border border-white/20 text-white hover:bg-white/10
-                         dark:border-zinc-300 dark:text-zinc-900 dark:hover:bg-zinc-100 transition-colors"
+              className={[
+                "inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-medium",
+                "border border-white/20 text-white hover:bg-white/10",
+                "dark:border-zinc-300 dark:text-zinc-900 dark:hover:bg-zinc-100",
+                "transition-colors",
+              ].join(" ")}
             >
               View services →
             </a>
@@ -152,16 +157,17 @@ type CardProps = {
   href: string;
 };
 
-function ProjectCard({
-  title,
-  badge,
-  description,
-  items,
-  tags,
-  href,
-}: CardProps) {
+function ProjectCard({ title, badge, description, items, tags, href }: CardProps) {
   return (
-    <article className="rounded-2xl border border-zinc-200 p-6 dark:border-zinc-800 transition-transform duration-200 will-change-transform hover:-translate-y-[2px] hover:shadow-[0_12px_30px_-18px_rgba(0,0,0,0.35)] dark:hover:shadow-[0_12px_30px_-18px_rgba(0,0,0,0.7)]">
+    <article
+      className={[
+        "rounded-2xl border border-zinc-200 p-6 dark:border-zinc-800",
+        "transition-transform duration-200 will-change-transform",
+        "hover:-translate-y-[2px]",
+        "hover:shadow-[0_12px_30px_-18px_rgba(0,0,0,0.35)]",
+        "dark:hover:shadow-[0_12px_30px_-18px_rgba(0,0,0,0.7)]",
+      ].join(" ")}
+    >
       <div className="mb-3 flex justify-end">
         <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-900/40 dark:bg-emerald-950/40 dark:text-emerald-400">
           {badge}
@@ -169,9 +175,7 @@ function ProjectCard({
       </div>
 
       <h3 className="text-base font-semibold">{title}</h3>
-      <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-        {description}
-      </p>
+      <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{description}</p>
 
       <ul className="mt-4 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
         {items.map((i) => (
