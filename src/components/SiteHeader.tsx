@@ -42,7 +42,7 @@ export default function SiteHeader() {
     return PROJECTS.some((p) => isActive(pathname, p.href));
   }, [pathname]);
 
-  // Optional: mark products/services/contact active when onHome and hash matches
+  // Optional: mark products/services/about/contact active when onHome and hash matches
   const [hash, setHash] = useState("");
   useEffect(() => {
     if (!onHome) return;
@@ -52,8 +52,9 @@ export default function SiteHeader() {
     return () => window.removeEventListener("hashchange", onHash);
   }, [onHome]);
 
-  const productsActive = onHome && hash === "#products";
   const servicesActive = onHome && hash === "#services";
+  const productsActive = onHome && hash === "#products";
+  const aboutActive = onHome && hash === "#about";
   const contactActive = onHome && hash === "#contact";
 
   function cancelClose() {
@@ -115,14 +116,14 @@ export default function SiteHeader() {
   }, [open, mobileOpen]);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50",
-        "border-b border-zinc-200 bg-white",
-        "dark:border-zinc-800 dark:bg-zinc-950",
-        "transition-colors duration-300"
-      )}
-    >
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50",
+          "border-b border-zinc-200 bg-white/80 backdrop-blur",
+          "dark:border-zinc-800 dark:bg-zinc-950/70",
+          "transition-colors duration-300"
+        )}
+      >
       <div className="mx-auto flex max-w-5xl items-center px-5 py-4">
         {/* Logo */}
         <Link
@@ -189,7 +190,10 @@ export default function SiteHeader() {
               {/* bridge */}
               <div
                 aria-hidden="true"
-                className={cn("absolute left-0 right-0 top-full h-4", open ? "block" : "hidden")}
+                className={cn(
+                  "absolute left-0 right-0 top-full h-4",
+                  open ? "block" : "hidden"
+                )}
               />
 
               {open ? (
@@ -229,6 +233,31 @@ export default function SiteHeader() {
               ) : null}
             </div>
 
+            {/* ✅ About */}
+            {onHome ? (
+              <a
+                href="#about"
+                className={cn(
+                  "transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white",
+                  aboutActive ? "text-zinc-900 dark:text-white" : ""
+                )}
+              >
+                <span className="relative">
+                  About
+                  {aboutActive ? (
+                    <span className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-zinc-900 dark:bg-white" />
+                  ) : null}
+                </span>
+              </a>
+            ) : (
+              <Link
+                href="/#about"
+                className="transition-colors duration-200 hover:text-zinc-900 dark:hover:text-white"
+              >
+                About
+              </Link>
+            )}
+
             {/* Services */}
             {onHome ? (
               <a
@@ -254,7 +283,7 @@ export default function SiteHeader() {
               </Link>
             )}
 
-            {/* ✅ Products */}
+            {/* Products */}
             {onHome ? (
               <a
                 href="#products"
@@ -333,14 +362,39 @@ export default function SiteHeader() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 {mobileOpen ? (
                   <>
-                    <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path
+                      d="M6 6L18 18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M18 6L6 18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
                   </>
                 ) : (
                   <>
-                    <path d="M4 7H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M4 12H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M4 17H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path
+                      d="M4 7H20"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M4 12H20"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M4 17H20"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
                   </>
                 )}
               </svg>
@@ -410,6 +464,35 @@ export default function SiteHeader() {
                 </div>
               ) : null}
 
+              {/* ✅ About */}
+              {onHome ? (
+                <a
+                  href="#about"
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
+                    "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
+                    "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white"
+                  )}
+                >
+                  <span>About</span>
+                  <span className="text-xs opacity-70">↗</span>
+                </a>
+              ) : (
+                <Link
+                  href="/#about"
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-colors",
+                    "border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900",
+                    "dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 dark:text-white"
+                  )}
+                >
+                  <span>About</span>
+                  <span className="text-xs opacity-70">↗</span>
+                </Link>
+              )}
+
               {/* Services */}
               {onHome ? (
                 <a
@@ -439,7 +522,7 @@ export default function SiteHeader() {
                 </Link>
               )}
 
-              {/* ✅ Products */}
+              {/* Products */}
               {onHome ? (
                 <a
                   href="#products"

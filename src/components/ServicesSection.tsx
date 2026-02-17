@@ -144,7 +144,7 @@ function fireContactPrefill(payload: {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="mx-auto max-w-5xl px-5 py-10 sm:py-12">
+    <section id="services" className="scroll-mt-[90px] mx-auto max-w-5xl px-5 py-10 sm:py-12">
       <div className="mb-8 h-px w-full bg-zinc-100 dark:bg-zinc-900" />
 
       <Reveal>

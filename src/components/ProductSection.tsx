@@ -138,7 +138,7 @@ function fireContactPrefill(payload: {
 
 export default function ProductsSection() {
   return (
-    <section id="products" className="mx-auto max-w-5xl px-5 py-10 sm:py-12">
+    <section id="products" className="scroll-mt-[90px] mx-auto max-w-5xl px-5 py-10 sm:py-12">
       <div className="mb-8 h-px w-full bg-zinc-200/70 dark:bg-zinc-800" />
 
       <Reveal>

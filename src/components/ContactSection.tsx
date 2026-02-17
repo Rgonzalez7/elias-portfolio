@@ -15,7 +15,7 @@ type ContactPrefillPayload = {
   name: string;
   price?: string;
   badge?: string;
-  bullets?: string[]; // ✅ por si luego mandas bullets también
+  bullets?: string[];
 };
 
 function buildPrefillMessage(p: ContactPrefillPayload) {
@@ -50,7 +50,6 @@ Notes:
 }
 
 export default function ContactSection() {
-  // ✅ si esto te causó hydration mismatch antes, cámbialo a useMemo como hiciste en page.tsx
   const year = useMemo(() => new Date().getFullYear(), []);
 
   const [state, setState] = useState<FormState>("idle");
@@ -62,7 +61,6 @@ export default function ContactSection() {
     budget: "",
   });
 
-  // ✅ Listen to selections from Services/Products
   useEffect(() => {
     function onPrefill(e: Event) {
       const ce = e as CustomEvent<ContactPrefillPayload>;
@@ -78,7 +76,9 @@ export default function ContactSection() {
           : nextMsg;
 
         const budget =
-          prev.budget.trim().length === 0 && payload.price ? payload.price : prev.budget;
+          prev.budget.trim().length === 0 && payload.price
+            ? payload.price
+            : prev.budget;
 
         return { ...prev, message, budget };
       });
@@ -133,7 +133,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="mx-auto max-w-5xl px-5 py-10 sm:py-12">
+    <section id="contact" className="scroll-mt-[90px] mx-auto max-w-5xl px-5 py-10 sm:py-12">
       {/* separator */}
       <div className="mb-8 h-px w-full bg-zinc-200/70 dark:bg-zinc-800" />
 
@@ -141,7 +141,6 @@ export default function ContactSection() {
         <div
           className={cn(
             "rounded-2xl border p-6 transition-colors duration-300",
-            // ✅ invert theme for premium contrast:
             // Light mode: dark card
             "border-zinc-200 bg-zinc-950 text-white",
             // Dark mode: light card
@@ -156,9 +155,7 @@ export default function ContactSection() {
               <p
                 className={cn(
                   "mt-2 transition-colors duration-300",
-                  // light mode on dark card
                   "text-white/70",
-                  // dark mode on light card
                   "dark:text-zinc-600"
                 )}
               >
@@ -176,6 +173,54 @@ export default function ContactSection() {
             >
               Prefer email? rmngzps@gmail.com →
             </a>
+          </div>
+
+          {/* ✅ Conversion polish (premium) */}
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <div
+              className={cn(
+                "rounded-2xl border p-4 transition-colors duration-300",
+                "border-white/10 bg-black/30",
+                "dark:border-zinc-200 dark:bg-zinc-50"
+              )}
+            >
+              <div className="text-xs font-medium text-white/60 dark:text-zinc-500">
+                What happens next
+              </div>
+              <div className="mt-1 text-sm text-white/85 dark:text-zinc-700">
+                I’ll reply with a scope, estimate, and timeline options.
+              </div>
+            </div>
+
+            <div
+              className={cn(
+                "rounded-2xl border p-4 transition-colors duration-300",
+                "border-white/10 bg-black/30",
+                "dark:border-zinc-200 dark:bg-zinc-50"
+              )}
+            >
+              <div className="text-xs font-medium text-white/60 dark:text-zinc-500">
+                Budget guidance
+              </div>
+              <div className="mt-1 text-sm text-white/85 dark:text-zinc-700">
+                Most MVPs start around <b>$6.5k</b> (depends on scope).
+              </div>
+            </div>
+
+            <div
+              className={cn(
+                "rounded-2xl border p-4 transition-colors duration-300",
+                "border-white/10 bg-black/30",
+                "dark:border-zinc-200 dark:bg-zinc-50"
+              )}
+            >
+              <div className="text-xs font-medium text-white/60 dark:text-zinc-500">
+                Availability
+              </div>
+              <div className="mt-1 text-sm text-white/85 dark:text-zinc-700">
+                US Pacific (PT) • Remote-friendly.
+              </div>
+            </div>
           </div>
 
           <form onSubmit={onSubmit} className="mt-6 grid gap-4">
@@ -198,12 +243,8 @@ export default function ContactSection() {
                   placeholder="Your name"
                   className={cn(
                     "h-11 w-full rounded-xl border px-4 text-sm outline-none transition-colors duration-200",
-
-                    // ✅ light mode (dark form)
                     "border-white/10 bg-black text-white placeholder:text-white/35",
                     "focus:ring-2 focus:ring-white/15",
-
-                    // ✅ dark mode (light form)
                     "dark:border-zinc-200 dark:bg-white dark:text-zinc-900 dark:placeholder:text-zinc-400",
                     "dark:focus:ring-zinc-200"
                   )}
@@ -229,10 +270,8 @@ export default function ContactSection() {
                   inputMode="email"
                   className={cn(
                     "h-11 w-full rounded-xl border px-4 text-sm outline-none transition-colors duration-200",
-
                     "border-white/10 bg-black text-white placeholder:text-white/35",
                     "focus:ring-2 focus:ring-white/15",
-
                     "dark:border-zinc-200 dark:bg-white dark:text-zinc-900 dark:placeholder:text-zinc-400",
                     "dark:focus:ring-zinc-200"
                   )}
@@ -256,13 +295,11 @@ export default function ContactSection() {
                   onChange={(e) =>
                     setFields((p) => ({ ...p, budget: e.target.value }))
                   }
-                  placeholder="e.g. $2k–$5k"
+                  placeholder="e.g. $6.5k–$12k"
                   className={cn(
                     "h-11 w-full rounded-xl border px-4 text-sm outline-none transition-colors duration-200",
-
                     "border-white/10 bg-black text-white placeholder:text-white/35",
                     "focus:ring-2 focus:ring-white/15",
-
                     "dark:border-zinc-200 dark:bg-white dark:text-zinc-900 dark:placeholder:text-zinc-400",
                     "dark:focus:ring-zinc-200"
                   )}
@@ -277,7 +314,7 @@ export default function ContactSection() {
                     "dark:text-zinc-500"
                   )}
                 >
-                  Typical reply: within 24–48h. If urgent, email me directly.
+                  Typical reply: within 24–48h. US Pacific time.
                 </div>
               </div>
             </div>
@@ -301,10 +338,8 @@ export default function ContactSection() {
                 rows={6}
                 className={cn(
                   "w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors duration-200",
-
                   "border-white/10 bg-black text-white placeholder:text-white/35",
                   "focus:ring-2 focus:ring-white/15",
-
                   "dark:border-zinc-200 dark:bg-white dark:text-zinc-900 dark:placeholder:text-zinc-400",
                   "dark:focus:ring-zinc-200"
                 )}
@@ -320,7 +355,6 @@ export default function ContactSection() {
                   state === "success"
                     ? "bg-emerald-600 text-white"
                     : cn(
-                        // ✅ invert CTA to match inverted card
                         "bg-white text-zinc-900 hover:bg-zinc-200",
                         "dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
                       ),
@@ -355,7 +389,7 @@ export default function ContactSection() {
                     "dark:text-zinc-500"
                   )}
                 >
-                  By sending, you agree to be contacted back via email.
+                  By sending, you agree to be contacted back via email. © {year}
                 </div>
               )}
             </div>
