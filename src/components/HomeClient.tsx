@@ -9,6 +9,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ProductsSection from "@/components/ProductSection";
 import ContactSection from "@/components/ContactSection";
 import EngagementsFoundationsBridge from "@/components/EngagementsFoundationsBridge";
+import SystemsBar from "@/components/SystemsBar";
 
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -44,6 +45,8 @@ export default function HomeClient() {
       <ProjectsSection />
 
       <AboutSection />
+
+      <SystemsBar />
 
       <ServicesSection />
 
