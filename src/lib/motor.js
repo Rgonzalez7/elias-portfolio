@@ -567,21 +567,21 @@ const ITEMS=[
  {id:'t11',kind:'title',onart:true,ch:11,nfs:19,drop:true,long:true,sc:'quiet11',a:-0.460,perch:true,l:7,t:60,w:86},
  {id:'z1',kind:'cap',t_:'z1',sc:'quiet11',a:0.160,perch:true,l:7,t:64,w:74},
  {id:'z2',kind:'bub',t_:'z2',sc:'quiet11',a:0.780,perch:true,l:24,t:74,w:68},
- /* ===== el making of: 62vh por paso desde el inicio de 'mkof' (span 800vh) ===== */
- {id:'mk1',kind:'piece',pc:'mk1',sc:'mkof',a:0.020,perch:true,l:6,t:66,w:66},
- {id:'mk2',kind:'bub',t_:'mk2',sc:'mkof',a:0.0975,perch:true,l:28,t:72,w:66},
- {id:'mk3',kind:'piece',pc:'mk3',sc:'mkof',a:0.175,perch:true,l:6,t:68,w:66},
- {id:'mk4',kind:'bub',t_:'mk4',sc:'mkof',a:0.2525,perch:true,l:26,t:74,w:68},
- {id:'code',kind:'code',sc:'mkof',a:0.330,e:0.55,stay:true,perch:true,l:5,t:17,w:90},
- {id:'mk5',kind:'bub',t_:'mk5',sc:'mkof',a:0.4075,perch:true,l:30,t:80,w:62},
- {id:'mk6',kind:'cap',t_:'mk6',sc:'mkof',a:0.485,perch:true,l:6,t:80,w:76},
- {id:'fin11',kind:'cap',t_:'final',cls:'finalbox',sc:'mkof',a:0.5625,perch:true,l:6,t:60,w:86},
- {id:'write11',kind:'btn',t_:'write',sc:'mkof',a:0.640,perch:true,l:20,t:80,w:60},
- {id:'z7',kind:'bub',t_:'z7',sc:'mkof',a:0.7175,perch:true,l:8,t:70,w:70},
- {id:'tsuzuku',kind:'sfx',text:'つづく',fs:15,sc:'mkof',a:0.795,perch:true,l:30,t:62},
- {id:'z4',kind:'cap',t_:'z4',night:true,sc:'mkof',a:0.8725,perch:true,l:8,t:70,w:84},
- {id:'end',kind:'end',sc:'mkof',a:0.950,perch:true,stay:true,l:6,t:24,w:88},
- {id:'footer',kind:'ext',sc:'mkof',a:1.100,perch:true,l:0,t:0,w:1}
+ /* ===== el making of: 62vh por paso desde el inicio de 'mkof' (span 460vh); el cierre va en 'cont11', sobre negro ===== */
+ {id:'mk1',kind:'piece',pc:'mk1',sc:'mkof',a:0.0348,perch:true,l:6,t:66,w:66},
+ {id:'mk2',kind:'bub',t_:'mk2',sc:'mkof',a:0.1696,perch:true,l:28,t:72,w:66},
+ {id:'mk3',kind:'piece',pc:'mk3',sc:'mkof',a:0.3043,perch:true,l:6,t:68,w:66},
+ {id:'mk4',kind:'bub',t_:'mk4',sc:'mkof',a:0.4391,perch:true,l:26,t:74,w:68},
+ {id:'code',kind:'code',sc:'mkof',a:0.5739,e:0.9565,stay:true,perch:true,l:5,t:17,w:90},
+ {id:'mk5',kind:'bub',t_:'mk5',sc:'mkof',a:0.7087,perch:true,l:30,t:80,w:62},
+ {id:'mk6',kind:'cap',t_:'mk6',sc:'mkof',a:0.8435,perch:true,l:6,t:80,w:76},
+ {id:'fin11',kind:'cap',t_:'final',cls:'finalbox',sc:'cont11',a:0.05,perch:true,l:6,t:60,w:86},
+ {id:'write11',kind:'btn',t_:'write',sc:'cont11',a:0.18,perch:true,l:20,t:80,w:60},
+ {id:'z7',kind:'bub',t_:'z7',sc:'cont11',a:0.31,perch:true,l:8,t:70,w:70},
+ {id:'tsuzuku',kind:'sfx',text:'つづく',fs:15,sc:'cont11',a:0.44,perch:true,l:30,t:62},
+ {id:'z4',kind:'cap',t_:'z4',night:true,sc:'cont11',a:0.57,perch:true,l:8,t:70,w:84},
+ {id:'end',kind:'end',sc:'cont11',a:0.7,perch:true,stay:true,l:6,t:24,w:88},
+ {id:'footer',kind:'ext',sc:'cont11',a:1.1,perch:true,l:0,t:0,w:1}
 ];
 
 
