@@ -514,30 +514,35 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 .mk-cam{position:absolute;left:50%;top:50%;width:100%;aspect-ratio:1/1;transform:translate(-50%,-50%);transform-style:preserve-3d}
 @media (min-aspect-ratio:2/3){.mk-cam{width:84%}}
 /* el plato: cuatro vistas a lápiz, de pie como figuras recortadas, que giran con el scroll */
-.mk-plato{position:absolute;left:50%;top:78%;width:0;height:0;transform-style:preserve-3d;transition:opacity .5s,transform .12s linear}
-.mk-disco{position:absolute;left:0;top:0;width:min(78vw,520px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) rotateX(90deg);
-  background:repeating-radial-gradient(circle,#dfe8f5 0 10px,#d3deef 10px 11px);border:3px solid #9fb3d3;box-shadow:0 0 0 8px #e7eef8}
-.mk-g{position:absolute;left:0;top:0;width:min(27vw,170px);transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+.mk-plato{position:absolute;left:50%;top:97%;width:0;height:0;transform-style:preserve-3d;transition:opacity .5s,transform .12s linear}
+.mk-g{position:absolute;left:0;top:0;width:min(48vw,232px);transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;
   opacity:0;transition:opacity .4s}
 .mk-g img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 4px rgba(26,43,76,.18))}
 .lapiz .mk-g{opacity:1}
-.tinta .mk-plato{opacity:0;pointer-events:none}
+.tinta .mk-plato{opacity:0;pointer-events:none;transition:opacity .2s}
 /* el salto: cinco cuadros sobre su arco, cada uno un poco más cerca; el tercero es mitad lápiz, mitad tinta */
 .mk-salto{position:absolute;inset:0;transform-style:preserve-3d;opacity:0;transition:opacity .4s}
 .tinta .mk-salto{opacity:1}
+.mk-cara{position:absolute;left:20%;top:24%;width:60%;height:auto;opacity:0;transform:translateZ(-60px) scale(.94);transition:opacity .5s .15s,transform .7s cubic-bezier(.2,.8,.25,1) .15s;
+  -webkit-mask-image:radial-gradient(ellipse 46% 50% at 50% 50%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 46% 50% at 50% 50%,#000 70%,transparent 100%)}
+.tinta .mk-cara{opacity:.38;transform:translateZ(-60px)}
 .mk-arco{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
 .mk-arco path{fill:none;stroke:#7d95bd;stroke-width:.6;stroke-dasharray:.02 .02;vector-effect:non-scaling-stroke;stroke-width:2.5}
 .mk-f{position:absolute;width:27%;aspect-ratio:1/1;opacity:0;transform:translate3d(0,14%,0) scale(.86);
   transition:opacity .35s steps(3),transform .45s cubic-bezier(.2,.8,.25,1),filter .4s}
 .mk-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 8px 5px rgba(26,43,76,.2))}
-.mk-f1{left:2.5%;top:57%}  .mk-f2{left:19.6%;top:23%}  .mk-f3{left:37%;top:11%}  .mk-f4{left:54.6%;top:21%}  .mk-f5{left:71.5%;top:53%}
+.mk-f1{left:2.5%;top:57%}  .mk-f2{left:19.6%;top:23%}  .mk-f3{left:37%;top:11%}  .mk-f4{left:54.6%;top:21%}  .mk-f5{left:68.5%;top:53%}
 .mk-f1.in{opacity:1;transform:translate3d(0,0,0)}     .mk-f2.in{opacity:1;transform:translate3d(0,0,12px)}
 .mk-f3.in{opacity:1;transform:translate3d(0,0,24px)}  .mk-f4.in{opacity:1;transform:translate3d(0,0,36px)}  .mk-f5.in{opacity:1;transform:translate3d(0,0,48px)}
 /* la estela: lo que ya pasó queda más tenue, como papel cebolla */
 .mk-f.in:has(~ .mk-f.in){filter:opacity(.62)}
 /* el tercer cuadro: la tinta entra en diagonal y se queda a la mitad */
-.mk-f3 .co{clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%);transition:clip-path .9s cubic-bezier(.65,0,.35,1) .25s}
-.mk-f3.in .co{clip-path:polygon(58% 0,100% 0,100% 100%,40% 100%)}
+/* el tercer cuadro: a la izquierda solo el lápiz, a la derecha solo la tinta, con la costura suave
+   (las dos máscaras se complementan: nunca se ven las dos líneas a la vez) */
+.mk-f3 .bo{-webkit-mask-image:linear-gradient(105deg,#000 44%,transparent 58%);mask-image:linear-gradient(105deg,#000 44%,transparent 58%)}
+.mk-f3 .co{-webkit-mask-image:linear-gradient(105deg,transparent 44%,#000 58%);mask-image:linear-gradient(105deg,transparent 44%,#000 58%);opacity:0;transition:opacity .6s ease .3s}
+.mk-f3:not(.in) .bo{-webkit-mask-image:none;mask-image:none}
+.mk-f3.in .co{opacity:1}
 .codigo .mk-salto{filter:brightness(.7) blur(1.5px)}
 @media (prefers-reduced-motion:reduce){.mk-plato,.mk-g,.mk-salto,.mk-f,.mk-f3 .co{transition:none}}
 
