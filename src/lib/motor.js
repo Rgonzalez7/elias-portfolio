@@ -564,7 +564,7 @@ const ITEMS=[
  {id:'l104',kind:'bub',t_:'l104',sc:'call10',a:3.233,perch:true,l:6,t:70,w:70},
  {id:'c10tbc',kind:'cap',t_:'c10tbc',sc:'call10',a:3.750,perch:true,l:10,t:82,w:80},
  /* ===== chapter 11: one step every 62vh, timed from the start of 'quiet11' (span 100vh) ===== */
- {id:'t11',kind:'title',ch:11,nfs:19,drop:true,long:true,sc:'quiet11',a:-0.460,perch:true,l:7,t:60,w:86},
+ {id:'t11',kind:'title',onart:true,ch:11,nfs:19,drop:true,long:true,sc:'quiet11',a:-0.460,perch:true,l:7,t:60,w:86},
  {id:'z1',kind:'cap',t_:'z1',sc:'quiet11',a:0.160,perch:true,l:7,t:64,w:74},
  {id:'z2',kind:'bub',t_:'z2',sc:'quiet11',a:0.780,perch:true,l:24,t:74,w:68},
  /* ===== el making of: 62vh por paso desde el inicio de 'mkof' (span 800vh) ===== */
