@@ -1255,8 +1255,12 @@ function making3D(){const s=scenes.mkof; if(!s||!MK.cam) return; const y=scrollY
   const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:0};
   const a1=at('mk1')-vh*.6, a3=at('mk3')-vh*.3, a4=at('mk4')-vh*.3, ac=at('code')-vh*.3;
   const giro=reduced?0:Math.max(0,Math.min(1,(y-a1)/Math.max(1,a3-a1)))*540;                   /* vuelta y media mientras se lee el lápiz */
-  const n=y<a3?0:Math.min(5,1+Math.floor((y-a3)/Math.max(1,(a4-a3)/4)));                       /* cuántos cuadros del salto van dibujados: los cinco antes del globo que los cuenta */
-  const key=[y>=a1+vh*.25?1:0,Math.round(giro),n,y>=ac?1:0].join('|'); if(key===mkLast) return; mkLast=key;
+  const fin=(a4+ac)/2, paso=Math.max(1,(fin-a3)/4);                                                 /* el salto se reparte hasta entre el globo y el código */
+  const n=y<a3?0:Math.min(5,1+Math.floor((y-a3)/paso));                                                 /* cuántos cuadros del salto van dibujados */
+  /* el tercer cuadro se entinta con el scroll: la tinta barre el boceto en la dirección del salto */
+  const tinta=reduced?(n>=3?1:0):Math.max(0,Math.min(1,(y-(a3+2*paso))/(paso*1.6)));
+  const key=[y>=a1+vh*.25?1:0,Math.round(giro),n,y>=ac?1:0,Math.round(tinta*100)].join('|'); if(key===mkLast) return; mkLast=key;
+  if(MK.f[2]) MK.f[2].style.setProperty('--t',tinta.toFixed(3));
   MK.cam.classList.toggle('lapiz',y>=a1+vh*.25); MK.cam.classList.toggle('tinta',y>=a3); MK.cam.classList.toggle('codigo',y>=ac);
   const r=Math.round(MK.cam.clientWidth*.19);
   MK.g.forEach((g,k)=>{g.style.transform=`translate(-50%,-100%) rotateY(${k*90}deg) translateZ(${r}px)`});

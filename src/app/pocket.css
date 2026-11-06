@@ -514,15 +514,19 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 .mk-cam{position:absolute;left:50%;top:50%;width:100%;aspect-ratio:1/1;transform:translate(-50%,-50%);transform-style:preserve-3d}
 @media (min-aspect-ratio:2/3){.mk-cam{width:84%}}
 /* el plato: cuatro vistas a lápiz, de pie como figuras recortadas, que giran con el scroll */
-.mk-plato{position:absolute;left:50%;top:97%;width:0;height:0;transform-style:preserve-3d;transition:opacity .5s,transform .12s linear}
+.mk-plato{position:absolute;left:50%;top:97%;width:0;height:0;transform-style:preserve-3d;transition:transform .12s linear}
 .mk-g{position:absolute;left:0;top:0;width:min(48vw,232px);transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;
   opacity:0;transition:opacity .4s}
 .mk-g img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 4px rgba(26,43,76,.18))}
 .lapiz .mk-g{opacity:1}
-.tinta .mk-plato{opacity:0;pointer-events:none;transition:opacity .2s}
+/* (Safari ignora la opacidad de un contenedor 3D: se esconde cada vista y el plato con visibility) */
+.tinta .mk-g{opacity:0;transition:opacity .2s}
+.tinta .mk-plato{visibility:hidden;transition:transform .12s linear,visibility 0s .2s}
 /* el salto: cinco cuadros sobre su arco, cada uno un poco más cerca; el tercero es mitad lápiz, mitad tinta */
-.mk-salto{position:absolute;inset:0;transform-style:preserve-3d;opacity:0;transition:opacity .4s}
-.tinta .mk-salto{opacity:1}
+.mk-salto{position:absolute;inset:0;transform-style:preserve-3d;visibility:hidden;transition:visibility 0s .4s}
+.tinta .mk-salto{visibility:visible;transition:visibility 0s}
+.mk-arco{opacity:0;transition:opacity .4s}
+.tinta .mk-arco{opacity:1}
 .mk-cara{position:absolute;left:24%;top:54%;width:52%;height:auto;opacity:0;transform:translateZ(-60px) scale(.94);transition:opacity .5s .15s,transform .7s cubic-bezier(.2,.8,.25,1) .15s;
   -webkit-mask-image:radial-gradient(ellipse 46% 50% at 50% 50%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 46% 50% at 50% 50%,#000 70%,transparent 100%)}
 .tinta .mk-cara{opacity:.38;transform:translateZ(-60px)}
@@ -535,15 +539,16 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 .mk-f1.in{opacity:1;transform:translate3d(0,0,0)}     .mk-f2.in{opacity:1;transform:translate3d(0,0,12px)}
 .mk-f3.in{opacity:1;transform:translate3d(0,0,24px)}  .mk-f4.in{opacity:1;transform:translate3d(0,0,36px)}  .mk-f5.in{opacity:1;transform:translate3d(0,0,48px)}
 /* la estela: lo que ya pasó queda más tenue, como papel cebolla */
-.mk-f.in:has(~ .mk-f.in){filter:opacity(.62)}
+.mk-f.in:not(.mk-f3):has(~ .mk-f.in){filter:opacity(.62)}
 /* el tercer cuadro: la tinta entra en diagonal y se queda a la mitad */
-/* el tercer cuadro: a la izquierda solo el lápiz, a la derecha solo la tinta, con la costura suave
-   (las dos máscaras se complementan: nunca se ven las dos líneas a la vez) */
-.mk-f3 .bo{-webkit-mask-image:linear-gradient(105deg,#000 44%,transparent 58%);mask-image:linear-gradient(105deg,#000 44%,transparent 58%)}
-.mk-f3 .co{-webkit-mask-image:linear-gradient(105deg,transparent 44%,#000 58%);mask-image:linear-gradient(105deg,transparent 44%,#000 58%);opacity:0;transition:opacity .6s ease .3s}
-.mk-f3:not(.in) .bo{-webkit-mask-image:none;mask-image:none}
-.mk-f3.in .co{opacity:1}
-.codigo .mk-salto{filter:brightness(.7) blur(1.5px)}
+/* el tercer cuadro: el boceto se convierte en el dibujo terminado. La tinta barre con el scroll (--t, de 0 a 1)
+   en la dirección del salto, con el borde suave; el lápiz se borra justo donde llega la tinta, así nunca se ven dos líneas */
+.mk-f3{--t:0;width:33.75%;left:33.6%;top:6%}   /* su lienzo tiene más aire (el boceto se sale más que la tinta) */
+.mk-f3 .co{-webkit-mask-image:linear-gradient(100deg,#000 calc(var(--t)*136% - 18%),transparent calc(var(--t)*136%));
+  mask-image:linear-gradient(100deg,#000 calc(var(--t)*136% - 18%),transparent calc(var(--t)*136%))}
+.mk-f3 .bo{-webkit-mask-image:linear-gradient(100deg,transparent calc(var(--t)*136% - 18%),#000 calc(var(--t)*136%));
+  mask-image:linear-gradient(100deg,transparent calc(var(--t)*136% - 18%),#000 calc(var(--t)*136%))}
+.codigo .mk-f,.codigo .mk-cara,.codigo .mk-arco{filter:brightness(.7) blur(1.5px)}
 @media (prefers-reduced-motion:reduce){.mk-plato,.mk-g,.mk-salto,.mk-f,.mk-f3 .co{transition:none}}
 
 /* la tarjeta del código, con su salto en vivo */
