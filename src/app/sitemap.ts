@@ -1,20 +1,5 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = "https://www.eliasgonzalez.io";
-  const now = new Date();
-
-  const routes = [
-    "",
-    "/ui-kit",
-    "/projects/ai-feedback",
-    "/projects/auth-starter",
-  ];
-
-  return routes.map((path) => ({
-    url: `${siteUrl}${path}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: path === "" ? 1 : 0.7,
-  }));
+  return [{ url: "https://eliasgonzalez.io/", lastModified: new Date("2026-11-06"), changeFrequency: "monthly", priority: 1 }];
 }
