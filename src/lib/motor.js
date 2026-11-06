@@ -599,7 +599,7 @@ const ITEMS=[
  {id:'z7',kind:'bub',t_:'z7',sc:'cont11',a:0.31,perch:true,l:8,t:70,w:70},
  {id:'tsuzuku',kind:'sfx',text:'つづく',fs:15,sc:'cont11',a:0.44,perch:true,l:30,t:62},
  {id:'z4',kind:'cap',t_:'z4',night:true,sc:'cont11',a:0.57,perch:true,l:8,t:70,w:84},
- {id:'end',kind:'end',sc:'cont11',a:0.7,perch:true,stay:true,l:6,t:24,w:88},
+ {id:'end',kind:'end',sc:'cont11',a:0.86,perch:true,stay:true,l:6,t:24,w:88},
  {id:'footer',kind:'ext',sc:'cont11',a:1.1,perch:true,l:0,t:0,w:1}
 ];
 
