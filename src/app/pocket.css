@@ -548,7 +548,9 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
   mask-image:linear-gradient(100deg,#000 calc(var(--t)*136% - 18%),transparent calc(var(--t)*136%))}
 .mk-f3 .bo{-webkit-mask-image:linear-gradient(100deg,transparent calc(var(--t)*136% - 18%),#000 calc(var(--t)*136%));
   mask-image:linear-gradient(100deg,transparent calc(var(--t)*136% - 18%),#000 calc(var(--t)*136%))}
-.codigo .mk-f,.codigo .mk-cara,.codigo .mk-arco{filter:brightness(.7) blur(1.5px)}
+/* con la tarjeta del código delante, lo de atrás se va (Safari: visibility en el contenedor 3D) */
+.codigo .mk-f,.codigo .mk-cara,.codigo .mk-arco{opacity:0;transition:opacity .3s ease-out}
+.codigo .mk-salto{visibility:hidden;transition:visibility 0s linear .3s}
 @media (prefers-reduced-motion:reduce){.mk-plato,.mk-g,.mk-salto,.mk-f,.mk-f3 .co{transition:none}}
 
 /* la tarjeta del código, con su salto en vivo */
