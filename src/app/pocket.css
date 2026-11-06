@@ -490,10 +490,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 
 /* ---------- Güibbo en 2,5D: la sala de noche y tres pantallas que llegan flotando ---------- */
 .gb3d{position:absolute;left:0;right:0;top:2%;height:56%;perspective:1100px;perspective-origin:50% 42%;overflow:hidden}
-.gb-cam{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1/1;transform-style:preserve-3d;transition:transform .3s linear;transform:translate(-50%,-50%)}
-.gb-sala{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block;transform:translateZ(-80px) scale(1.08);
-  filter:brightness(.42) saturate(.7);transition:filter .9s}
-.gb-sala.in{filter:brightness(.8) saturate(.9)}                                   /* la sala se enciende cuando empieza la práctica */
+.gb-cam{position:absolute;left:50%;top:50%;width:100%;aspect-ratio:1/1;transform-style:preserve-3d;transition:transform .3s linear;transform:translate(-50%,-50%)}
 .gb{position:absolute;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.25,1),opacity .3s;opacity:0}
 .gb img{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 8px rgba(5,10,25,.45))}
 /* la estudiante habla a la izquierda, la IA flota arriba, el profesor evalúa al frente */
@@ -509,7 +506,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 .it.piece.navy b{background:var(--navy);color:#fff;border-color:var(--navy)}
 .it.piece.navy span{color:var(--navy)}
 @media (min-aspect-ratio:2/3){.gb-cam{width:96%}}
-@media (prefers-reduced-motion:reduce){.gb-cam,.gb,.gb img,.gb-sala{transition:none}.gb-ia.in img{animation:none}}
+@media (prefers-reduced-motion:reduce){.gb-cam,.gb,.gb img{transition:none}.gb-ia.in img{animation:none}}
 
 /* ---------- capítulo 9, el making of: el chibi dibujo por dibujo, en 2,5D ---------- */
 .mk-stage{background:#eef3fa;background-image:linear-gradient(#cfdcef 1px,transparent 1px),linear-gradient(90deg,#cfdcef 1px,transparent 1px);background-size:28px 28px}

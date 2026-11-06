@@ -1264,13 +1264,13 @@ function making3D(){const s=scenes.mkof; if(!s||!MK.cam) return; const y=scrollY
   MK.f.forEach((f,k)=>f.classList.toggle('in',k<n))}
 
 /* Güibbo: la sala de noche al fondo y sus tres pantallas que llegan flotando, como las de Minimal One */
-const GB={cam:$('#gbCam'),sala:$('#gbCam .gb-sala'),est:$('#gbCam .gb-est'),ia:$('#gbCam .gb-ia'),prof:$('#gbCam .gb-prof')}; let gbLast='';
+const GB={cam:$('#gbCam'),est:$('#gbCam .gb-est'),ia:$('#gbCam .gb-ia'),prof:$('#gbCam .gb-prof')}; let gbLast='';
 function guibbo3D(){const s=scenes.guibbo; if(!s||!GB.cam) return; const y=scrollY, vh=innerHeight;
   const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:0};
   const start=s.top-vh, end=s.top+s.span, q=Math.max(0,Math.min(1,(y-start)/Math.max(1,end-start)));
   const on=[y>=at('pc4')-vh*.3, y>=at('pc5')-vh*.3, y>=at('pc6')-vh*.3, y>=at('g67')-vh*.3];   /* la sala se enciende, después cada pantalla al nombrarla */
   const key=on.map(Number).join('')+'|'+Math.round(q*200); if(key===gbLast) return; gbLast=key;
-  GB.sala.classList.toggle('in',on[0]); GB.est.classList.toggle('in',on[0]); GB.ia.classList.toggle('in',on[1]); GB.prof.classList.toggle('in',on[2]);
+  GB.est.classList.toggle('in',on[0]); GB.ia.classList.toggle('in',on[1]); GB.prof.classList.toggle('in',on[2]);
   GB.cam.style.transform=`translate(-50%,-50%) scale(${(1.02+q*.08).toFixed(3)}) rotateY(${(6-q*12).toFixed(1)}deg) rotateX(${(4-q*3).toFixed(1)}deg)`}
 const DV={cam:$('#dvCam'),l:$('#dvCam .dv-laptop'),p:$('#dvCam .dv-phone'),t:$('#dvCam .dv-tablet')};
 let dvLast='';
