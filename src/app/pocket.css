@@ -220,16 +220,16 @@ body{margin:0;color:var(--ink);-webkit-tap-highlight-color:transparent}
 .lbody p,.lbody li{margin:0 0 10px}
 .lbody .ph{background:var(--hl);padding:0 .25em;font-weight:700}
 /* the call */
-.it.chat10{display:flex;flex-direction:column;height:min(46vh,26em);background:var(--paper);border:4px solid var(--ink);box-shadow:6px 6px 0 var(--hl);pointer-events:auto;font-size:3.9cqw}
+.it.chat10{display:flex;flex-direction:column;height:min(46vh,26em);background:var(--hl);border:4px solid var(--ink);box-shadow:6px 6px 0 var(--ink);pointer-events:auto;font-size:3.9cqw}
 .chatlog{flex:1;overflow-y:auto;padding:.7em .6em;display:flex;flex-direction:column;gap:.55em;overscroll-behavior:contain}
 .msg{max-width:86%;margin:0;padding:.55em .75em;border:2.5px solid #000;border-radius:1.1em;font:700 1em/1.28 var(--letter);color:#000}
 .msg.bot{align-self:flex-start;background:#fff;border-bottom-left-radius:.25em}
-.msg.me{align-self:flex-end;background:#FFE14A;border-bottom-right-radius:.25em}
-.chatin,.chatend{display:flex;gap:.4em;padding:.55em;border-top:3px solid #000;background:#fff}
+.msg.me{align-self:flex-end;background:#000;color:#FFE14A;border-bottom-right-radius:.25em}
+.chatin,.chatend{display:flex;gap:.4em;padding:.55em;border-top:3px solid #000;background:var(--hl)}
 .chatin input{flex:1;min-width:0;font:700 max(16px,1em) var(--letter);color:#000;background:#fff;border:2.5px solid #000;border-radius:.6em;padding:.5em .6em}
 .chatin input:focus-visible{outline:3px solid #000;outline-offset:2px}
-.chatin button,.chatend a,.chatend button{font:1em/1 var(--title);letter-spacing:.04em;color:#000;background:#FFE14A;border:3px solid #000;border-radius:.6em;padding:.55em .7em .4em;min-height:44px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
-.chatin #chatSkip,.chatend button{background:#fff}
+.chatin button,.chatend a,.chatend button{font:1em/1 var(--title);letter-spacing:.04em;color:#FFE14A;background:#000;border:3px solid #000;border-radius:.6em;padding:.55em .7em .4em;min-height:44px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.chatin #chatSkip,.chatend button{background:#fff;color:#000}
 .chatend a{flex:1}
 .chatin[hidden],.chatend[hidden],.chatin button[hidden]{display:none}
 .chatin button:focus-visible,.chatend a:focus-visible,.chatend button:focus-visible{outline:3px solid #000;outline-offset:2px}
@@ -479,7 +479,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 .mversion{display:block;width:100%;margin:20px 0 4px;min-height:52px;font:24px/1 var(--title);letter-spacing:.04em;color:#000;background:var(--hl);border:3px solid #000;box-shadow:4px 4px 0 #000;cursor:pointer;padding:.5em .6em .4em}
 .mversion:focus-visible{outline:3px solid #000;outline-offset:4px}
 /* el correo, siempre a la vista debajo del chat */
-.chatdir{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:.3em .7em;padding:.55em .6em;border-top:3px solid #000;background:#fff;font:700 max(14px,.85em)/1.35 var(--letter);text-transform:uppercase}
+.chatdir{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:.3em .7em;padding:.55em .6em;border-top:3px solid #000;background:var(--hl);font:700 max(14px,.85em)/1.35 var(--letter);text-transform:uppercase}
 .chatdir a{color:#000;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center;text-transform:none}
 .chatdir a:last-child{text-transform:uppercase}
 .chatdir .copiar{font:.95em/1 var(--title);letter-spacing:.04em;color:#000;background:#fff;border:2.5px solid #000;border-radius:.5em;padding:.45em .6em .35em;min-height:44px;cursor:pointer}
@@ -579,7 +579,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 
 /* ---------- capítulo 8, sin tinta: el papel en blanco y un trazo que se seca ---------- */
 .st-papel{background:#fff}
-.sin-tinta{position:absolute;left:6%;top:6%;width:88%;height:auto;overflow:visible}
+.sin-tinta{position:absolute;left:50%;top:3%;height:48%;width:auto;aspect-ratio:80/400;transform:translateX(-50%);overflow:visible}
 .sin-tinta path{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
 .sin-tinta .gotas circle{fill:var(--ink);opacity:0}
 .stage.pin .sin-tinta path,.stage.after .sin-tinta path{animation:seca 1.8s cubic-bezier(.3,.1,.4,1) .2s forwards}
@@ -600,5 +600,6 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
   mask-image:linear-gradient(100deg,#000 calc(var(--t)*136% - 18%),transparent calc(var(--t)*136%))}
 .pa-big .bo{-webkit-mask-image:linear-gradient(100deg,transparent calc(var(--t)*136% - 18%),#000 calc(var(--t)*136%));
   mask-image:linear-gradient(100deg,transparent calc(var(--t)*136% - 18%),#000 calc(var(--t)*136%))}
-.pa-cam.codigo .pa-big{filter:brightness(.7) blur(1.5px)}
+.pa-big{transition:opacity .3s ease-out,visibility 0s linear 0s}
+.pa-cam.codigo .pa-big{opacity:0;visibility:hidden;transition:opacity .3s ease-out,visibility 0s linear .3s}
 .it.code .cd-camina .cd-chibi{transform-origin:50% 50%}
