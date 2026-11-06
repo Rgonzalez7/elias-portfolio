@@ -69,7 +69,7 @@ const T={
   c7tbc:"Siguiente: capítulo 6. Negocios reales. Sin chistes. Nah, sí hay chistes.",
   w71:"Dentro del bolsillo del cliente · a color",w72:"El arquitecto de espaldas, el pelo al viento · a color",w73:"El teléfono brilla: ya está dentro · a color",w74:"El compás corta el aire · a color",
   chapter6:"CAPÍTULO 6",name6:"ASUNTO|SERIO",dim6:"1 producto real",
-  g61:"Esta es Güibbo. Un coach con IA para psicólogos en formación.",g62:"Una sesión de práctica: un estudiante y un paciente simulado.",
+  g61:"Esta es Güibbo: práctica clínica con IA. Ningún paciente real sale traumatizado.",g62:"Una sesión de práctica: un estudiante y un paciente simulado.",
   g63:"Cada palabra se convierte en texto, en tiempo real.",live:"TRANSCRIPCIÓN EN VIVO",
   tr1:"ESTUDIANTE: ¿Cómo ha sido esta semana?",tr2:"PACIENTE: Cansada. Siempre voy atrasada.",tr3:"ESTUDIANTE: ¿Atrasada en qué, sobre todo?",tr4:"PACIENTE: En todo. Trabajo, casa…",tr5:"ESTUDIANTE: Suena agotador.",
   g64:"Así se practica antes de sentarse frente a una persona real.",g65:"Después la IA da feedback: fortalezas, qué mejorar y qué probar después.",
@@ -196,7 +196,7 @@ const T={
   c7tbc:"Next: chapter 6. Real businesses. No jokes. Nah, yes jokes.",
   w71:"Inside the customer’s pocket · in colour",w72:"The architect from behind, hair in the wind · in colour",w73:"The phone sparkles: it’s in · in colour",w74:"The compass slices the air · in colour",
   chapter6:"CHAPTER 6",name6:"SERIOUS|BUSINESS",dim6:"1 real product",
-  g61:"This is Güibbo. An AI coach for psychologists in training.",g62:"A practice session: a student and a simulated patient.",
+  g61:"This is Güibbo: clinical practice with AI. No real patients get traumatized.",g62:"A practice session: a student and a simulated patient.",
   g63:"Every word becomes text, in real time.",live:"LIVE TRANSCRIPT",
   tr1:"STUDENT: How has this week been for you?",tr2:"PATIENT: Tiring. I always feel behind.",tr3:"STUDENT: Behind on what, mostly?",tr4:"PATIENT: Everything. Work, home…",tr5:"STUDENT: That sounds exhausting.",
   g64:"That’s how you practice before sitting across from a real person.",g65:"Then the AI gives feedback: strengths, what to improve and what to try next.",
@@ -314,6 +314,58 @@ Object.assign(T.en,{
   ftag:"Software architect. I build products that fit in a pocket.",
   fMail:"rmngzps@gmail.com",saltar:"Skip to contact",
   progreso:"CH.",de:"OF"
+});
+Object.assign(T.es,{
+  pc4t:"EL ESTUDIANTE",pc4:"Interviene. Con muchísima seguridad.",
+  pc5t:"LA IA",pc5:"Analiza y da feedback. Sin piedad, pero con cariño.",
+  pc6t:"EL PROFESOR",pc6:"Evalúa. La ceja ya venía levantada de casa.",
+  g67:"Hace mucho más. Pero para eso hay que hacer clic. Ya sé, qué esfuerzo.",
+  gblink:"Conoce Güibbo"
+});
+Object.assign(T.en,{
+  pc4t:"THE STUDENT",pc4:"Steps in. Extremely confidently.",
+  pc5t:"THE AI",pc5:"Analyzes and gives feedback. Ruthless, but kind.",
+  pc6t:"THE PROFESSOR",pc6:"Evaluates. The eyebrow came pre-raised.",
+  g67:"It does a lot more. But you have to click. I know, such effort.",
+  gblink:"Meet Güibbo"
+});
+Object.assign(T.es,{
+  chapter11:"CAPÍTULO 9",name11:"MAKING|OF",dim11:"Cómo se hizo. Spoiler: a mano.",
+  z1:"¿Sigues aquí? Esto es el making of. Solo lo ve el 3% de la gente.",
+  pcmk1t:"EL LÁPIZ",pcmk1:"Primero, a lápiz azul. Cuatro vistas, para que al girar no le crezca otra nariz.",
+  mk2:"Sí, gira con tu scroll. No, no se marea. Yo sí.",
+  pcmk3t:"LA TINTA",pcmk3:"Después, tinta y color. Mira el salto: sale a lápiz y aterriza terminado.",
+  mk4:"Cinco dibujos para un salto. Ojalá madurar fuera así de rápido.",
+  codeT:"EL CÓDIGO",codeF:"motor.js · lo que lo hace saltar",
+  mk5:"Eso es un salto. Física de bachillerato. Por fin sirvió para algo.",
+  mk6:"Cada globo es un suelo. Bajas y salta al siguiente. Subes y, ¡puf!, vuelve. Haz la prueba. Te espero.",
+  codeC:["// El salto: una curva de Bézier.","const k = (ahora - inicio) / 430;","const cx = (x0 + x1) / 2;","const cy = Math.min(y0, y1) - 70;","x = (1-k)**2*x0 + 2*k*(1-k)*cx + k*k*x1;","y = (1-k)**2*y0 + 2*k*(1-k)*cy + k*k*y1;","","// Qué dibujo toca en cada momento:","pose = k < .12 ? 'salto-1'","     : k < .5  ? 'salto-2'","     : k < .72 ? 'salto-3' : 'salto-4';","","// Caminar: 4 dibujos, uno cada 130 ms.","const n = Math.floor(ahora / 130) % 4;","pose = 'camina-' + (n + 1);"]
+});
+Object.assign(T.en,{
+  chapter11:"CHAPTER 9",name11:"MAKING|OF",dim11:"How it was made. Spoiler: by hand.",
+  z1:"Still here? This is the making of. Only 3% of people see it.",
+  pcmk1t:"THE PENCIL",pcmk1:"First, blue pencil. Four views, so he doesn’t grow a second nose when he turns.",
+  mk2:"Yes, he spins with your scroll. No, he doesn’t get dizzy. I do.",
+  pcmk3t:"THE INK",pcmk3:"Then ink and color. Watch the jump: he takes off in pencil and lands finished.",
+  mk4:"Five drawings for one jump. If only growing up were this fast.",
+  codeT:"THE CODE",codeF:"motor.js · what makes him jump",
+  mk5:"That’s a jump. High-school physics. Finally useful.",
+  mk6:"Every bubble is a floor. Scroll down and he jumps to the next. Scroll up and, poof, he’s back. Try it. I’ll wait.",
+  codeC:["// The jump: a Bézier curve.","const k = (now - start) / 430;","const cx = (x0 + x1) / 2;","const cy = Math.min(y0, y1) - 70;","x = (1-k)**2*x0 + 2*k*(1-k)*cx + k*k*x1;","y = (1-k)**2*y0 + 2*k*(1-k)*cy + k*k*y1;","","// Which drawing goes when:","pose = k < .12 ? 'jump-1'","     : k < .5  ? 'jump-2'","     : k < .72 ? 'jump-3' : 'jump-4';","","// Walking: 4 drawings, one every 130 ms.","const n = Math.floor(now / 130) % 4;","pose = 'walk-' + (n + 1);"]
+});
+Object.assign(T.es,{
+  name10:"SIN|TINTA",dim10:"Se me acabaron las ideas. El formulario no.",
+  y1n:"Iba a dibujar un capítulo entero para terminar de convencerte.",
+  l102:"Pero si a estas alturas no te convencí, ningún dibujo lo va a hacer.",l102b:"Además, ya no tengo ideas. Ni tinta.",
+  l103:"Cuatro preguntas. Prometo que es lo último que te pido. Hoy.",
+  x98:"Se me está acabando la tinta. Se nota, ¿no?"
+});
+Object.assign(T.en,{
+  name10:"OUT OF|INK",dim10:"I ran out of ideas. The form didn’t.",
+  y1n:"I was going to draw a whole chapter to finally convince you.",
+  l102:"But if I haven’t convinced you by now, no drawing will.",l102b:"Also, I’m out of ideas. And ink.",
+  l103:"Four questions. I promise it’s the last thing I’ll ask. Today.",
+  x98:"I’m running out of ink. Can you tell?"
 });
 /* el texto de cada clave en la versión que se está leyendo */
 const tx=k=>{const d=T[lang]; return (state.short&&d[k+'_r']!=null)?d[k+'_r']:d[k]};
@@ -477,25 +529,15 @@ const ITEMS=[
  {id:'mo5',kind:'bub',t_:'mo5',sc:'mnml',a:0.816,perch:true,l:30,t:64,w:60},
  {id:'molink',kind:'cta',t_:'molink',href:'https://www.mnml.one',sc:'mnml',a:0.979,perch:true,l:20,t:72,w:60},
  {id:'mo6',kind:'bub',t_:'mo6',sc:'mnml',a:1.142,perch:true,l:8,t:62,w:64},
- /* ===== chapter 6: one step every 62vh, timed from the start of 'room6' (span 80vh) ===== */
- {id:'g61',kind:'cap',t_:'g61',navy:true,sc:'room6',a:0.200,perch:true,l:7,t:66,w:66},
- {id:'g62',kind:'cap',t_:'g62',navy:true,sc:'room6',a:0.975,perch:true,l:26,t:76,w:68},
- {id:'g63',kind:'cap',t_:'g63',navy:true,sc:'room6',a:1.750,perch:true,l:7,t:66,w:66},
- {id:'chat',kind:'chat',navy:true,sc:'room6',a:2.525,perch:true,l:6,t:60,w:88},
- {id:'g64',kind:'bub',t_:'g64',navy:true,sc:'room6',a:3.300,perch:true,l:8,t:74,w:64},
- {id:'g65',kind:'cap',t_:'g65',navy:true,sc:'room6',a:4.075,perch:true,l:6,t:62,w:74},
- {id:'fb1',kind:'fb',fb:1,navy:true,sc:'room6',a:4.850,perch:true,l:6,t:56,w:62},
- {id:'fb2',kind:'fb',fb:2,navy:true,sc:'room6',a:5.625,perch:true,l:32,t:66,w:62},
- {id:'fb3',kind:'fb',fb:3,navy:true,sc:'room6',a:6.400,perch:true,l:6,t:76,w:62},
- {id:'g66',kind:'cap',t_:'g66',navy:true,sc:'room6',a:7.175,perch:true,l:8,t:62,w:72},
- {id:'blur',kind:'blur',navy:true,sc:'room6',a:7.950,perch:true,l:44,t:47,w:46},
- {id:'g67',kind:'bub',t_:'g67',navy:true,sc:'room6',a:8.725,perch:true,l:30,t:76,w:60},
- {id:'cta',kind:'cta',navy:true,sc:'room6',a:9.500,perch:true,l:8,t:74,w:60},
- {id:'g68',kind:'cap',t_:'g68',night:true,sc:'room6',a:10.275,perch:true,l:8,t:62,w:74},
- {id:'g69',kind:'bub',t_:'g69',sc:'room6',a:11.050,perch:true,l:30,t:72,w:60},
- {id:'g6a',kind:'bub',t_:'g6a',sc:'room6',a:11.825,perch:true,l:6,t:62,w:66},
- {id:'g6b',kind:'bub',t_:'g6b',sc:'room6',a:12.600,perch:true,l:28,t:72,w:66},
- {id:'c6tbc',kind:'cap',t_:'c6tbc',night:true,sc:'room6',a:13.375,perch:true,l:10,t:80,w:80},
+ /* ===== Güibbo: una escena 2,5D como la de Minimal One. 62vh por paso, desde el inicio de 'guibbo' (span 460vh) ===== */
+ {id:'g61',kind:'cap',t_:'g61',navy:true,sc:'guibbo',a:0.020,perch:true,l:7,t:62,w:72},
+ {id:'pc4',kind:'piece',pc:4,navy:true,sc:'guibbo',a:0.155,perch:true,l:6,t:60,w:62},
+ {id:'pc5',kind:'piece',pc:5,navy:true,sc:'guibbo',a:0.290,perch:true,l:32,t:68,w:62},
+ {id:'pc6',kind:'piece',pc:6,navy:true,sc:'guibbo',a:0.425,perch:true,l:6,t:76,w:62},
+ {id:'g67',kind:'bub',t_:'g67',navy:true,sc:'guibbo',a:0.560,perch:true,l:28,t:66,w:66},
+ {id:'cta',kind:'cta',t_:'gblink',navy:true,sc:'guibbo',a:0.695,perch:true,l:20,t:74,w:60},
+ {id:'g6b',kind:'bub',t_:'g6b',sc:'guibbo',a:0.830,perch:true,l:8,t:64,w:72},
+ {id:'c6tbc',kind:'cap',t_:'c6tbc',night:true,sc:'guibbo',a:0.965,perch:true,l:10,t:80,w:80},
  /* ===== chapter 9: one step every 62vh, timed from the start of 'shelf9' (span 80vh) ===== */
  {id:'t9',kind:'title',ch:9,nfs:19,drop:true,long:true,sc:'shelf9',a:-0.575,perch:true,l:7,t:60,w:86},
  {id:'x91',kind:'cap',t_:'x91',sc:'shelf9',a:0.200,perch:true,l:7,t:66,w:60},
@@ -514,8 +556,8 @@ const ITEMS=[
  /* ===== chapter 10: one step every 62vh, timed from the start of 'call10' (span 120vh) ===== */
  {id:'t10',kind:'title',ch:10,nfs:19,drop:true,long:true,sc:'call10',a:-0.383,perch:true,l:7,t:60,w:86},
  {id:'y1n',kind:'cap',t_:'y1n',sc:'call10',a:0.133,perch:true,l:7,t:66,w:74},
- {id:'riin',kind:'sfx',text:'リーン',fs:14,sc:'call10',a:0.650,perch:true,l:40,t:62},
- {id:'l102',kind:'bub',t_:'l102',sc:'call10',a:1.167,perch:true,l:6,t:70,w:66},
+ {id:'l102',kind:'bub',t_:'l102',sc:'call10',a:0.650,perch:true,l:6,t:70,w:66},
+ {id:'l102b',kind:'bub',t_:'l102b',sc:'call10',a:1.167,perch:true,l:28,t:74,w:66},
  {id:'chat10',kind:'chat10',sc:'call10',a:1.683,perch:true,l:5,t:34,w:90},
  {id:'l103',kind:'bub',t_:'l103',sc:'call10',a:2.200,perch:true,l:30,t:84,w:64},
  {id:'shiin10',kind:'sfx',text:'シーン',fs:12,sc:'call10',a:2.717,perch:true,l:48,t:62},
@@ -525,24 +567,28 @@ const ITEMS=[
  {id:'t11',kind:'title',ch:11,nfs:19,drop:true,long:true,sc:'quiet11',a:-0.460,perch:true,l:7,t:60,w:86},
  {id:'z1',kind:'cap',t_:'z1',sc:'quiet11',a:0.160,perch:true,l:7,t:64,w:74},
  {id:'z2',kind:'bub',t_:'z2',sc:'quiet11',a:0.780,perch:true,l:24,t:74,w:68},
- {id:'doya',kind:'sfx',text:'ドヤァ',fs:15,sc:'quiet11',a:1.400,perch:true,l:10,t:62},
- {id:'z3',kind:'cap',t_:'z3',sc:'quiet11',a:2.020,perch:true,l:6,t:66,w:72},
- {id:'z5',kind:'bub',t_:'z5',sc:'quiet11',a:2.640,perch:true,l:30,t:74,w:62},
- {id:'z6',kind:'bub',t_:'z6',sc:'quiet11',a:3.260,perch:true,l:6,t:68,w:66},
- {id:'fin11',kind:'cap',t_:'final',cls:'finalbox',sc:'quiet11',a:3.880,perch:true,l:6,t:60,w:86},
- {id:'write11',kind:'btn',t_:'write',sc:'quiet11',a:4.500,perch:true,l:20,t:80,w:60},
- {id:'z7',kind:'bub',t_:'z7',sc:'quiet11',a:5.120,perch:true,l:8,t:70,w:70},
- {id:'tsuzuku',kind:'sfx',text:'つづく',fs:15,sc:'quiet11',a:5.740,perch:true,l:30,t:62},
- {id:'z4',kind:'cap',t_:'z4',night:true,sc:'quiet11',a:6.360,perch:true,l:8,t:70,w:84},
- {id:'end',kind:'end',sc:'quiet11',a:6.980,perch:true,stay:true,l:6,t:24,w:88},
- {id:'footer',kind:'ext',sc:'quiet11',a:7.940,perch:true,l:0,t:0,w:1}
+ /* ===== el making of: 62vh por paso desde el inicio de 'mkof' (span 800vh) ===== */
+ {id:'mk1',kind:'piece',pc:'mk1',sc:'mkof',a:0.020,perch:true,l:6,t:66,w:66},
+ {id:'mk2',kind:'bub',t_:'mk2',sc:'mkof',a:0.0975,perch:true,l:28,t:72,w:66},
+ {id:'mk3',kind:'piece',pc:'mk3',sc:'mkof',a:0.175,perch:true,l:6,t:68,w:66},
+ {id:'mk4',kind:'bub',t_:'mk4',sc:'mkof',a:0.2525,perch:true,l:26,t:74,w:68},
+ {id:'code',kind:'code',sc:'mkof',a:0.330,e:0.55,stay:true,perch:true,l:5,t:17,w:90},
+ {id:'mk5',kind:'bub',t_:'mk5',sc:'mkof',a:0.4075,perch:true,l:30,t:80,w:62},
+ {id:'mk6',kind:'cap',t_:'mk6',sc:'mkof',a:0.485,perch:true,l:6,t:80,w:76},
+ {id:'fin11',kind:'cap',t_:'final',cls:'finalbox',sc:'mkof',a:0.5625,perch:true,l:6,t:60,w:86},
+ {id:'write11',kind:'btn',t_:'write',sc:'mkof',a:0.640,perch:true,l:20,t:80,w:60},
+ {id:'z7',kind:'bub',t_:'z7',sc:'mkof',a:0.7175,perch:true,l:8,t:70,w:70},
+ {id:'tsuzuku',kind:'sfx',text:'つづく',fs:15,sc:'mkof',a:0.795,perch:true,l:30,t:62},
+ {id:'z4',kind:'cap',t_:'z4',night:true,sc:'mkof',a:0.8725,perch:true,l:8,t:70,w:84},
+ {id:'end',kind:'end',sc:'mkof',a:0.950,perch:true,stay:true,l:6,t:24,w:88},
+ {id:'footer',kind:'ext',sc:'mkof',a:1.100,perch:true,l:0,t:0,w:1}
 ];
 
 
 /* ---------- la versión corta (para quien contrata): capítulos 1, 6, 7, 8 y 9 ----------
    Es el mismo manga sin los capítulos 2 a 5. En /corta ya llega recortada desde el servidor;
    desde la portada se recorta aquí mismo, sin recargar, al tocar «Versión corta». */
-const CORTA_SC=new Set(['contract','kid8','parents8','eng8','timeline8','today8','ch6open','mnml','room6','live','feedback','private','back6','shelf9','bottles9','phone9','call10','desk10','gap10','quiet11','napkin11','cont11','end']);
+const CORTA_SC=new Set(['contract','kid8','parents8','eng8','timeline8','today8','ch6open','mnml','guibbo','back6','shelf9','bottles9','phone9','call10','desk10','gap10','quiet11','mkof','cont11','end']);
 const TODOS=ITEMS.slice();
 state.short=document.getElementById('col').dataset.version==='corta';
 function recortar(){
@@ -603,6 +649,7 @@ function build(){ITEMS.forEach(x=>{if(x.kind==='chat'){x.done=false; x.t0=null}}
     else if(it.kind==='pot'){el=document.createElement('div'); fillPot(el,it.slot)}
     else if(it.kind==='tl'){el=document.createElement('div'); el.innerHTML=`<b>${T[lang]['y'+it.tl]}</b><span>${T[lang]['tt'+it.tl]}</span>`}
     else if(it.kind==='piece'){el=document.createElement('div'); el.innerHTML=`<b>${T[lang]['pc'+it.pc+'t']}</b><span>${T[lang]['pc'+it.pc]}</span>`}
+    else if(it.kind==='code'){el=document.createElement('div'); el.innerHTML=codigoHTML(); it.demo={t0:0}}
     else if(it.kind==='shop'){el=document.createElement('div');
       el.innerHTML=`<b class="sn">${SHOPS[it.shop]}</b><span class="st">${T[lang]['dm'+it.shop]}</span><button type="button" class="walkin${opened.has(it.shop)?' done':''}">${T[lang].walk}</button>`;
       el.querySelector('.walkin').addEventListener('click',e=>openDemo(it.shop,e.currentTarget))}
@@ -952,8 +999,8 @@ const CH=[
  {n:5,id:'t7',en:["Notifications","A lot of them. Not yours. Yet."],es:["Notificaciones","Muchas. No son tuyas. Todavía."]},
  {n:6,id:'t4',en:["Real businesses","No jokes. Nah, yes jokes."],es:["Negocios reales","Sin chistes. Nah, sí hay chistes."],cs:{en:["Two projects","Minimal One and Güibbo."],es:["Dos proyectos","Minimal One y Güibbo."]}},
  {n:7,id:'t9',en:["Pick your poison","Prices. Yes, already. I see you."],es:["Elige tu veneno","Precios. Sí, ya. Te estoy viendo."]},
- {n:8,id:'t10',en:["The call","Skip everything and write me. Respect."],es:["La llamada","Sáltate todo y escríbeme. Respeto."]},
- {n:9,id:'t11',locked:true,en:["???","Nice try. You have to earn this one."],es:["???","Buen intento. Este te lo tienes que ganar."],uen:["Post-credits scene","You stayed until the end. Respect."],ues:["Escena postcréditos","Te quedaste hasta el final. Respeto."]}
+ {n:8,id:'t10',en:["Out of ink","The ideas ran out. The form didn’t."],es:["Sin tinta","Se acabaron las ideas. El formulario no."]},
+ {n:9,id:'t11',locked:true,en:["???","Nice try. You have to earn this one."],es:["???","Buen intento. Este te lo tienes que ganar."],uen:["Making of","How it was made. By hand."],ues:["Making of","Cómo se hizo. A mano."]}
 ];
 const visibles=()=>CH.filter(c=>!c.id||ITEMS.some(x=>x.id===c.id));
 function capActual(){const y=scrollY; let cur=visibles()[0].n; visibles().forEach(c=>{const it=c.id&&ITEMS.find(x=>x.id===c.id); if(it&&y>=it.at-innerHeight*.5) cur=c.n}); return cur}
@@ -1166,7 +1213,7 @@ function loop(now){const dt=Math.min(48,now-prev); prev=now;
   SPEED.style.opacity=pose==='freefall'?'.85':pose==='fall'&&S.vy>.6?Math.min(1,S.vy-.6).toFixed(2):'0';
   C.style.transform=`translate(${(S.x-W/2+ox).toFixed(1)}px,${(S.y-H+H*.02).toFixed(1)}px)`;
   IMG.style.transform=`rotate(${rot.toFixed(2)}deg) scaleX(${S.dir<0?-1:1})`;
-  pinFrame(); phone3D(); cork3D(); napkin3D(); apps3D(); storm(); devices3D(); pan3D(); frame(); aimTails(); typeChat(now); frameDepth(); frameShadow();
+  pinFrame(); phone3D(); cork3D(); napkin3D(); apps3D(); storm(); devices3D(); guibbo3D(); making3D(); pan3D(); frame(); aimTails(); typeChat(now); demoSalto(now); frameDepth(); frameShadow();
   requestAnimationFrame(loop)}
 /* ---------- the compass shot: a slow pan from left to right with sparks in front ---------- */
 const PZ={w:$('#pzWrap'),img:$('#pzWrap .pz-img'),fx:$('#pzFx'),last:''};
@@ -1180,6 +1227,51 @@ function pan3D(){const s=scenes.today8; if(!s||!PZ.img) return; const y=scrollY,
   PZ.fx.style.transform=`translate3d(${(x*.35+p*-60).toFixed(0)}px,${(-p*40).toFixed(0)}px,80px)`}           /* the sparks sit closer to the camera: they move at a different speed */
 
 /* ---------- the three screens on the café counter ---------- */
+
+/* ---------- capítulo 9: el código del salto, con su demostración en vivo ---------- */
+const PAL=/\b(const|let|Math)\b/g;
+function pinta(l){if(l.trim().startsWith('//')) return `<span class="cm">${esc(l)}</span>`;
+  return esc(l).replace(/('[^']*')/g,'<span class="st">$1</span>').replace(PAL,'<span class="kw">$1</span>').replace(/(?<![\w-])(\d+(?:\.\d+)?|\.\d+)(?![\w])/g,'<span class="nu">$1</span>')}
+function codigoHTML(){const d=T[lang];
+  return `<p class="cd-cab"><b>${d.codeT}</b><span>${d.codeF}</span></p><pre class="cd-pre" aria-label="${esc(d.codeC.filter(Boolean).join(' '))}"><code>${d.codeC.map(l=>`<span class="ln">${pinta(l)||' '}</span>`).join('')}</code></pre>
+    <div class="cd-demo" aria-hidden="true"><svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet"><rect class="pl" x="14" y="92" width="64" height="12"/><rect class="pl" x="222" y="62" width="64" height="12"/>
+      <path class="cu" d="M46 92 Q150 -8 254 62"/><circle class="cp" cx="150" cy="-8" r="0"/><line class="gu" x1="46" y1="92" x2="150" y2="22"/><line class="gu" x1="150" y1="22" x2="254" y2="62"/><circle class="pc" cx="150" cy="22" r="4"/></svg>
+      <img class="cd-chibi" src="${SPR['jump-1']}" alt="" width="64" height="64">
+      <ol class="cd-cuadros">${[1,2,3,4].map(n=>`<li><img src="${SPR['jump-'+n]}" alt="" width="48" height="48"></li>`).join('')}</ol></div>`}
+/* el mismo salto que hace él: la Bézier entre los dos suelos, con el control 70 por encima del medio */
+function demoSalto(now){const it=ITEMS.find(x=>x.kind==='code'); if(!it||!it.el||!it.el.classList.contains('on')) return;
+  const box=it.el.querySelector('.cd-demo'), img=it.el.querySelector('.cd-chibi'); if(!box||!img) return;
+  const ciclo=1700, dur=430*2, t=reduced?dur*.5:(now%ciclo), k=Math.min(1,t/dur);
+  const x0=46,y0=92,x1=254,y1=62,cx=150,cy=Math.min(y0,y1)-70;
+  const x=(1-k)**2*x0+2*k*(1-k)*cx+k*k*x1, y=(1-k)**2*y0+2*k*(1-k)*cy+k*k*y1;
+  const n=k<.12?1:k<.5?2:k<.72?3:4, w=box.clientWidth, h=box.clientHeight, sc=Math.min(w/300,h/120), ox=(w-300*sc)/2, oy=(h-120*sc)/2;
+  const tam=img.offsetWidth||40; img.style.transform=`translate(${(ox+x*sc-tam/2).toFixed(1)}px,${(oy+y*sc-tam).toFixed(1)}px)`;
+  if(it.demo.n!==n){it.demo.n=n; img.src=SPR['jump-'+n]; box.querySelectorAll('.cd-cuadros li').forEach((li,i)=>li.classList.toggle('now',i===n-1))}}
+
+/* el chibi dibujo por dibujo: el plato con sus cuatro vistas gira con el scroll,
+   y el salto se dibuja cuadro a cuadro, de boceto a tinta, sobre el mismo arco del código */
+const MK={cam:$('#mkCam'),plato:$('#mkPlato'),g:$$('#mkCam .mk-g'),f:$$('#mkCam .mk-f')}; let mkLast='';
+function making3D(){const s=scenes.mkof; if(!s||!MK.cam) return; const y=scrollY, vh=innerHeight;
+  const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:0};
+  const a1=at('mk1')-vh*.6, a3=at('mk3')-vh*.3, a4=at('mk4')-vh*.3, ac=at('code')-vh*.3;
+  const giro=reduced?0:Math.max(0,Math.min(1,(y-a1)/Math.max(1,a3-a1)))*540;                   /* vuelta y media mientras se lee el lápiz */
+  const n=y<a3?0:Math.min(5,1+Math.floor((y-a3)/Math.max(1,(a4-a3)/4)));                       /* cuántos cuadros del salto van dibujados: los cinco antes del globo que los cuenta */
+  const key=[y>=a1+vh*.25?1:0,Math.round(giro),n,y>=ac?1:0].join('|'); if(key===mkLast) return; mkLast=key;
+  MK.cam.classList.toggle('lapiz',y>=a1+vh*.25); MK.cam.classList.toggle('tinta',y>=a3); MK.cam.classList.toggle('codigo',y>=ac);
+  const r=Math.round(MK.cam.clientWidth*.19);
+  MK.g.forEach((g,k)=>{g.style.transform=`translate(-50%,-100%) rotateY(${k*90}deg) translateZ(${r}px)`});
+  MK.plato.style.transform=`rotateX(-6deg) rotateY(${(-giro).toFixed(1)}deg)`;
+  MK.f.forEach((f,k)=>f.classList.toggle('in',k<n))}
+
+/* Güibbo: la sala de noche al fondo y sus tres pantallas que llegan flotando, como las de Minimal One */
+const GB={cam:$('#gbCam'),sala:$('#gbCam .gb-sala'),est:$('#gbCam .gb-est'),ia:$('#gbCam .gb-ia'),prof:$('#gbCam .gb-prof')}; let gbLast='';
+function guibbo3D(){const s=scenes.guibbo; if(!s||!GB.cam) return; const y=scrollY, vh=innerHeight;
+  const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:0};
+  const start=s.top-vh, end=s.top+s.span, q=Math.max(0,Math.min(1,(y-start)/Math.max(1,end-start)));
+  const on=[y>=at('pc4')-vh*.3, y>=at('pc5')-vh*.3, y>=at('pc6')-vh*.3, y>=at('g67')-vh*.3];   /* la sala se enciende, después cada pantalla al nombrarla */
+  const key=on.map(Number).join('')+'|'+Math.round(q*200); if(key===gbLast) return; gbLast=key;
+  GB.sala.classList.toggle('in',on[0]); GB.est.classList.toggle('in',on[0]); GB.ia.classList.toggle('in',on[1]); GB.prof.classList.toggle('in',on[2]);
+  GB.cam.style.transform=`translate(-50%,-50%) scale(${(1.02+q*.08).toFixed(3)}) rotateY(${(6-q*12).toFixed(1)}deg) rotateX(${(4-q*3).toFixed(1)}deg)`}
 const DV={cam:$('#dvCam'),l:$('#dvCam .dv-laptop'),p:$('#dvCam .dv-phone'),t:$('#dvCam .dv-tablet')};
 let dvLast='';
 function devices3D(){const s=scenes.mnml; if(!s||!DV.cam) return; const y=scrollY, vh=innerHeight;

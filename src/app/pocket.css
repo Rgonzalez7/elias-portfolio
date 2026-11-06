@@ -487,3 +487,97 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 
 /* con cuatro respuestas, en la columna ancha de la compu las cajas bajan un poco de tamaño para no pisarse */
 @media (min-aspect-ratio:2/3){.it.ch{padding:.6em .8em;font-size:5.4cqw}}
+
+/* ---------- Güibbo en 2,5D: la sala de noche y tres pantallas que llegan flotando ---------- */
+.gb3d{position:absolute;left:0;right:0;top:2%;height:56%;perspective:1100px;perspective-origin:50% 42%;overflow:hidden}
+.gb-cam{position:absolute;left:50%;top:50%;width:118%;aspect-ratio:1/1;transform-style:preserve-3d;transition:transform .3s linear;transform:translate(-50%,-50%)}
+.gb-sala{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block;transform:translateZ(-80px) scale(1.08);
+  filter:brightness(.42) saturate(.7);transition:filter .9s}
+.gb-sala.in{filter:brightness(.8) saturate(.9)}                                   /* la sala se enciende cuando empieza la práctica */
+.gb{position:absolute;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.25,1),opacity .3s;opacity:0}
+.gb img{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 8px rgba(5,10,25,.45))}
+/* la estudiante habla a la izquierda, la IA flota arriba, el profesor evalúa al frente */
+.gb-est{left:-4%;top:30%;width:60%;transform:translate3d(-45%,10%,420px) rotate(-8deg)}
+.gb-ia{left:38%;top:6%;width:58%;transform:translate3d(30%,-40%,480px) rotate(10deg)}
+.gb-prof{left:46%;top:36%;width:54%;transform:translate3d(40%,30%,560px) rotate(8deg)}
+.gb-est.in{transform:translateZ(20px);opacity:1}
+.gb-ia.in{transform:translateZ(45px) rotate(-2deg);opacity:1}
+.gb-ia.in img{animation:gbFlota 4s ease-in-out infinite}
+@keyframes gbFlota{0%,100%{transform:translateY(0)}50%{transform:translateY(-3%)}}
+.gb-prof.in{transform:translateZ(80px);opacity:1}
+.it.piece.navy{border-color:var(--navy);box-shadow:.3em .3em 0 #c9d3e6}
+.it.piece.navy b{background:var(--navy);color:#fff;border-color:var(--navy)}
+.it.piece.navy span{color:var(--navy)}
+@media (min-aspect-ratio:2/3){.gb-cam{width:96%}}
+@media (prefers-reduced-motion:reduce){.gb-cam,.gb,.gb img,.gb-sala{transition:none}.gb-ia.in img{animation:none}}
+
+/* ---------- capítulo 9, el making of: el chibi dibujo por dibujo, en 2,5D ---------- */
+.mk-stage{background:#eef3fa;background-image:linear-gradient(#cfdcef 1px,transparent 1px),linear-gradient(90deg,#cfdcef 1px,transparent 1px);background-size:28px 28px}
+.mk3d{position:absolute;left:0;right:0;top:2%;height:62%;perspective:1000px;perspective-origin:50% 35%;overflow:hidden}
+.mk-cam{position:absolute;left:50%;top:50%;width:100%;aspect-ratio:1/1;transform:translate(-50%,-50%);transform-style:preserve-3d}
+@media (min-aspect-ratio:2/3){.mk-cam{width:84%}}
+/* el plato: cuatro vistas a lápiz, de pie como figuras recortadas, que giran con el scroll */
+.mk-plato{position:absolute;left:50%;top:78%;width:0;height:0;transform-style:preserve-3d;transition:opacity .5s,transform .12s linear}
+.mk-disco{position:absolute;left:0;top:0;width:min(78vw,520px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) rotateX(90deg);
+  background:repeating-radial-gradient(circle,#dfe8f5 0 10px,#d3deef 10px 11px);border:3px solid #9fb3d3;box-shadow:0 0 0 8px #e7eef8}
+.mk-g{position:absolute;left:0;top:0;width:min(27vw,170px);transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  opacity:0;transition:opacity .4s}
+.mk-g img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 4px rgba(26,43,76,.18))}
+.lapiz .mk-g{opacity:1}
+.tinta .mk-plato{opacity:0;pointer-events:none}
+/* el salto: cinco cuadros sobre su arco, cada uno un poco más cerca; el tercero es mitad lápiz, mitad tinta */
+.mk-salto{position:absolute;inset:0;transform-style:preserve-3d;opacity:0;transition:opacity .4s}
+.tinta .mk-salto{opacity:1}
+.mk-arco{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.mk-arco path{fill:none;stroke:#7d95bd;stroke-width:.6;stroke-dasharray:.02 .02;vector-effect:non-scaling-stroke;stroke-width:2.5}
+.mk-f{position:absolute;width:27%;aspect-ratio:1/1;opacity:0;transform:translate3d(0,14%,0) scale(.86);
+  transition:opacity .35s steps(3),transform .45s cubic-bezier(.2,.8,.25,1),filter .4s}
+.mk-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 8px 5px rgba(26,43,76,.2))}
+.mk-f1{left:2.5%;top:57%}  .mk-f2{left:19.6%;top:23%}  .mk-f3{left:37%;top:11%}  .mk-f4{left:54.6%;top:21%}  .mk-f5{left:71.5%;top:53%}
+.mk-f1.in{opacity:1;transform:translate3d(0,0,0)}     .mk-f2.in{opacity:1;transform:translate3d(0,0,12px)}
+.mk-f3.in{opacity:1;transform:translate3d(0,0,24px)}  .mk-f4.in{opacity:1;transform:translate3d(0,0,36px)}  .mk-f5.in{opacity:1;transform:translate3d(0,0,48px)}
+/* la estela: lo que ya pasó queda más tenue, como papel cebolla */
+.mk-f.in:has(~ .mk-f.in){filter:opacity(.62)}
+/* el tercer cuadro: la tinta entra en diagonal y se queda a la mitad */
+.mk-f3 .co{clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%);transition:clip-path .9s cubic-bezier(.65,0,.35,1) .25s}
+.mk-f3.in .co{clip-path:polygon(58% 0,100% 0,100% 100%,40% 100%)}
+.codigo .mk-salto{filter:brightness(.7) blur(1.5px)}
+@media (prefers-reduced-motion:reduce){.mk-plato,.mk-g,.mk-salto,.mk-f,.mk-f3 .co{transition:none}}
+
+/* la tarjeta del código, con su salto en vivo */
+.it.code{background:#0d0d10;color:#f2f2f2;border:4px solid var(--ink);box-shadow:6px 6px 0 var(--hl);padding:0;overflow:hidden;
+  transform:perspective(900px) rotateX(6deg);transform-origin:50% 0}
+.it.code:not(.on){transform:perspective(900px) rotateX(-70deg) translateY(-10%)}
+.it.code .cd-cab{margin:0;display:flex;align-items:baseline;gap:.6em;padding:.55em .8em .45em;background:var(--hl);color:var(--ink);border-bottom:3px solid var(--ink)}
+.it.code .cd-cab b{font:6cqw/1 var(--title);letter-spacing:.05em}
+.it.code .cd-cab span{font:700 max(12px,2.9cqw)/1.2 var(--letter);text-transform:uppercase}
+.it.code .cd-pre{margin:0;padding:.8em .9em .4em;font:500 max(11px,2.7cqw)/1.55 ui-monospace,"SF Mono",Menlo,Consolas,monospace;white-space:pre;overflow:hidden}
+.it.code .ln{display:block}
+.it.code .cm{color:#8f96a8;font-style:italic}
+.it.code .kw{color:var(--hl);font-weight:700}
+.it.code .nu{color:#7fd4ff}
+.it.code .st{color:#ffa98f}
+.it.code .cd-demo{position:relative;height:clamp(110px,26cqw,170px);margin:.2em .6em .7em;background:#16161c;border:2px dashed #3a3a46;border-radius:6px}
+.it.code .cd-demo svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.it.code .cd-demo .pl{fill:#2a2a34;stroke:var(--hl);stroke-width:2}
+.it.code .cd-demo .cu{fill:none;stroke:var(--hl);stroke-width:2.5;stroke-dasharray:6 6}
+.it.code .cd-demo .gu{stroke:#5b6075;stroke-width:1.5;stroke-dasharray:3 5}
+.it.code .cd-demo .pc{fill:#7fd4ff}
+.it.code .cd-chibi{position:absolute;left:0;top:0;width:clamp(34px,10cqw,58px);height:auto;will-change:transform}
+.it.code .cd-cuadros{position:absolute;left:6px;top:6px;display:flex;gap:4px;margin:0;padding:0;list-style:none}
+.it.code .cd-cuadros li{width:clamp(22px,6.5cqw,36px);aspect-ratio:1;background:#22222b;border:2px solid #3a3a46;border-radius:4px;display:grid;place-items:center;opacity:.55}
+.it.code .cd-cuadros li.now{border-color:var(--hl);opacity:1}
+.it.code .cd-cuadros img{width:100%;height:auto}
+@media (prefers-reduced-motion:reduce){.it.code,.it.code:not(.on){transform:none}}
+
+/* ---------- capítulo 8, sin tinta: el papel en blanco y un trazo que se seca ---------- */
+.st-papel{background:#fff}
+.sin-tinta{position:absolute;left:6%;top:6%;width:88%;height:auto;overflow:visible}
+.sin-tinta path{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.sin-tinta .gotas circle{fill:var(--ink);opacity:0}
+.stage.pin .sin-tinta path,.stage.after .sin-tinta path{animation:seca 1.8s cubic-bezier(.3,.1,.4,1) .2s forwards}
+.stage.pin .sin-tinta .gotas circle,.stage.after .sin-tinta .gotas circle{animation:gota .3s steps(2) forwards}
+.sin-tinta .gotas circle:nth-child(1){animation-delay:1.8s!important}.sin-tinta .gotas circle:nth-child(2){animation-delay:2s!important}.sin-tinta .gotas circle:nth-child(3){animation-delay:2.2s!important}
+@keyframes seca{to{stroke-dashoffset:0}}
+@keyframes gota{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.sin-tinta path{stroke-dashoffset:0;animation:none!important}.sin-tinta .gotas circle{opacity:1;animation:none!important}}
