@@ -9,7 +9,7 @@ const ESCENAS_CORTA = new Set([
   "contract", "kid8", "parents8", "eng8", "timeline8", "today8",
   "ch6open", "mnml", "guibbo", "back6",
   "shelf9", "bottles9", "phone9", "call10", "desk10", "gap10",
-  "quiet11", "mkof", "cont11", "end",
+  "quiet11", "mkof", "mkpaso", "cont11", "end",
 ]);
 
 function historiaCorta(): string {

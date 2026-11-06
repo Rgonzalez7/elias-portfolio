@@ -339,7 +339,7 @@ Object.assign(T.es,{
   codeT:"EL CÓDIGO",codeF:"motor.js · lo que lo hace saltar",
   mk5:"Eso es un salto. Física de bachillerato. Por fin sirvió para algo.",
   mk6:"Cada globo es un suelo. Bajas y salta al siguiente. Subes y, ¡puf!, vuelve. Haz la prueba. Te espero.",
-  codeC:["// El salto: una curva de Bézier.","const k = (ahora - inicio) / 430;","const cx = (x0 + x1) / 2;","const cy = Math.min(y0, y1) - 70;","x = (1-k)**2*x0 + 2*k*(1-k)*cx + k*k*x1;","y = (1-k)**2*y0 + 2*k*(1-k)*cy + k*k*y1;","","// Qué dibujo toca en cada momento:","pose = k < .12 ? 'salto-1'","     : k < .5  ? 'salto-2'","     : k < .72 ? 'salto-3' : 'salto-4';","","// Caminar: 4 dibujos, uno cada 130 ms.","const n = Math.floor(ahora / 130) % 4;","pose = 'camina-' + (n + 1);"]
+  codeC:["// El salto: una curva de Bézier.","const k = (ahora - inicio) / 430;","const cx = (x0 + x1) / 2;","const cy = Math.min(y0, y1) - 70;","x = (1-k)**2*x0 + 2*k*(1-k)*cx + k*k*x1;","y = (1-k)**2*y0 + 2*k*(1-k)*cy + k*k*y1;","","// Qué dibujo toca en cada momento:","pose = k < .12 ? 'salto-1'","     : k < .5  ? 'salto-2'","     : k < .72 ? 'salto-3' : 'salto-4';"]
 });
 Object.assign(T.en,{
   chapter11:"CHAPTER 9",name11:"MAKING|OF",dim11:"How it was made. Spoiler: by hand.",
@@ -351,7 +351,7 @@ Object.assign(T.en,{
   codeT:"THE CODE",codeF:"motor.js · what makes him jump",
   mk5:"That’s a jump. High-school physics. Finally useful.",
   mk6:"Every bubble is a floor. Scroll down and he jumps to the next. Scroll up and, poof, he’s back. Try it. I’ll wait.",
-  codeC:["// The jump: a Bézier curve.","const k = (now - start) / 430;","const cx = (x0 + x1) / 2;","const cy = Math.min(y0, y1) - 70;","x = (1-k)**2*x0 + 2*k*(1-k)*cx + k*k*x1;","y = (1-k)**2*y0 + 2*k*(1-k)*cy + k*k*y1;","","// Which drawing goes when:","pose = k < .12 ? 'jump-1'","     : k < .5  ? 'jump-2'","     : k < .72 ? 'jump-3' : 'jump-4';","","// Walking: 4 drawings, one every 130 ms.","const n = Math.floor(now / 130) % 4;","pose = 'walk-' + (n + 1);"]
+  codeC:["// The jump: a Bézier curve.","const k = (now - start) / 430;","const cx = (x0 + x1) / 2;","const cy = Math.min(y0, y1) - 70;","x = (1-k)**2*x0 + 2*k*(1-k)*cx + k*k*x1;","y = (1-k)**2*y0 + 2*k*(1-k)*cy + k*k*y1;","","// Which drawing goes when:","pose = k < .12 ? 'jump-1'","     : k < .5  ? 'jump-2'","     : k < .72 ? 'jump-3' : 'jump-4';"]
 });
 Object.assign(T.es,{
   name10:"SIN|TINTA",dim10:"Se me acabaron las ideas. El formulario no.",
@@ -366,6 +366,20 @@ Object.assign(T.en,{
   l102:"But if I haven’t convinced you by now, no drawing will.",l102b:"Also, I’m out of ideas. And ink.",
   l103:"Four questions. I promise it’s the last thing I’ll ask. Today.",
   x98:"I’m running out of ink. Can you tell?"
+});
+Object.assign(T.es,{
+  pcmk7t:"EL PASO",pcmk7:"Caminar son cuatro dibujos. Se repiten mientras haces scroll.",
+  mk8:"Lápiz primero, tinta después. Como todo en la vida, pero en orden.",
+  mk9:"Si bajas rápido, corre. Si paras, se sienta. Si paras mucho, se duerme. Como yo.",
+  codeT2:"EL CÓDIGO",codeF2:"motor.js · lo que lo hace caminar",
+  codeC2:["// Camina sobre su globo al hacer scroll.","const v = rapidez > 1.6 ? .17     // corre","        : rapidez > .2  ? .06 : 0;","xo += dir * v * dt / ancho;","if (xo > .88) dir = -1;  // da la vuelta","if (xo < .12) dir = 1;","","// 4 dibujos, uno cada 130 ms.","const n = Math.floor(ahora / 130) % 4;","pose = 'camina-' + (n + 1);"]
+});
+Object.assign(T.en,{
+  pcmk7t:"THE STEP",pcmk7:"Walking is four drawings. They repeat while you scroll.",
+  mk8:"Pencil first, ink later. Like everything in life, but in order.",
+  mk9:"Scroll fast and he runs. Stop and he sits. Stop for long and he falls asleep. Like me.",
+  codeT2:"THE CODE",codeF2:"motor.js · what makes him walk",
+  codeC2:["// Walks on his bubble while you scroll.","const v = speed > 1.6 ? .17       // runs","        : speed > .2  ? .06 : 0;","xo += dir * v * dt / width;","if (xo > .88) dir = -1;  // turns around","if (xo < .12) dir = 1;","","// 4 drawings, one every 130 ms.","const n = Math.floor(now / 130) % 4;","pose = 'walk-' + (n + 1);"]
 });
 /* el texto de cada clave en la versión que se está leyendo */
 const tx=k=>{const d=T[lang]; return (state.short&&d[k+'_r']!=null)?d[k+'_r']:d[k]};
@@ -575,6 +589,11 @@ const ITEMS=[
  {id:'code',kind:'code',sc:'mkof',a:0.5739,e:0.9565,stay:true,perch:true,l:5,t:17,w:90},
  {id:'mk5',kind:'bub',t_:'mk5',sc:'mkof',a:0.7087,perch:true,l:30,t:80,w:62},
  {id:'mk6',kind:'cap',t_:'mk6',sc:'mkof',a:0.8435,perch:true,l:6,t:80,w:76},
+ /* ===== el caminar: 62vh por paso desde el inicio de 'mkpaso' (span 420vh) ===== */
+ {id:'mk7',kind:'piece',pc:'mk7',sc:'mkpaso',a:0.030,perch:true,l:6,t:68,w:66},
+ {id:'mk8',kind:'bub',t_:'mk8',sc:'mkpaso',a:0.330,perch:true,l:28,t:74,w:66},
+ {id:'code2',kind:'code',v:'camina',sc:'mkpaso',a:0.560,e:0.97,stay:true,perch:true,l:5,t:17,w:90},
+ {id:'mk9',kind:'cap',t_:'mk9',sc:'mkpaso',a:0.760,perch:true,l:6,t:80,w:78},
  {id:'fin11',kind:'cap',t_:'final',cls:'finalbox',sc:'cont11',a:0.05,perch:true,l:6,t:60,w:86},
  {id:'write11',kind:'btn',t_:'write',sc:'cont11',a:0.18,perch:true,l:20,t:80,w:60},
  {id:'z7',kind:'bub',t_:'z7',sc:'cont11',a:0.31,perch:true,l:8,t:70,w:70},
@@ -588,7 +607,7 @@ const ITEMS=[
 /* ---------- la versión corta (para quien contrata): capítulos 1, 6, 7, 8 y 9 ----------
    Es el mismo manga sin los capítulos 2 a 5. En /corta ya llega recortada desde el servidor;
    desde la portada se recorta aquí mismo, sin recargar, al tocar «Versión corta». */
-const CORTA_SC=new Set(['contract','kid8','parents8','eng8','timeline8','today8','ch6open','mnml','guibbo','back6','shelf9','bottles9','phone9','call10','desk10','gap10','quiet11','mkof','cont11','end']);
+const CORTA_SC=new Set(['contract','kid8','parents8','eng8','timeline8','today8','ch6open','mnml','guibbo','back6','shelf9','bottles9','phone9','call10','desk10','gap10','quiet11','mkof','mkpaso','cont11','end']);
 const TODOS=ITEMS.slice();
 state.short=document.getElementById('col').dataset.version==='corta';
 function recortar(){
@@ -649,7 +668,7 @@ function build(){ITEMS.forEach(x=>{if(x.kind==='chat'){x.done=false; x.t0=null}}
     else if(it.kind==='pot'){el=document.createElement('div'); fillPot(el,it.slot)}
     else if(it.kind==='tl'){el=document.createElement('div'); el.innerHTML=`<b>${T[lang]['y'+it.tl]}</b><span>${T[lang]['tt'+it.tl]}</span>`}
     else if(it.kind==='piece'){el=document.createElement('div'); el.innerHTML=`<b>${T[lang]['pc'+it.pc+'t']}</b><span>${T[lang]['pc'+it.pc]}</span>`}
-    else if(it.kind==='code'){el=document.createElement('div'); el.innerHTML=codigoHTML(); it.demo={t0:0}}
+    else if(it.kind==='code'){el=document.createElement('div'); el.innerHTML=it.v==='camina'?codigoCaminar():codigoHTML(); it.demo={t0:0}}
     else if(it.kind==='shop'){el=document.createElement('div');
       el.innerHTML=`<b class="sn">${SHOPS[it.shop]}</b><span class="st">${T[lang]['dm'+it.shop]}</span><button type="button" class="walkin${opened.has(it.shop)?' done':''}">${T[lang].walk}</button>`;
       el.querySelector('.walkin').addEventListener('click',e=>openDemo(it.shop,e.currentTarget))}
@@ -1213,7 +1232,7 @@ function loop(now){const dt=Math.min(48,now-prev); prev=now;
   SPEED.style.opacity=pose==='freefall'?'.85':pose==='fall'&&S.vy>.6?Math.min(1,S.vy-.6).toFixed(2):'0';
   C.style.transform=`translate(${(S.x-W/2+ox).toFixed(1)}px,${(S.y-H+H*.02).toFixed(1)}px)`;
   IMG.style.transform=`rotate(${rot.toFixed(2)}deg) scaleX(${S.dir<0?-1:1})`;
-  pinFrame(); phone3D(); cork3D(); napkin3D(); apps3D(); storm(); devices3D(); guibbo3D(); making3D(); pan3D(); frame(); aimTails(); typeChat(now); demoSalto(now); frameDepth(); frameShadow();
+  pinFrame(); phone3D(); cork3D(); napkin3D(); apps3D(); storm(); devices3D(); guibbo3D(); making3D(); paso3D(); pan3D(); frame(); aimTails(); typeChat(now); demoSalto(now); frameDepth(); frameShadow();
   requestAnimationFrame(loop)}
 /* ---------- the compass shot: a slow pan from left to right with sparks in front ---------- */
 const PZ={w:$('#pzWrap'),img:$('#pzWrap .pz-img'),fx:$('#pzFx'),last:''};
@@ -1239,7 +1258,7 @@ function codigoHTML(){const d=T[lang];
       <img class="cd-chibi" src="${SPR['jump-1']}" alt="" width="64" height="64">
       <ol class="cd-cuadros">${[1,2,3,4].map(n=>`<li><img src="${SPR['jump-'+n]}" alt="" width="48" height="48"></li>`).join('')}</ol></div>`}
 /* el mismo salto que hace él: la Bézier entre los dos suelos, con el control 70 por encima del medio */
-function demoSalto(now){const it=ITEMS.find(x=>x.kind==='code'); if(!it||!it.el||!it.el.classList.contains('on')) return;
+function demoSalto(now){demoCaminar(now); const it=ITEMS.find(x=>x.kind==='code'&&!x.v); if(!it||!it.el||!it.el.classList.contains('on')) return;
   const box=it.el.querySelector('.cd-demo'), img=it.el.querySelector('.cd-chibi'); if(!box||!img) return;
   const ciclo=1700, dur=430*2, t=reduced?dur*.5:(now%ciclo), k=Math.min(1,t/dur);
   const x0=46,y0=92,x1=254,y1=62,cx=150,cy=Math.min(y0,y1)-70;
@@ -1247,6 +1266,36 @@ function demoSalto(now){const it=ITEMS.find(x=>x.kind==='code'); if(!it||!it.el|
   const n=k<.12?1:k<.5?2:k<.72?3:4, w=box.clientWidth, h=box.clientHeight, sc=Math.min(w/300,h/120), ox=(w-300*sc)/2, oy=(h-120*sc)/2;
   const tam=img.offsetWidth||40; img.style.transform=`translate(${(ox+x*sc-tam/2).toFixed(1)}px,${(oy+y*sc-tam).toFixed(1)}px)`;
   if(it.demo.n!==n){it.demo.n=n; img.src=SPR['jump-'+n]; box.querySelectorAll('.cd-cuadros li').forEach((li,i)=>li.classList.toggle('now',i===n-1))}}
+
+
+/* ---------- el caminar: su código y el chibi que lo ejecuta ---------- */
+function codigoCaminar(){const d=T[lang];
+  return `<p class="cd-cab"><b>${d.codeT2}</b><span>${d.codeF2}</span></p><pre class="cd-pre" aria-label="${esc(d.codeC2.filter(Boolean).join(' '))}"><code>${d.codeC2.map(l=>`<span class="ln">${pinta(l)||' '}</span>`).join('')}</code></pre>
+    <div class="cd-demo cd-camina" aria-hidden="true"><svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet"><rect class="pl" x="20" y="92" width="260" height="12"/>
+      <line class="gu" x1="${20+260*.12}" y1="84" x2="${20+260*.12}" y2="112"/><line class="gu" x1="${20+260*.88}" y1="84" x2="${20+260*.88}" y2="112"/></svg>
+      <img class="cd-chibi" src="${SPR['walk-1']}" alt="" width="64" height="64">
+      <ol class="cd-cuadros">${[1,2,3,4].map(n=>`<li><img src="${SPR['walk-'+n]}" alt="" width="48" height="48"></li>`).join('')}</ol></div>`}
+/* lo mismo que hace él sobre su globo: avanza, da la vuelta en .12 y .88, cuatro dibujos cada 130 ms */
+function demoCaminar(now){const it=ITEMS.find(x=>x.kind==='code'&&x.v==='camina'); if(!it||!it.el||!it.el.classList.contains('on')) return;
+  const box=it.el.querySelector('.cd-demo'), img=it.el.querySelector('.cd-chibi'); if(!box||!img) return;
+  const D=it.demo; if(D.xo==null){D.xo=.12; D.dir=1; D.t=now}
+  const dt=Math.min(48,now-D.t); D.t=now;
+  if(!reduced){D.xo+=D.dir*.06*dt/120; if(D.xo>.88){D.xo=.88;D.dir=-1} if(D.xo<.12){D.xo=.12;D.dir=1}}
+  const n=reduced?1:Math.floor(now/130)%4+1, w=box.clientWidth, h=box.clientHeight, sc=Math.min(w/300,h/120), ox=(w-300*sc)/2, oy=(h-120*sc)/2;
+  const x=20+260*D.xo, tam=img.offsetWidth||40;
+  img.style.transform=`translate(${(ox+x*sc-tam/2).toFixed(1)}px,${(oy+92*sc-tam).toFixed(1)}px) scaleX(${D.dir})`;
+  if(D.n!==n){D.n=n; img.src=SPR['walk-'+n]; box.querySelectorAll('.cd-cuadros li').forEach((li,i)=>li.classList.toggle('now',i===n-1))}}
+
+/* el caminar en grande: un solo chibi que alterna sus cuatro pasos cada 130 ms (como el del manga);
+   camina a lápiz y, con el scroll, la tinta lo recorre y sigue caminando terminado */
+const PA={cam:$('#paCam'),big:$('#paBig')}; let paLast='', paN=0;
+function paso3D(){const s=scenes.mkpaso; if(!s||!PA.cam) return; const y=scrollY, vh=innerHeight, now=performance.now();
+  const n=reduced?1:Math.floor(now/130)%4+1; if(n!==paN){paN=n; PA.big.dataset.n=n}
+  const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:0};
+  const a8=at('mk8')-vh*.25, ac=at('code2')-vh*.3, b=a8+(ac-a8)*.55;
+  const T=reduced?(y>=a8?1:0):Math.max(0,Math.min(1,(y-a8)/Math.max(1,b-a8)));             /* la pasada de tinta */
+  const key=[Math.round(T*200),y>=ac?1:0].join('|'); if(key===paLast) return; paLast=key;
+  PA.cam.classList.toggle('codigo',y>=ac); PA.big.style.setProperty('--t',T.toFixed(3))}
 
 /* el chibi dibujo por dibujo: el plato con sus cuatro vistas gira con el scroll,
    y el salto se dibuja cuadro a cuadro, de boceto a tinta, sobre el mismo arco del código */

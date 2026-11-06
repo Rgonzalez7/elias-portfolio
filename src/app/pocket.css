@@ -588,3 +588,22 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 @keyframes seca{to{stroke-dashoffset:0}}
 @keyframes gota{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.sin-tinta path{stroke-dashoffset:0;animation:none!important}.sin-tinta .gotas circle{opacity:1;animation:none!important}}
+
+/* ---------- el caminar en grande: a lápiz y, con el scroll, entintado; siempre caminando ---------- */
+.pa3d{position:absolute;left:0;right:0;top:4%;height:58%;perspective:1100px;perspective-origin:50% 40%;overflow:hidden}
+.pa-cam{position:absolute;inset:0;transform-style:preserve-3d}
+/* el suelo corre hacia atrás: él camina en el sitio y parece que avanza */
+.pa-suelo{position:absolute;left:0;right:0;bottom:7%;height:3px;opacity:.85;
+  background:repeating-linear-gradient(90deg,#7d95bd 0 14px,transparent 14px 26px);animation:paSuelo .9s linear infinite}
+@keyframes paSuelo{to{background-position:-26px 0}}
+.pa-big{position:absolute;left:50%;bottom:calc(7% - min(9.6vw,52px));   /* los pies (al 90 % de su lienzo) sobre el suelo */width:min(96vw,520px);aspect-ratio:1/1;transform:translateX(-50%);--t:0}
+.pa-big img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;filter:drop-shadow(0 10px 6px rgba(26,43,76,.18))}
+.pa-big[data-n="1"] .p1,.pa-big[data-n="2"] .p2,.pa-big[data-n="3"] .p3,.pa-big[data-n="4"] .p4{opacity:1}
+/* la misma conversión del salto: la tinta lo barre con el borde suave y el lápiz se borra donde llega */
+.pa-big .co{-webkit-mask-image:linear-gradient(100deg,#000 calc(var(--t)*136% - 18%),transparent calc(var(--t)*136%));
+  mask-image:linear-gradient(100deg,#000 calc(var(--t)*136% - 18%),transparent calc(var(--t)*136%))}
+.pa-big .bo{-webkit-mask-image:linear-gradient(100deg,transparent calc(var(--t)*136% - 18%),#000 calc(var(--t)*136%));
+  mask-image:linear-gradient(100deg,transparent calc(var(--t)*136% - 18%),#000 calc(var(--t)*136%))}
+.pa-cam.codigo .pa-big,.pa-cam.codigo .pa-suelo{filter:brightness(.7) blur(1.5px)}
+.it.code .cd-camina .cd-chibi{transform-origin:50% 50%}
+@media (prefers-reduced-motion:reduce){.pa-suelo{animation:none}}
