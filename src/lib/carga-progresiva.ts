@@ -5,6 +5,8 @@
 const ADELANTE = "300%"; // cuánto antes de llegar se piden (en alturas de pantalla)
 
 function poner(seccion: Element) {
+  // Las viñetas que la hoja de estilos pinta (frascos, el teléfono por dentro) esperan esta marca.
+  (seccion as HTMLElement).dataset.cerca = "";
   seccion.querySelectorAll<HTMLElement>("[data-fondo]").forEach((el) => {
     const url = el.dataset.fondo;
     if (url && !el.style.getPropertyValue("--fondo")) el.style.setProperty("--fondo", `url(${url})`);
