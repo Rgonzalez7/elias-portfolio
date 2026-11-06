@@ -7,7 +7,7 @@ export function Pie() {
         <div className="fin">
           <p className="fsfx" aria-hidden="true">おわり</p>
           <h2 className="fname" id="footName">ELIAS GONZÁLEZ</h2>
-          <p className="ftag" data-t="ftag">Tu negocio, siempre en el bolsillo de tu cliente.</p>
+          <p className="ftag" data-t="ftag">Arquitecto de software. Hago productos que caben en un bolsillo.</p>
           <div className="fcols">
             <nav aria-labelledby="fh1">
               <h3 id="fh1" data-t="fh1">El manga</h3>
@@ -22,6 +22,7 @@ export function Pie() {
             </nav>
             <nav aria-labelledby="fh3">
               <h3 id="fh3" data-t="fh3">En otra parte</h3>
+              <a className="flink" id="fMail" href="mailto:rmngzps@gmail.com">rmngzps@gmail.com</a>
               <a className="flink" href="https://www.linkedin.com/in/elias-gonzalez-45a3513b1" target="_blank" rel="noopener">LinkedIn</a>
               <a className="flink" href="https://eliasgonzalez.io">eliasgonzalez.io</a>
             </nav>

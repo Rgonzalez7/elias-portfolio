@@ -4,7 +4,16 @@
 export function Controles() {
   return (
     <>
-      <button className="lang" id="lang" type="button">EN</button>
+      {/* El atajo al contacto: aparece al firmar, para quien navega con el teclado o tiene prisa. */}
+      <button className="saltar" id="saltar" type="button" hidden>Saltar al contacto</button>
+      {/* Dónde está el lector: el capítulo y cuánto lleva leído. */}
+      <p className="progreso" id="progreso" hidden>
+        <span id="progresoCap"></span>
+        <i aria-hidden="true"><b id="progresoBar"></b></i>
+      </p>
+      {/* En pantallas anchas, el índice vive en el margen. */}
+      <nav className="rail" id="rail" hidden aria-label="Capítulos"></nav>
+      <button className="lang" id="lang" type="button" aria-label="Cambiar a inglés" lang="en">EN</button>
       <button className="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">
         <svg viewBox="0 0 32 24" aria-hidden="true">
           <path d="M2 3C10 2 22 4 30 2.5M2 12C12 13 20 11 30 12.5M2 21C9 22 23 20.5 30 21.5" />
@@ -21,6 +30,7 @@ export function Controles() {
           </div>
           <p className="mquip" id="menuQuip"></p>
           <ol className="mlist" id="mlist"></ol>
+          <button className="mversion" id="menuVersion" type="button">Versión corta: 5 capítulos</button>
           <span className="msfx" aria-hidden="true">バッ</span>
         </div>
       </div>

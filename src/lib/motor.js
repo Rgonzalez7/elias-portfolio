@@ -265,7 +265,59 @@ let lang=(navigator.language||'es').toLowerCase().startsWith('es')?'es':'en';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 if('scrollRestoration' in history) history.scrollRestoration='manual'; scrollTo(0,0);
-const state={signed:false,inked:false,route:null};
+const state={signed:false,inked:false,route:null,short:false};
+/* textos que se suman: los de la versión corta llevan «_r» y mandan sobre el original solo en ella */
+Object.assign(T.es,{
+  ctWho:"Elias González · Arquitecto de software",langLabel:"Cambiar a inglés",
+  vcorta:"¿Poco tiempo? Versión corta: 5 capítulos",
+  c_team:"Vengo a contratarte",r_team:"Bien. Esto también es un currículum, solo que con dibujos.",
+  q0_team:"Si vas con prisa, abre el índice y elige «Versión corta». No me ofendo. Mucho.",
+  nagFree:"Vale, sigue. No elegiste, pero que conste en acta.",
+  cq_team:"¿Para qué equipo o puesto me buscas?",cbud_team:"¿Algo más? El enlace a la oferta, fechas, salario… Opcional. «Nada» también vale.",
+  cnobud_team:"Perfecto. Te respondo pronto.",mWhat_team:"Puesto",mBudget_team:"Detalles",
+  cdir:"¿Prefieres escribir tú?",copiar:"Copiar",copiado:"Copiado",
+  o9_r:"Esta es la versión corta. Vamos directo a lo que construyo.",
+  o10_r:"Dos proyectos, unos precios y una forma de escribirme. Rápido, prometido.",
+  c8tbc_r:"Siguiente: capítulo 6. Mis dos proyectos.",
+  name4_r:"DOS|PROYECTOS",dim4_r:"Los dos grandes. Con chistes, pero menos.",
+  v51_r:"Proyecto 1: Minimal One. Una de mis dos empresas. Sí, dos. No, no duermo mucho.",
+  mo6_r:"Proyecto 2: Güibbo. Este va en serio. Bueno… casi en serio.",
+  g6b_r:"Esos son mis dos proyectos grandes. Si buscas a alguien así para tu equipo, el capítulo 8 es tuyo.",
+  c6tbc_r:"Siguiente: capítulo 7. Precios, por si vienes con un proyecto.",
+  x93_r:"Si vienes a contratarme para tu equipo, puedes saltarte esto: el capítulo 8 es tuyo.",
+  z3_r:"¿Ves esta servilleta? Ahí empezó Minimal One. Mírala ahora.",
+  end_r:"Fin. Cinco capítulos, un contrato firmado y un chibi esperando. Te toca.",
+  ftag:"Arquitecto de software. Hago productos que caben en un bolsillo.",
+  fMail:"rmngzps@gmail.com",saltar:"Saltar al contacto",
+  progreso:"CAP.",de:"DE"
+});
+Object.assign(T.en,{
+  ctWho:"Elias González · Software architect",langLabel:"Switch to Spanish",
+  vcorta:"Short on time? Short version: 5 chapters",
+  c_team:"I’m here to hire you",r_team:"Good. This is a résumé too, just with drawings.",
+  q0_team:"In a hurry? Open the contents and pick ‘Short version’. I won’t be offended. Much.",
+  nagFree:"Fine, go on. You didn’t pick, but it’s on the record.",
+  cq_team:"Which team or role are you hiring for?",cbud_team:"Anything else? Job link, dates, salary… Optional. ‘Nothing’ works too.",
+  cnobud_team:"Perfect. I’ll get back to you soon.",mWhat_team:"Role",mBudget_team:"Details",
+  cdir:"Rather write yourself?",copiar:"Copy",copiado:"Copied",
+  o9_r:"This is the short version. Straight to what I build.",
+  o10_r:"Two projects, some prices and a way to write me. Quick, I promise.",
+  c8tbc_r:"Next: chapter 6. My two projects.",
+  name4_r:"TWO|PROJECTS",dim4_r:"The big two. Jokes included, fewer of them.",
+  v51_r:"Project 1: Minimal One. One of my two companies. Yes, two. No, I don’t sleep much.",
+  mo6_r:"Project 2: Güibbo. This one is serious. Well… almost serious.",
+  g6b_r:"Those are my two big projects. If you need someone like that on your team, chapter 8 is yours.",
+  c6tbc_r:"Next: chapter 7. Prices, in case you have a project.",
+  x93_r:"If you’re here to hire me for your team, skip this: chapter 8 is yours.",
+  z3_r:"See this napkin? Minimal One started there. Look at it now.",
+  end_r:"The end. Five chapters, one signed contract and a chibi waiting. Your move.",
+  ftag:"Software architect. I build products that fit in a pocket.",
+  fMail:"rmngzps@gmail.com",saltar:"Skip to contact",
+  progreso:"CH.",de:"OF"
+});
+/* el texto de cada clave en la versión que se está leyendo */
+const tx=k=>{const d=T[lang]; return (state.short&&d[k+'_r']!=null)?d[k+'_r']:d[k]};
+
 
 /* ------------------------------------------------------------------
    The lettering track. Every text the reader sees, in reading order.
@@ -276,6 +328,7 @@ const state={signed:false,inked:false,route:null};
 const ITEMS=[
  {id:'contract',kind:'contract',sc:'contract',a:0,perch:true,l:7,t:12,w:86,cond:()=>!state.contractGone},
  {id:'hint',kind:'hint',t_:'hint',sc:'contract',a:0,perch:true,l:9,t:34,w:82,cond:()=>state.hintShown},
+ {id:'vcorta',kind:'vcorta',only:'larga',sc:'contract',a:0,e:.6,perch:false,l:9,t:46,w:82,cond:()=>state.hintShown&&!state.short},
  {id:'gag1',kind:'cap',t_:'gag1',sc:'contract',a:0.775,perch:true,l:8,t:44,w:62,onLand:fakeFlip},
  {id:'gag2',kind:'cap',t_:'gag2',sc:'contract',a:1.550,perch:true,l:30,t:58,w:64},
  /* ===== origin (now chapter 1): one step every 62vh after the hint, timed from 'kid8' (span 140vh) ===== */
@@ -326,10 +379,11 @@ const ITEMS=[
  {id:'who0',kind:'cap',t_:'who0',sc:'route',a:-.245,perch:true,l:8,t:44,w:70},
  {id:'who0b',kind:'bub',t_:'who0b',sc:'route',a:.065,perch:true,l:30,t:64,w:62},
  {id:'who',kind:'cap',t_:'who',cls:'who3d',sc:'route',a:.375,e:.955,perch:true,stay:true,l:7,t:12,w:72},
- {id:'c1',kind:'ch',route:'business',t_:'c_business',sc:'route',a:.475,e:.955,perch:true,stay:true,l:7,t:32,w:86,cond:()=>!state.route},
- {id:'c2',kind:'ch',route:'founder',t_:'c_founder',sc:'route',a:.595,e:.955,perch:true,stay:true,l:7,t:50,w:86,r:true,cond:()=>!state.route},
- {id:'c3',kind:'ch',route:'3d',t_:'c_3d',sc:'route',a:.715,e:.955,perch:true,stay:true,l:7,t:68,w:86,cond:()=>!state.route},
- {id:'nag',kind:'bub',t_:'nag0',sc:'route',a:.375,e:.955,perch:false,l:8,t:83,w:84,cond:()=>!state.route&&performance.now()<(state.nagUntil||0)},
+ {id:'c1',kind:'ch',route:'business',t_:'c_business',sc:'route',a:.475,e:.955,perch:false,stay:true,l:7,t:30,w:86,cond:()=>!state.route},
+ {id:'c2',kind:'ch',route:'founder',t_:'c_founder',sc:'route',a:.595,e:.955,perch:false,stay:true,l:7,t:44,w:86,r:true,cond:()=>!state.route},
+ {id:'c3',kind:'ch',route:'3d',t_:'c_3d',sc:'route',a:.715,e:.955,perch:false,stay:true,l:7,t:58,w:86,cond:()=>!state.route},
+ {id:'c4',kind:'ch',route:'team',t_:'c_team',sc:'route',a:.835,e:.955,perch:false,stay:true,l:7,t:72,w:86,r:true,cond:()=>!state.route},
+ {id:'nag',kind:'bub',t_:'nag0',sc:'route',a:.375,e:.955,perch:false,l:8,t:85,w:84,cond:()=>!state.route&&performance.now()<(state.nagUntil||0)},
  {id:'resp',kind:'bub',t_:'resp',sc:'route',a:.4,perch:true,l:14,t:84,w:72,cond:()=>!!state.route},
  {id:'q0',kind:'bub',t_:'q0',byRoute:true,sc:'route',a:1.025,perch:true,l:8,t:56,w:62,cond:()=>!!state.route},
  {id:'tr1',kind:'bub',t_:'tr1x',sc:'pdark',a:-1.65,perch:true,l:30,t:70,w:56},
@@ -484,6 +538,19 @@ const ITEMS=[
  {id:'footer',kind:'ext',sc:'quiet11',a:7.940,perch:true,l:0,t:0,w:1}
 ];
 
+
+/* ---------- la versión corta (para quien contrata): capítulos 1, 6, 7, 8 y 9 ----------
+   Es el mismo manga sin los capítulos 2 a 5. En /corta ya llega recortada desde el servidor;
+   desde la portada se recorta aquí mismo, sin recargar, al tocar «Versión corta». */
+const CORTA_SC=new Set(['contract','kid8','parents8','eng8','timeline8','today8','ch6open','mnml','room6','live','feedback','private','back6','shelf9','bottles9','phone9','call10','desk10','gap10','quiet11','napkin11','cont11','end']);
+const TODOS=ITEMS.slice();
+state.short=document.getElementById('col').dataset.version==='corta';
+function recortar(){
+  const vale=it=>it.only?(it.only==='corta')===state.short:(!state.short||CORTA_SC.has(it.sc));
+  ITEMS.splice(0,ITEMS.length,...TODOS.filter(vale));
+  if(state.short){state.route=state.route||'team'; state.skipGate=true}
+}
+recortar();
 window.__ITEMS=ITEMS;
 const track=$('#track');
 function build(){ITEMS.forEach(x=>{if(x.kind==='chat'){x.done=false; x.t0=null}});
@@ -491,19 +558,19 @@ function build(){ITEMS.forEach(x=>{if(x.kind==='chat'){x.done=false; x.t0=null}}
   ITEMS.forEach((it,i)=>{
     let el;
     if(it.kind==='contract'){el=document.createElement('div');
-      el.innerHTML=`<h2>${T[lang].ctTitle}</h2><ol><li>${T[lang].ct1}</li><li>${T[lang].ct2}</li><li>${T[lang].ct3}</li></ol>
+      el.innerHTML=`<h1 class="ct-who">${T[lang].ctWho}</h1><h2>${T[lang].ctTitle}</h2><ol><li>${T[lang].ct1}</li><li>${T[lang].ct2}</li><li>${T[lang].ct3}</li></ol>
         <div class="ct-sign"><svg viewBox="0 0 220 40" aria-hidden="true"><path d="M6 28c14-20 22 10 34-6s16-14 22 2 18 6 26-10 12 4 20 10 24-14 34-6 18 10 30-2 20-8 36 4"/></svg><span>${T[lang].ctSign}</span></div>
         <div class="ct-btns"><button type="button" class="ok">${T[lang].ctOk}</button><button type="button" class="alt">${state.altNo?T[lang].ctNo:T[lang].ctAlt}</button></div><span class="ct-stamp" aria-hidden="true">済</span>`;
       if(state.signed) el.classList.add('signed');
-      const sign=()=>{if(state.signed) return; state.signed=true; el.classList.add('signed'); cue('notes'); intro()};
+      const sign=()=>{if(state.signed) return; state.signed=true; el.classList.add('signed'); cue('notes'); intro(); alFirmar()};
       el.querySelector('.ok').addEventListener('click',sign);
       el.querySelector('.alt').addEventListener('click',e=>{state.altNo=true; e.currentTarget.textContent=T[lang].ctNo; cue('bang'); setTimeout(sign,600)});
       it.perchEl=()=>el.querySelector('.ct-btns .alt')}
     else if(it.kind==='title'){el=document.createElement('div'); let k=0;
-      const nm=it.ch?T[lang]['name'+it.ch]:T[lang].name;
+      const nm=it.ch?tx('name'+it.ch):T[lang].name;
       const multi=nm.includes('|');
       const words=(multi?nm.split('|'):nm.split(' ')).map(w=>`<span class="word">${[...w].map(c=>`<span style="animation-delay:${(k++*45)}ms">${c}</span>`).join('')}</span>`).join('');
-      el.innerHTML=`<p class="tnum">${it.ch?T[lang]['chapter'+it.ch]:T[lang].chapter}</p><h1 class="tname${it.stack||multi?' stack':''}" aria-label="${nm.replace('|',' ')}" style="font-size:${it.nfs||20}cqw">${words}</h1><div class="tdim"><i></i><span>${it.ch?T[lang]['dim'+it.ch]:T[lang].dim}</span><i></i></div>`;
+      el.innerHTML=`<p class="tnum">${it.ch?tx('chapter'+it.ch):T[lang].chapter}</p><h2 class="tname${it.stack||multi?' stack':''}" aria-label="${nm.replace('|',' ')}" style="font-size:${it.nfs||20}cqw">${words}</h2><div class="tdim"><i></i><span>${it.ch?tx('dim'+it.ch):T[lang].dim}</span><i></i></div>`;
       it.perchEl=()=>{const w=el.querySelectorAll('.tname .word'); return w[Math.min(w.length-1,S.titleWord||0)]||el.querySelector('.tname')}}
     else if(it.kind==='hold'){el=document.createElement('button'); el.type='button';
       el.innerHTML=`<svg viewBox="0 0 100 100" aria-hidden="true"><circle class="disc" cx="50" cy="50" r="46"/><circle class="track" cx="50" cy="50" r="38"/><circle class="ring" cx="50" cy="50" r="38" stroke-dasharray="238.8" stroke-dashoffset="${state.inked?0:238.8}"/></svg><span class="lbl">${T[lang].hold}</span>`;
@@ -526,8 +593,11 @@ function build(){ITEMS.forEach(x=>{if(x.kind==='chat'){x.done=false; x.t0=null}}
     else if(it.kind==='chat10'){el=document.createElement('div');
       el.innerHTML=`<div class="chatlog" id="chatlog" aria-live="polite"></div>
         <div class="chatin" id="chatIn"><label class="sr" for="chatInput" id="chatLabel">Mensaje</label><input id="chatInput" type="text" autocomplete="off"><button type="button" id="chatSend">${T[lang].send}</button><button type="button" id="chatSkip" hidden>${T[lang].skip}</button></div>
-        <div class="chatend" id="chatEnd" hidden><a id="chatMail" href="#">${T[lang].sendmail}</a><button type="button" id="chatAgain">${T[lang].cagain}</button></div>`;
+        <div class="chatend" id="chatEnd" hidden><a id="chatMail" href="#">${T[lang].sendmail}</a><button type="button" id="chatAgain">${T[lang].cagain}</button></div>
+        <p class="chatdir"><span>${T[lang].cdir}</span> <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a> <button type="button" class="copiar">${T[lang].copiar}</button> <a href="https://www.linkedin.com/in/elias-gonzalez-45a3513b1" target="_blank" rel="noopener">LinkedIn</a></p>`;
       wireChat(el)}
+    else if(it.kind==='vcorta'){el=document.createElement('button'); el.type='button'; el.textContent=T[lang].vcorta;
+      el.addEventListener('click',()=>aCorta())}
     else if(it.kind==='btn'){el=document.createElement('button'); el.type='button'; el.textContent=T[lang][it.t_];
       el.addEventListener('click',()=>{const c=ITEMS.find(x=>x.id==='chat10'); scrollTo({top:c.at+2,behavior:'auto'}); setTimeout(()=>{const i=$('#chatInput'); i&&i.focus({preventScroll:true})},400)})}
     else if(it.kind==='pot'){el=document.createElement('div'); fillPot(el,it.slot)}
@@ -539,12 +609,12 @@ function build(){ITEMS.forEach(x=>{if(x.kind==='chat'){x.done=false; x.t0=null}}
     else if(it.kind==='big'){el=document.createElement('p'); el.textContent=it.text; if(it.cls) el.classList.add(it.cls)}
     else if(it.kind==='ext'){el=document.createElement('span'); el.hidden=true; it.perchEl=()=>document.getElementById('footName')}
     else if(it.kind==='end'){el=document.createElement('div');
-      el.innerHTML=`<p>${T[lang].end}</p><a href="#" class="write">${T[lang].fWrite}</a> <a href="#" class="again">${T[lang].again}</a>`;
+      el.innerHTML=`<p>${tx('end')}</p><a href="#" class="write">${T[lang].fWrite}</a> <a href="#" class="again">${T[lang].again}</a>`;
       el.querySelector('.again').addEventListener('click',e=>{e.preventDefault(); scrollTo({top:0,behavior:'auto'})});
       el.querySelector('.write').addEventListener('click',e=>{e.preventDefault(); const c=ITEMS.find(x=>x.id==='chat10'); state.skipGate=true; scrollTo({top:c.at+2,behavior:'auto'})});
       it.perchEl=()=>el.querySelector('p')}
     else{el=document.createElement('p');
-      const txt=it.text||(it.id==='resp'?(state.route?T[lang]['r_'+state.route]:''):it.byRoute?(state.route?T[lang][it.t_+'_'+state.route]:''):T[lang][it.t_]);
+      const txt=it.text||(it.id==='resp'?(state.route?T[lang]['r_'+state.route]:''):it.byRoute?(state.route?T[lang][it.t_+'_'+state.route]:''):tx(it.t_));
       if(it.kind==='bub'){el.innerHTML='<span class="txt"></span><svg class="tail" viewBox="0 0 40 40" aria-hidden="true"><path d="M2 -4 L20 36 L38 -4"/></svg>'; el.querySelector('.txt').textContent=txt; it.tailEl=el.querySelector('.tail')}
       else el.textContent=txt;
       if(it.night) el.classList.add('night')}
@@ -552,13 +622,14 @@ function build(){ITEMS.forEach(x=>{if(x.kind==='chat'){x.done=false; x.t0=null}}
     if(it.kind==='title'&&it.onart) el.classList.add('onart');
     if(it.navy) el.classList.add('navy');
     if(it.cls&&it.kind!=='big') el.classList.add(it.cls);
-    el.classList.add('it',it.kind); el.dataset.i=i;
+    el.classList.add('it',it.kind); el.dataset.i=i; if(it.kind==='sfx') el.setAttribute('aria-hidden','true');
     el.style.left=it.l+'%'; el.style.top=it.t+'%'; if(it.w) el.style.width=it.w+'%'; if(it.fs) el.style.fontSize=it.fs+'cqw';
     track.appendChild(el); it.el=el; if(!it.perchEl||it._dp){it.perchEl=()=>el; it._dp=true}
     if(it.ledge){const L=it.ledge, sel=typeof L==='number'?'#ly'+L+' .ledge':L; it.perchEl=()=>document.querySelector(sel); it._dp=false}   /* he stands on the 3D layer itself */
   });
   $$('[data-t]').forEach(n=>{const v=T[lang][n.dataset.t]; if(v!=null) n.textContent=v});
-  $('#lang').textContent=T[lang].lang; document.documentElement.lang=lang;
+  $('#lang').textContent=T[lang].lang; $('#lang').setAttribute('aria-label',T[lang].langLabel); $('#lang').lang=lang==='es'?'en':'es'; document.documentElement.lang=lang;
+  $('#saltar').textContent=T[lang].saltar; $('#fMail').textContent=T[lang].fMail; renderRail(); progreso();
 }
 $('#lang').addEventListener('click',()=>{lang=lang==='es'?'en':'es'; build(); renderGag(); renderPots(); fitTitles(); frame(true); drawChat(); if(!$('#legal').hidden) openDoc($('#legal').dataset.doc,legalLast); if(!$('#potion').hidden) fillPotion(); if(!$('#menu').hidden) renderMenu(); if(!$('#demo').hidden) $('#demoTag').textContent=T[lang]['dm'+$('#demo').dataset.shop]});
 
@@ -596,15 +667,20 @@ lock(true);
 function intro(){
   setTimeout(()=>{state.contractGone=true},950);                       /* the stamp lands, then the contract flies off */
   setTimeout(()=>{                                                      /* he flails in the air for a second, then the hint shows up right under his feet */
-    const h=ITEMS.find(x=>x.id==='hint'); h.t=Math.max(10,Math.min(80,(S.y+14)/innerHeight*100)); h.el.style.top=h.t+'%';
+    const h=ITEMS.find(x=>x.id==='hint'); h.t=Math.max(10,Math.min(state.short?80:70,(S.y+14)/innerHeight*100)); h.el.style.top=h.t+'%';
+    const v=ITEMS.find(x=>x.id==='vcorta'); if(v){v.t=Math.min(84,h.t+14); v.el.style.top=v.t+'%'}
     state.hintShown=true},950+(reduced?0:1100));
 }
 function freeScroll(){if(state.free) return; state.free=true; lock(false); removeEventListener('wheel',block,{passive:false}); removeEventListener('touchmove',block,{passive:false})}
 
 /* nobody leaves "who are you" without answering */
-const gateY=()=>{const c=ITEMS.find(x=>x.id==='c3'); return c.at+30};
+const gateY=()=>{const c=ITEMS.find(x=>x.id==='c4')||ITEMS.find(x=>x.id==='c3'); return c?c.at+30:Infinity};
 let nagN=0;
-function nag(){if(state.route) return; const n=ITEMS.find(x=>x.id==='nag'); if(performance.now()>(state.nagUntil||0)-1200){nagN=(nagN+1)%4; n.el.querySelector('.txt').textContent=T[lang]['nag'+nagN]}
+function nag(){if(state.route||state.skipGate) return; const n=ITEMS.find(x=>x.id==='nag'); if(!n) return;
+  /* al cuarto empujón la puerta cede: el chiste no puede costar un lector */
+  if(performance.now()>(state.nagUntil||0)-1200){state.nags=(state.nags||0)+1;
+    if(state.nags>=4){n.el.querySelector('.txt').textContent=T[lang].nagFree; state.skipGate=true; state.nagUntil=performance.now()+3200; gateHold(false); gateListeners(); cue('dots',1200); return}
+    nagN=(nagN+1)%4; n.el.querySelector('.txt').textContent=T[lang]['nag'+nagN]}
   state.nagUntil=performance.now()+2600; cue(nagN%2?'anger':'dots',1200)}
 const atGate=()=>!state.route&&!state.skipGate&&scrollY>=gateY()-2;
 const gWheel=e=>{if(atGate()&&e.deltaY>0){e.preventDefault(); nag()}};
@@ -624,7 +700,7 @@ addEventListener('scroll',()=>{if(!state.route&&!state.skipGate&&state.free&&scr
 addEventListener('touchstart',()=>{if(state.gated) nag()},{passive:true});
 
 /* ---------- chapter 10: the call (four questions, then your mail app opens) ---------- */
-const CONTACT_EMAIL='';   /* TODO: Elias's address */
+const CONTACT_EMAIL='rmngzps@gmail.com';
 const chat={step:0,idea:'',name:'',email:'',budget:'',svc:null,log:[],started:false};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function say(who,key,raw){chat.log.push({who,key,raw}); drawChat()}
@@ -633,14 +709,14 @@ function drawChat(){const el=$('#chatlog'); if(!el) return; el.innerHTML=chat.lo
   $('#chatInput').placeholder=T[lang].ph; $('#chatLabel').textContent=T[lang].msgLabel;
   $('#chatSkip').hidden=chat.step!==3; $('#chatIn').hidden=chat.step>=4; $('#chatEnd').hidden=chat.step<4; $('#chatInput').type=chat.step===2?'email':'text';
   if(chat.step>=4) $('#chatMail').href=mailHref()}
-function startChat(){chat.step=0; chat.log=[]; chat.started=true; if(chat.svc) say('bot','cpick'); say('bot',state.route==='founder'?'cq_founder':'cq_business')}
-function mailHref(){const d=T[lang],nl='\n'; const body=[`${d.mWhat}: ${chat.idea}`,chat.svc?`${d.mSvc}: ${d[chat.svc+'N']}`:'',`${d.mName}: ${chat.name}`,`Email: ${chat.email}`,`${d.mBudget}: ${chat.budget||'—'}`,`${d.mRoute}: ${state.route||'—'}`].filter(Boolean).join(nl);
+function startChat(){chat.step=0; chat.log=[]; chat.started=true; if(chat.svc) say('bot','cpick'); say('bot',state.route==='founder'?'cq_founder':state.route==='team'?'cq_team':'cq_business')}
+function mailHref(){const d=T[lang],nl='\n'; const eq=state.route==='team'; const body=[`${eq?d.mWhat_team:d.mWhat}: ${chat.idea}`,chat.svc?`${d.mSvc}: ${d[chat.svc+'N']}`:'',`${d.mName}: ${chat.name}`,`Email: ${chat.email}`,`${eq?d.mBudget_team:d.mBudget}: ${chat.budget||'—'}`,`${d.mRoute}: ${state.route||'—'}`].filter(Boolean).join(nl);
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(d.mSubj+': '+chat.name)}&body=${encodeURIComponent(body)}`}
 function answer(v,skipped){v=(v||'').trim(); if(!v&&!skipped) return;
   if(chat.step===0){chat.idea=v; say('me',null,v); chat.step=1; say('bot','cname')}
   else if(chat.step===1){chat.name=v; say('me',null,v); chat.step=2; say('bot','cmail')}
-  else if(chat.step===2){say('me',null,v); if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){say('bot','cbad'); return} chat.email=v; chat.step=3; say('bot','cbud')}
-  else if(chat.step===3){const none=skipped||/^(no idea|ni idea|none|nada|-)$/i.test(v); chat.budget=none?'':v; if(v) say('me',null,v); chat.step=4; say('bot',none?'cnobud':'cbudok'); say('bot','cready')}
+  else if(chat.step===2){say('me',null,v); if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){say('bot','cbad'); return} chat.email=v; chat.step=3; say('bot',state.route==='team'?'cbud_team':'cbud')}
+  else if(chat.step===3){const none=skipped||/^(no idea|ni idea|none|nada|-)$/i.test(v); chat.budget=none?'':v; if(v) say('me',null,v); chat.step=4; say('bot',none?(state.route==='team'?'cnobud_team':'cnobud'):'cbudok'); say('bot','cready')}
   $('#chatInput').value=''; cue('notes',900)}
 function wireChat(el){if(!chat.started) startChat();
   el.querySelector('#chatSend').addEventListener('click',()=>answer($('#chatInput').value));
@@ -648,11 +724,13 @@ function wireChat(el){if(!chat.started) startChat();
   el.querySelector('#chatSkip').addEventListener('click',()=>answer('',true));
   el.querySelector('#chatMail').addEventListener('click',()=>{$('#chatMail').href=mailHref(); cue('bang',900); setTimeout(()=>{if(chat.step===4){chat.step=5; say('bot','cdone')}},400)});
   el.querySelector('#chatAgain').addEventListener('click',()=>{chat.idea=chat.name=chat.email=chat.budget=''; startChat()});
+  el.querySelector('.copiar').addEventListener('click',e=>{const b=e.currentTarget; const ok=()=>{b.textContent=T[lang].copiado; setTimeout(()=>{b.textContent=T[lang].copiar},1800)};
+    try{navigator.clipboard.writeText(CONTACT_EMAIL).then(ok,()=>{})}catch(_){}});
   setTimeout(drawChat,0)}
 
 /* ---------- chapter 9: three bottles, ordered by what the reader picked in chapter 1 ---------- */
 const POT={bp:'#4DB8FF',mv:'#FF6B4A',m1:'#FFE14A'};
-const potOrder=()=>state.route==='founder'?['bp','mv','m1']:['m1','bp','mv'];
+const potOrder=()=>state.route==='founder'?['bp','mv','m1']:state.route==='team'?['mv','m1','bp']:['m1','bp','mv'];
 const uncorked=new Set();
 function fillPot(el,slot){const id=potOrder()[slot], d=T[lang];
   el.style.setProperty('--liq',POT[id]); el.dataset.pot=id; el.classList.toggle('popped',uncorked.has(id));
@@ -807,43 +885,43 @@ function frameShadow(){if(!SHADOW) return; let floor=null;
 const PH=s=>`<span class="ph">${s}</span>`;
 const DOCS={
  es:{legal:['Aviso legal',`
-<h3>Quién está detrás</h3><p>Este sitio, eliasgonzalez.io, es de Elias González ${PH('[apellidos completos]')}, profesional independiente con NIF/NIE ${PH('[número]')} y domicilio en ${PH('[dirección completa]')}, España. Puedes escribirme a ${PH('[email de contacto]')}.</p>
+<h3>Quién está detrás</h3><p>Este sitio, eliasgonzalez.io, es de Elias González, profesional independiente en España. Puedes escribirme a rmngzps@gmail.com o llamarme al +34 672 886 847.</p>
 <h3>Para qué sirve el sitio</h3><p>Presentar mi trabajo como desarrollador de software y los servicios que ofrezco. El precio de cada servicio es orientativo hasta que firmemos un presupuesto.</p>
 <h3>Propiedad intelectual</h3><p>Los textos, el manga, los dibujos y el código de este sitio son míos, salvo las marcas de terceros. No los copies ni los reutilices sin permiso. Si quieres compartir el enlace, adelante.</p>
-<h3>Minimal One y Güibbo</h3><p>Minimal One y Güibbo pertenecen a ${PH('[nombre de la sociedad]')}, sociedad registrada en Costa Rica de la que formo parte. Sus webs tienen sus propias condiciones.</p>
+<h3>Minimal One y Güibbo</h3><p>Minimal One y Güibbo pertenecen a 3-102-946533 Sociedad de Responsabilidad Limitada (cédula jurídica 3-102-946533), sociedad registrada en Costa Rica de la que formo parte. Sus webs tienen sus propias condiciones.</p>
 <h3>Responsabilidad</h3><p>Intento que todo lo que hay aquí esté al día, pero no respondo de los daños que pueda causar el uso de la información del sitio ni del contenido de las webs externas enlazadas.</p>
 <h3>Ley aplicable</h3><p>Este aviso se rige por la ley española, incluida la Ley 34/2002 de servicios de la sociedad de la información (LSSI).</p>`],
   privacy:['Política de privacidad',`
-<h3>Responsable</h3><p>Elias González ${PH('[apellidos]')}, NIF/NIE ${PH('[número]')}, ${PH('[dirección]')}. Contacto: ${PH('[email de contacto]')}.</p>
-<h3>Qué datos trato y cómo me llegan</h3><p>El chat del capítulo 10 no guarda nada ni envía nada a ningún servidor: solo prepara un correo en tu propia app de email. Solo recibo tus datos si tú envías ese correo. En ese caso trato lo que me escribas: tu nombre, tu email, tu proyecto y, si lo indicas, tu presupuesto.</p>
+<h3>Responsable</h3><p>Elias González. Contacto: rmngzps@gmail.com · +34 672 886 847.</p>
+<h3>Qué datos trato y cómo me llegan</h3><p>El chat del capítulo 8 no guarda nada ni envía nada a ningún servidor: solo prepara un correo en tu propia app de email. Solo recibo tus datos si tú envías ese correo. En ese caso trato lo que me escribas: tu nombre, tu email, tu proyecto y, si lo indicas, tu presupuesto.</p>
 <h3>Para qué los uso</h3><p>Para responderte y, si te interesa, preparar una propuesta. No los uso para publicidad ni los vendo.</p>
 <h3>Base legal</h3><p>Tu consentimiento al escribirme y la aplicación de medidas precontractuales a tu petición (artículo 6.1.a y 6.1.b del RGPD).</p>
-<h3>Cuánto tiempo los guardo</h3><p>Mientras dure nuestra conversación y, si llegamos a trabajar juntos, el tiempo que exija la ley para la facturación. Si no, los borro en un plazo máximo de ${PH('[12 meses]')}.</p>
-<h3>Con quién los comparto</h3><p>Con nadie, salvo obligación legal. Mi proveedor de correo (${PH('[proveedor]')}) y el alojamiento del sitio (${PH('[proveedor de hosting]')}) los tratan solo por mi cuenta.</p>
-<h3>Tus derechos</h3><p>Puedes pedir acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a ${PH('[email de contacto]')}. Si crees que no los respeto, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>`],
+<h3>Cuánto tiempo los guardo</h3><p>Mientras dure nuestra conversación y, si llegamos a trabajar juntos, el tiempo que exija la ley para la facturación. Si no, los borro en un plazo máximo de 12 meses.</p>
+<h3>Con quién los comparto</h3><p>Con nadie, salvo obligación legal. Mi proveedor de correo (Google, con Gmail) y el alojamiento del sitio (Vercel) los tratan solo por mi cuenta.</p>
+<h3>Tus derechos</h3><p>Puedes pedir acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a rmngzps@gmail.com. Si crees que no los respeto, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>`],
   cookies:['Política de cookies',`
 <h3>Resumen</h3><p>Este sitio no usa cookies: ni de análisis, ni de publicidad, ni propias, ni de terceros. Por eso no ves ningún aviso de cookies al entrar.</p>
-<h3>Lo que sí ocurre</h3><p>Las tipografías se cargan desde Google Fonts. Para servirlas, Google recibe tu dirección IP, como con cualquier archivo que se descarga de un servidor. Google no instala cookies por ello. Puedes ver su política en policies.google.com/privacy.</p>
+<h3>Lo que sí ocurre</h3><p>Las tipografías y las imágenes se sirven desde este mismo sitio, alojado en Vercel: no se pide nada a Google ni a ningún otro tercero al leer el manga. Como con cualquier web, el servidor recibe tu dirección IP para poder enviarte la página.</p>
 <h3>Lo que recuerda la página</h3><p>Mientras la tienes abierta, la página recuerda en memoria el idioma, si firmaste el contrato y la opción que elegiste. Al cerrarla se olvida todo: por eso el contrato aparece en cada visita.</p>
 <h3>Si esto cambia</h3><p>Si algún día añado cookies que no sean imprescindibles, te pediré permiso antes y actualizaré esta página.</p>`]},
  en:{legal:['Legal notice',`
-<h3>Who’s behind this</h3><p>This site, eliasgonzalez.io, belongs to Elias González ${PH('[full surnames]')}, a self-employed professional with tax ID ${PH('[number]')} and address at ${PH('[full address]')}, Spain. You can write to ${PH('[contact email]')}.</p>
+<h3>Who’s behind this</h3><p>This site, eliasgonzalez.io, belongs to Elias González, a self-employed professional in Spain. You can write to rmngzps@gmail.com or call +34 672 886 847.</p>
 <h3>What the site is for</h3><p>Showing my work as a software developer and the services I offer. Prices are indicative until we sign an estimate.</p>
 <h3>Intellectual property</h3><p>The texts, the manga, the drawings and the code on this site are mine, except third-party trademarks. Please don’t copy or reuse them without permission. Sharing the link is fine.</p>
-<h3>Minimal One and Güibbo</h3><p>Minimal One and Güibbo belong to ${PH('[company name]')}, a company registered in Costa Rica that I’m part of. Their websites have their own terms.</p>
+<h3>Minimal One and Güibbo</h3><p>Minimal One and Güibbo belong to 3-102-946533 Sociedad de Responsabilidad Limitada (legal ID 3-102-946533), a company registered in Costa Rica that I’m part of. Their websites have their own terms.</p>
 <h3>Liability</h3><p>I try to keep everything here up to date, but I’m not liable for damage caused by using the information on this site or by the content of linked external websites.</p>
 <h3>Applicable law</h3><p>This notice is governed by Spanish law, including Law 34/2002 on information society services (LSSI).</p>`],
   privacy:['Privacy policy',`
-<h3>Controller</h3><p>Elias González ${PH('[surnames]')}, tax ID ${PH('[number]')}, ${PH('[address]')}. Contact: ${PH('[contact email]')}.</p>
-<h3>What data and how it reaches me</h3><p>The chat in chapter 10 doesn’t store or send anything to any server: it only prepares an email in your own email app. I only receive your data if you send that email. Then I process what you write: your name, your email, your project and, if you share it, your budget.</p>
+<h3>Controller</h3><p>Elias González. Contact: rmngzps@gmail.com · +34 672 886 847.</p>
+<h3>What data and how it reaches me</h3><p>The chat in chapter 8 doesn’t store or send anything to any server: it only prepares an email in your own email app. I only receive your data if you send that email. Then I process what you write: your name, your email, your project and, if you share it, your budget.</p>
 <h3>What I use it for</h3><p>To reply and, if you’re interested, to prepare a proposal. I don’t use it for advertising and I don’t sell it.</p>
 <h3>Legal basis</h3><p>Your consent when you write to me, and pre-contractual steps taken at your request (GDPR article 6.1.a and 6.1.b).</p>
-<h3>How long I keep it</h3><p>While our conversation lasts and, if we work together, as long as the law requires for invoicing. Otherwise I delete it within ${PH('[12 months]')}.</p>
-<h3>Who I share it with</h3><p>Nobody, unless the law requires it. My email provider (${PH('[provider]')}) and the site’s hosting (${PH('[hosting provider]')}) only process it on my behalf.</p>
-<h3>Your rights</h3><p>You can request access, rectification, erasure, objection, restriction and portability by writing to ${PH('[contact email]')}. If you think I’m not respecting them, you can complain to the Spanish Data Protection Agency (aepd.es).</p>`],
+<h3>How long I keep it</h3><p>While our conversation lasts and, if we work together, as long as the law requires for invoicing. Otherwise I delete it within 12 months.</p>
+<h3>Who I share it with</h3><p>Nobody, unless the law requires it. My email provider (Google, with Gmail) and the site’s hosting (Vercel) only process it on my behalf.</p>
+<h3>Your rights</h3><p>You can request access, rectification, erasure, objection, restriction and portability by writing to rmngzps@gmail.com. If you think I’m not respecting them, you can complain to the Spanish Data Protection Agency (aepd.es).</p>`],
   cookies:['Cookie policy',`
 <h3>Short version</h3><p>This site uses no cookies: no analytics, no advertising, no first-party, no third-party. That’s why you don’t see a cookie banner.</p>
-<h3>What does happen</h3><p>The fonts load from Google Fonts. To serve them, Google receives your IP address, as with any file downloaded from a server. Google doesn’t set cookies for this. Its policy is at policies.google.com/privacy.</p>
+<h3>What does happen</h3><p>The fonts and images are served from this same site, hosted on Vercel: nothing is requested from Google or any other third party while you read the manga. As with any website, the server receives your IP address so it can send you the page.</p>
 <h3>What the page remembers</h3><p>While it’s open, the page keeps in memory your language, whether you signed the contract and the option you picked. When you close it, it forgets everything: that’s why the contract shows up on every visit.</p>
 <h3>If this changes</h3><p>If I ever add non-essential cookies, I’ll ask for your permission first and update this page.</p>`]}
 };
@@ -872,27 +950,64 @@ const CH=[
  {n:3,id:'t2',en:["Other people’s pockets","A sad story about your customers’ phones."],es:["Bolsillos ajenos","Una historia triste sobre los teléfonos de tus clientes."]},
  {n:4,id:'t3',en:["Looks simple. Isn’t.","What’s inside an app. Spoiler: a lot."],es:["Parece fácil. No lo es.","Lo que hay dentro de una app. Spoiler: mucho."]},
  {n:5,id:'t7',en:["Notifications","A lot of them. Not yours. Yet."],es:["Notificaciones","Muchas. No son tuyas. Todavía."]},
- {n:6,id:'t4',en:["Real businesses","No jokes. Nah, yes jokes."],es:["Negocios reales","Sin chistes. Nah, sí hay chistes."]},
+ {n:6,id:'t4',en:["Real businesses","No jokes. Nah, yes jokes."],es:["Negocios reales","Sin chistes. Nah, sí hay chistes."],cs:{en:["Two projects","Minimal One and Güibbo."],es:["Dos proyectos","Minimal One y Güibbo."]}},
  {n:7,id:'t9',en:["Pick your poison","Prices. Yes, already. I see you."],es:["Elige tu veneno","Precios. Sí, ya. Te estoy viendo."]},
  {n:8,id:'t10',en:["The call","Skip everything and write me. Respect."],es:["La llamada","Sáltate todo y escríbeme. Respeto."]},
  {n:9,id:'t11',locked:true,en:["???","Nice try. You have to earn this one."],es:["???","Buen intento. Este te lo tienes que ganar."],uen:["Post-credits scene","You stayed until the end. Respect."],ues:["Escena postcréditos","Te quedaste hasta el final. Respeto."]}
 ];
+const visibles=()=>CH.filter(c=>!c.id||ITEMS.some(x=>x.id===c.id));
+function capActual(){const y=scrollY; let cur=visibles()[0].n; visibles().forEach(c=>{const it=c.id&&ITEMS.find(x=>x.id===c.id); if(it&&y>=it.at-innerHeight*.5) cur=c.n}); return cur}
+
+Object.assign(MT.es,{corta:"Versión corta: 5 capítulos",larga:"Ver el manga completo",rail:"Capítulos"});
+Object.assign(MT.en,{corta:"Short version: 5 chapters",larga:"Read the full manga",rail:"Chapters"});
+
+/* ---------- dónde está el lector: el capítulo y la barra de avance (y, en pantallas anchas, el índice al costado) ---------- */
+function progreso(){const p=$('#progreso'); if(!p||!ITEMS.length) return; const t11=ITEMS.find(x=>x.id==='t11'); if(t11&&scrollY>=t11.at-innerHeight*.5) state.earned=true; const vs=visibles().filter(c=>c.id), cur=capActual(), i=Math.max(0,vs.findIndex(c=>c.n===cur)), d=T[lang];
+  p.hidden=!state.signed; $('#progresoCap').textContent=cur===i+1?`${d.progreso} ${cur} ${d.de} ${vs.length}`:`${d.progreso} ${cur} · ${i+1} ${d.de} ${vs.length}`;
+  const fo=$('#foot'), r=$('#rail'); if(fo&&r) r.classList.toggle('fuera',fo.getBoundingClientRect().top<innerHeight*.9);
+  const max=Math.max(1,document.documentElement.scrollHeight-innerHeight); $('#progresoBar').style.transform=`scaleX(${Math.min(1,scrollY/max).toFixed(3)})`;
+  $$('#rail .ritem').forEach(b=>{const now=+b.dataset.n===cur; b.toggleAttribute('aria-current',now); b.classList.toggle('now',now)})}
+function renderRail(){const r=$('#rail'); if(!r) return; const m=MT[lang]; r.hidden=!state.signed; r.setAttribute('aria-label',m.rail);
+  r.innerHTML=`<p class="rtit">${m.rail}</p><ol>`+visibles().map(c=>{const lk=c.locked&&!state.earned, nm=(!lk&&c.uen)?(lang==='es'?c.ues:c.uen):(state.short&&c.cs)?c.cs[lang]:c[lang];
+    return `<li><button type="button" class="ritem" data-n="${c.n}"${lk?' aria-disabled="true"':''}><span class="rn">${c.n}</span><span class="rt">${nm[0]}</span></button></li>`}).join('')+`</ol>`;
+  progreso()}
+$('#rail').addEventListener('click',e=>{const b=e.target.closest('.ritem'); if(b) irACapitulo(+b.dataset.n,null,false)});
+let progT=0; addEventListener('scroll',()=>{if(progT) return; progT=requestAnimationFrame(()=>{progT=0; const was=state.earned; progreso(); if(state.earned!==was) renderRail()})},{passive:true});
+/* firmar enseña el avance, el índice del costado y el atajo al contacto */
+function alFirmar(){$('#saltar').hidden=false; renderRail(); progreso()}
+$('#saltar').addEventListener('click',()=>{const c=ITEMS.find(x=>x.id==='chat10'); state.skipGate=true; gateHold(false); scrollTo({top:c.at+2,behavior:'auto'}); setTimeout(()=>{const i=$('#chatInput'); i&&i.focus({preventScroll:true})},400)});
+
+/* ---------- las hojas (índice, frascos, tienda, legal): el foco no se escapa y la página de atrás queda inerte ---------- */
+const HOJAS=['#menu','#potion','#demo','#legal'];
+const hojaAbierta=()=>HOJAS.map(s=>$(s)).find(h=>h&&!h.hidden);
+const FONDO=()=>[$('#col'),$('#track'),$('#foot'),$('#lang'),$('#menuBtn'),$('#rail'),$('#saltar'),$('#progreso')].filter(Boolean);
+new MutationObserver(()=>{const h=hojaAbierta(); FONDO().forEach(el=>{el.inert=!!h})}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['hidden']});
+addEventListener('keydown',e=>{if(e.key!=='Tab') return; const h=hojaAbierta(); if(!h) return;
+  const f=[...h.querySelectorAll('a[href],button:not([disabled]),input,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.closest('[hidden]')&&x.offsetParent!==null);
+  if(!f.length) return; const a=f[0], z=f[f.length-1];
+  if(!h.contains(document.activeElement)){e.preventDefault(); (e.shiftKey?z:a).focus(); return}
+  if(e.shiftKey&&document.activeElement===a){e.preventDefault(); z.focus()} else if(!e.shiftKey&&document.activeElement===z){e.preventDefault(); a.focus()}});
 function renderMenu(){const m=MT[lang], y=scrollY; $('#menu .mpage').classList.toggle('unsigned',!state.signed);
   $('#menuTitle').textContent=m.title; $('#menuQuip').textContent=state.signed?m.quip:m.sign; $('#menuClose').textContent=m.close; $('#menuBtnLabel').textContent=m.open;
-  let cur=1; CH.forEach(c=>{const it=c.id&&ITEMS.find(x=>x.id===c.id); if(it&&y>=it.at-innerHeight*.5) cur=c.n});
+  const cur=capActual();
+  const vb=$('#menuVersion'); vb.textContent=state.short?m.larga:m.corta; vb.dataset.v=state.short?'larga':'corta';
   const t11=ITEMS.find(x=>x.id==='t11'); if(t11&&y>=t11.at-innerHeight*.5) state.earned=true;
-  $('#mlist').innerHTML=CH.map(c=>{const lk=c.locked&&!state.earned, nm=(!lk&&c.uen)?(lang==='es'?c.ues:c.uen):c[lang]; const st=(lk||!state.signed)?'locked':!c.id?'draw':c.n===cur?'now':'ready';
+  $('#mlist').innerHTML=visibles().map(c=>{const lk=c.locked&&!state.earned, nm=(!lk&&c.uen)?(lang==='es'?c.ues:c.uen):(state.short&&c.cs)?c.cs[lang]:c[lang]; const st=(lk||!state.signed)?'locked':!c.id?'draw':c.n===cur?'now':'ready';
     return `<li><button class="mitem" type="button" data-n="${c.n}" data-st="${st}"${st==='locked'?' aria-disabled="true"':''}><span class="mn">${c.n}</span><span class="mt">${nm[0]}</span><span class="mq">${nm[1]}</span><span class="ms">${m[st]}</span></button></li>`}).join('')}
 function openMenu(){renderMenu(); $('#menu').hidden=false; $('#menuBtn').setAttribute('aria-expanded','true'); const f=$('#menu .mitem'); f&&f.focus()}
 function closeMenu(){$('#menu').hidden=true; $('#menuBtn').setAttribute('aria-expanded','false'); $('#menuBtn').focus()}
 $('#menuBtn').addEventListener('click',openMenu);
 $('#menuClose').addEventListener('click',closeMenu);
 $('#menu').addEventListener('click',e=>{if(e.target.id==='menu') closeMenu()});
-$('#mlist').addEventListener('click',e=>{const b=e.target.closest('.mitem'); if(!b) return; const n=+b.dataset.n, c=CH.find(x=>x.n===n), m=MT[lang];
-  if(!state.signed){const q=$('#menuQuip'); q.textContent=m.sign; q.classList.remove('nudge'); void q.offsetWidth; q.classList.add('nudge'); return}
-  if(c.locked&&!state.earned){b.querySelector('.mq').textContent=m.nope; return}
-  if(!c.id){b.querySelector('.mq').textContent=m.note; return}
-  const it=ITEMS.find(x=>x.id===c.id); closeMenu(); gateHold(false); if(n>2) state.skipGate=true; scrollTo({top:Math.max(0,it.at+2),behavior:'auto'})});
+function irACapitulo(n,b,cerrar){const c=CH.find(x=>x.n===n), m=MT[lang];
+  if(!state.signed){const q=$('#menuQuip'); q.textContent=m.sign; q.classList.remove('nudge'); void q.offsetWidth; q.classList.add('nudge'); return false}
+  if(c.locked&&!state.earned){if(b) b.querySelector('.mq').textContent=m.nope; return false}
+  if(!c.id){if(b) b.querySelector('.mq').textContent=m.note; return false}
+  const it=ITEMS.find(x=>x.id===c.id); if(!it) return false; if(cerrar) closeMenu(); gateHold(false); if(n>2) state.skipGate=true; scrollTo({top:Math.max(0,it.at+2),behavior:'auto'}); return true}
+$('#mlist').addEventListener('click',e=>{const b=e.target.closest('.mitem'); if(!b) return; irACapitulo(+b.dataset.n,b,true)});
+$('#menuVersion').addEventListener('click',()=>{if(state.short){location.href='/'; return}
+  if(!state.signed){const q=$('#menuQuip'); q.textContent=MT[lang].sign; q.classList.remove('nudge'); void q.offsetWidth; q.classList.add('nudge'); return}
+  closeMenu(); scrollTo({top:0,behavior:'auto'}); aCorta()});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#menu').hidden) closeMenu()});
 
 /* ---------- pinning: before (scrolls in) · pin (fixed) · after (scrolls out) ---------- */
@@ -906,7 +1021,9 @@ addEventListener('scroll',pinFrame,{passive:true});
 const scenes={}; function measure(){$$('.sc').forEach(s=>{scenes[s.dataset.sc]={top:s.offsetTop,span:Math.max(1,s.offsetHeight-innerHeight),el:s}});
   ITEMS.forEach(it=>{const s=scenes[it.sc]; it.at=s.top+it.a*s.span; it.until=it.e!=null?s.top+it.e*s.span:null});
   /* he hops onto the footer as soon as it rises past the middle of the screen */
-  const ft=ITEMS.find(x=>x.id==='footer'), fo=document.getElementById('foot'); if(ft&&fo) ft.at=fo.offsetTop-innerHeight*.55}
+  const ft=ITEMS.find(x=>x.id==='footer'), fo=document.getElementById('foot'); if(ft&&fo) ft.at=fo.offsetTop-innerHeight*.55;
+  /* el «Fin» se va cuando él salta al pie: si no, el pie lo corta por la mitad */
+  const en=ITEMS.find(x=>x.id==='end'); if(en&&ft) en.until=ft.at}
 
 /* panel timelines (frames only for now) */
 const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
@@ -1188,12 +1305,22 @@ function aimTails(){const hx=S.x, hy=S.y-H*.62;
 /* titles shrink until every word fits on its line */
 function fitTitles(){ITEMS.forEach(it=>{if(it.kind!=='title') return; const h=it.el.querySelector('.tname'); let fs=it.nfs||20; h.style.fontSize=fs+'cqw';
   let guard=40; while(guard--&&[...h.querySelectorAll('.word')].some(w=>w.scrollWidth>it.el.clientWidth+1)){fs-=.5; h.style.fontSize=fs+'cqw'}})}
-function layout(){size(); fitTitles(); measure(); measurePins(); pinFrame(); cbLast=-1; tls.forEach(t=>{t.w=t.h=0}); buildDepth(); frame(true)}
+function layout(){size(); fitTitles(); measure(); measurePins(); pinFrame(); cbLast=-1; tls.forEach(t=>{t.w=t.h=0}); buildDepth(); frame(true); progreso()}
+function aCorta(){if(state.short) return; state.short=true;
+  $$('#col > .sc').forEach(s=>{if(!CORTA_SC.has(s.dataset.sc)){delete scenes[s.dataset.sc]; s.remove()}});
+  recortar();
+  for(let i=tls.length-1;i>=0;i--) if(!tls[i].el.isConnected) tls.splice(i,1);
+  for(let i=REVEAL.length-1;i>=0;i--) if(!REVEAL[i].el.isConnected) REVEAL.splice(i,1);
+  curIdx=Math.min(curIdx,ITEMS.length-1); leaving=-1;
+  build(); renderGag(); renderPots(); layout(); startChat(); drawChat(); renderRail();
+  try{history.replaceState(null,'','/corta')}catch(e){}
+  if(!$('#menu').hidden) renderMenu(); cue('notes',1200)}
+
 /* on phones the toolbar hides and shows while scrolling, which fires "resize" constantly:
    only rebuild when the width really changes (rotation, window resize), and never mid-scroll */
 let lastW=innerWidth, rT=0;
 addEventListener('resize',()=>{if(Math.abs(innerWidth-lastW)<2) return; clearTimeout(rT); rT=setTimeout(()=>{lastW=innerWidth; layout()},200)});
-build(); renderGag(); renderPots(); layout();
+build(); renderGag(); renderPots(); layout(); renderRail();
 requestAnimationFrame(t=>{prev=t; const r=perchRect(0); S.x=r.left+r.width*S.xo; S.y=r.top; loop(t)});
 if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
 

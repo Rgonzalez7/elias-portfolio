@@ -166,7 +166,7 @@ body{margin:0;color:var(--ink);-webkit-tap-highlight-color:transparent}
 .it.bub .tail{position:absolute;left:0;top:0;width:1.7em;height:1.7em;overflow:visible;pointer-events:none;transform-origin:50% 0}
 .it.bub .tail path{fill:var(--paper);stroke:var(--ink);stroke-width:3;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .it.sfx{font:15cqw/1 var(--sfx);color:var(--hl);-webkit-text-stroke:.085em var(--ink);paint-order:stroke fill;white-space:nowrap;text-shadow:.04em .05em 0 var(--ink)}
-.it.hint{background:var(--hl);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);font:700 3.4cqw/1.2 var(--letter);text-transform:uppercase;padding:.6em .8em;text-align:center}
+.it.hint{background:var(--hl);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);font:700 max(15px,3.4cqw)/1.2 var(--letter);text-transform:uppercase;padding:.6em .8em;text-align:center}
 /* entrances and exits by kind */
 .it.cap:not(.on),.it.hint:not(.on){transform:translateY(-.8em)}
 .it.bub:not(.on){transform:scale(.6)}
@@ -203,7 +203,7 @@ body{margin:0;color:var(--ink);-webkit-tap-highlight-color:transparent}
 .fcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:26px;border-top:3px solid #fff;padding-top:26px}
 .fcols nav{display:grid;gap:8px;align-content:start}
 .fcols h3{margin:0 0 4px;font:22px/1 var(--title);letter-spacing:.05em;color:var(--hl)}
-.flink{justify-self:start;font:700 16px/1.3 var(--letter);text-transform:uppercase;color:#fff;background:none;border:0;padding:4px 0;text-decoration:none;cursor:pointer;text-align:left}
+.flink{justify-self:start;font:700 16px/1.3 var(--letter);text-transform:uppercase;color:#fff;background:none;border:0;padding:4px 0;text-decoration:none;cursor:pointer;text-align:left;min-height:44px;display:inline-flex;align-items:center}
 .flink:hover{color:var(--hl);text-decoration:underline;text-decoration-thickness:3px}
 .flink:focus-visible{outline:3px solid var(--hl);outline-offset:3px}
 .flegal{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:34px;padding-top:18px;border-top:3px solid #fff}
@@ -317,7 +317,7 @@ body{margin:0;color:var(--ink);-webkit-tap-highlight-color:transparent}
 .it.title .word span{display:inline-block;white-space:pre;background:var(--hl);border-top:5px solid var(--ink);border-bottom:5px solid var(--ink);padding:.06em .02em 0}
 .it.title .word span:first-child{border-left:5px solid var(--ink);padding-left:.08em}
 .it.title .word span:last-child{border-right:5px solid var(--ink);padding-right:.08em}
-.it.title .tdim{display:flex;align-items:center;gap:.5em;margin-top:1.1em;font:700 3.2cqw/1 var(--letter);text-transform:uppercase}
+.it.title .tdim{display:flex;align-items:center;gap:.5em;margin-top:1.1em;font:700 max(14px,3.2cqw)/1.1 var(--letter);text-transform:uppercase}
 .it.title .tdim i{flex:1;height:2px;background:var(--ink)}
 
 /* contract */
@@ -398,7 +398,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 @keyframes puff{from{transform:scale(.3);opacity:1}70%{opacity:1}to{transform:scale(1.5);opacity:0}}
 
 .lang{position:fixed;top:max(12px,env(safe-area-inset-top));right:max(76px,calc((100vw - var(--W))/2 + 76px));z-index:10;font:20px/1 var(--title);letter-spacing:.04em;
-  background:var(--paper);color:var(--ink);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:.4em .55em .3em;cursor:pointer}
+  background:var(--paper);color:var(--ink);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:.4em .55em .3em;cursor:pointer;min-height:46px;min-width:46px}
 .menuBtn{position:fixed;top:max(12px,env(safe-area-inset-top));right:max(12px,calc((100vw - var(--W))/2 + 12px));z-index:10;width:52px;height:46px;display:grid;place-items:center;
   background:var(--hl);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:pointer;padding:0}
 .menuBtn svg{width:30px;height:22px;overflow:visible}
@@ -437,3 +437,53 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 @keyframes mpop{0%{opacity:0;transform:rotate(10deg) scale(.3)}50%{opacity:1;transform:rotate(10deg) scale(1.2)}100%{opacity:1;transform:rotate(10deg) scale(1)}}
 @media (prefers-reduced-motion:reduce){.mpage,.msfx{animation:none}}
 @media (prefers-reduced-motion:reduce){.it,.it.on{transition:none}.hold:not(.done) .disc{animation:none}}
+
+
+/* ---------- quién es, dónde está el lector y cómo llegar al contacto ---------- */
+.it.contract .ct-who{margin:0 0 .55em;font:700 max(14px,3.6cqw)/1.2 var(--letter);letter-spacing:.03em;text-transform:uppercase;text-align:center}
+/* la invitación a la versión corta, debajo de «Haz scroll» */
+.it.vcorta{background:var(--paper);color:var(--ink);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--hl);font:700 max(15px,3.6cqw)/1.2 var(--letter);text-transform:uppercase;
+  padding:.7em .8em;min-height:48px;cursor:pointer;text-align:center}
+.it.vcorta:not(.on){transform:translateY(-.8em)}
+.it.vcorta:hover{background:var(--hl)}
+.it.vcorta:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+/* el capítulo y la barra de avance, arriba a la izquierda de la columna */
+.progreso{position:fixed;top:max(12px,env(safe-area-inset-top));left:max(12px,calc((100vw - var(--W))/2 + 12px));z-index:10;margin:0;
+  background:var(--paper);color:var(--ink);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);font:17px/1 var(--title);letter-spacing:.05em;padding:.55em .65em .45em;pointer-events:none}
+.progreso i{display:block;height:4px;margin-top:6px;background:var(--tone)}
+.progreso b{display:block;height:100%;background:var(--ink);transform-origin:0 50%;transform:scaleX(0)}
+.progreso[hidden],.rail[hidden],.saltar[hidden]{display:none}
+/* el atajo al contacto: invisible hasta que el teclado llega a él */
+.saltar{position:fixed;top:max(12px,env(safe-area-inset-top));left:50%;z-index:12;transform:translate(-50%,-250%);
+  font:20px/1 var(--title);letter-spacing:.04em;background:var(--hl);color:var(--ink);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:.55em .8em .4em;min-height:46px;cursor:pointer}
+.saltar:focus-visible{transform:translate(-50%,0);outline:3px solid var(--ink);outline-offset:4px}
+/* el índice en el margen: solo cuando sobra pantalla a los lados */
+.rail{display:none}
+@media (min-width:1180px) and (min-aspect-ratio:7/5){
+  .rail{display:block;position:fixed;top:50%;transform:translateY(-50%);left:max(20px,calc((100vw - var(--W))/2 - 264px));width:min(232px,calc((100vw - var(--W))/2 - 44px));z-index:9;
+    background:var(--paper);color:var(--ink);border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:14px 12px 10px}
+  .rail .rtit{margin:0 0 8px;font:22px/1 var(--title);letter-spacing:.05em;border-bottom:3px solid var(--ink);padding-bottom:8px}
+  .rail ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+  .rail .ritem{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;width:100%;min-height:40px;text-align:left;background:none;border:0;padding:4px 6px;cursor:pointer;color:var(--ink);
+    font:700 14px/1.2 var(--letter);text-transform:uppercase}
+  .rail .rn{display:grid;place-items:center;width:28px;height:28px;border:2.5px solid var(--ink);font:16px/1 var(--title);background:var(--paper)}
+  .rail .ritem:hover .rt{text-decoration:underline;text-decoration-thickness:3px;text-decoration-color:var(--hl)}
+  .rail .ritem.now{background:var(--hl)}
+  .rail .ritem.now .rn{background:var(--ink);color:var(--hl)}
+  .rail .ritem[aria-disabled="true"]{opacity:.55}
+  .rail .ritem:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+  .rail{transition:opacity .2s steps(2),visibility 0s}
+  .rail.fuera{opacity:0;visibility:hidden;transition:opacity .2s steps(2),visibility 0s .2s}
+}
+/* el cambio de versión al pie del índice */
+.mversion{display:block;width:100%;margin:20px 0 4px;min-height:52px;font:24px/1 var(--title);letter-spacing:.04em;color:#000;background:var(--hl);border:3px solid #000;box-shadow:4px 4px 0 #000;cursor:pointer;padding:.5em .6em .4em}
+.mversion:focus-visible{outline:3px solid #000;outline-offset:4px}
+/* el correo, siempre a la vista debajo del chat */
+.chatdir{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:.3em .7em;padding:.55em .6em;border-top:3px solid #000;background:#fff;font:700 max(14px,.85em)/1.35 var(--letter);text-transform:uppercase}
+.chatdir a{color:#000;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center;text-transform:none}
+.chatdir a:last-child{text-transform:uppercase}
+.chatdir .copiar{font:.95em/1 var(--title);letter-spacing:.04em;color:#000;background:#fff;border:2.5px solid #000;border-radius:.5em;padding:.45em .6em .35em;min-height:44px;cursor:pointer}
+.chatdir a:focus-visible,.chatdir .copiar:focus-visible{outline:3px solid #000;outline-offset:2px}
+
+/* con cuatro respuestas, en la columna ancha de la compu las cajas bajan un poco de tamaño para no pisarse */
+@media (min-aspect-ratio:2/3){.it.ch{padding:.6em .8em;font-size:5.4cqw}}
