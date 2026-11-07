@@ -3,7 +3,7 @@ import { Pie } from "@/components/Pie";
 import { Motor } from "@/components/Motor";
 import { HISTORIA } from "@/components/historia";
 
-// Las escenas de la versión corta (capítulos 1, 6, 7, 8 y 9). La misma lista vive en el motor (CORTA_SC),
+// Las escenas de la versión corta (capítulos 1, 5, 6, 7 y 8). La misma lista vive en el motor (CORTA_SC),
 // que recorta los textos; aquí se recorta el dibujo para que /corta no descargue lo que no va a enseñar.
 const ESCENAS_CORTA = new Set([
   "contract", "kid8", "parents8", "eng8", "timeline8", "today8",
