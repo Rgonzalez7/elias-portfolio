@@ -397,12 +397,16 @@ Object.assign(T.es,{
   k1:"El capítulo anterior terminó con «tengo pruebas». Aquí están. En formato videojuego, porque puedo.",
   k1_r:"Versión corta, así que directo a la ficha. Sin rodeos. Bueno, con algunos.",
   k2:"Sí, los números me los puse yo. Como todo el mundo en LinkedIn. La diferencia es que los míos se pueden comprobar.",
+  k3b:"Y el sueño en 0. La barra no está rota: viene así de fábrica.",
   k3:"La paciencia está en 3. Iba a ponerle 5, pero alguien me pidió «un cambio pequeñito» mientras la dibujaba.",
   k4:"Habilidades pasivas. Funcionan solas, como el café.",
+  k5b:"La segunda la uso a diario. Nadie sabe qué es «más moderno». Yo tampoco, pero lo programo.",k5c:"La tercera falla a veces. Sobre todo si hay una pizarra cerca.",
   k5:"La primera es tan rara que algunos clientes juran que no existe.",
+  k6b:"El café es infinito. Lo compruebo todos los días. Por ciencia.",
   k6:"El compás es mi arma legendaria. Mide, corta y, si hace falta, señala el presupuesto.",
   k7:"El pelo da +10 de carisma. Mis padres le restarían 30. Ya lo hablamos en el capítulo 1.",
   k8:"Toda ficha honesta tiene debilidades. Estas son las mías. Úsalas con responsabilidad.",
+  k9b:"Y las reuniones que podían ser un correo me quitan un punto de vida por minuto. Esta frase ya me costó tres.",
   k9:"Si me dices «es un cambio rápido», pierdo 50 puntos de vida. Tú pierdes una semana.",
   k10:"Subí de nivel. Nueva habilidad desbloqueada: hacer tu app.",
   k11:"Bonita ficha, ¿no? Ahora la pregunta incómoda: ¿dónde la usé de verdad?",
@@ -425,12 +429,16 @@ Object.assign(T.en,{
   k1:"Last chapter ended with ‘I have proof’. Here it is. As a video game, because I can.",
   k1_r:"Short version, so straight to the sheet. No detours. Well, a few.",
   k2:"Yes, I gave myself these numbers. Like everyone on LinkedIn. The difference is mine can be checked.",
+  k3b:"And sleep at 0. The bar isn’t broken: it shipped like that.",
   k3:"Patience is at 3. I was going to give it 5, but someone asked for ‘a tiny change’ while I was drawing it.",
   k4:"Passive skills. They work on their own, like coffee.",
+  k5b:"I use the second one daily. Nobody knows what ‘more modern’ means. Neither do I, but I build it.",k5c:"The third one fails sometimes. Especially if there’s a whiteboard nearby.",
   k5:"The first one is so rare some clients swear it doesn’t exist.",
+  k6b:"Coffee is infinite. I check every day. For science.",
   k6:"The compass is my legendary weapon. It measures, it cuts and, if needed, it points at the budget.",
   k7:"The hair gives +10 charisma. My parents would take 30 off. We covered this in chapter 1.",
   k8:"Every honest sheet has weaknesses. Here are mine. Use them responsibly.",
+  k9b:"And meetings that could have been an email cost me one HP per minute. This sentence already cost me three.",
   k9:"Tell me ‘it’s a quick change’ and I lose 50 HP. You lose a week.",
   k10:"Level up. New skill unlocked: building your app.",
   k11:"Nice sheet, right? Now the awkward question: where did I actually use it?",
@@ -581,24 +589,29 @@ const ITEMS=[
  {id:'s11',kind:'bub',t_:'s311',sc:'pen',a:5.683,perch:true,l:34,t:80,w:60},
  {id:'s12',kind:'bub',t_:'s312',sc:'pen',a:5.929,perch:true,l:8,t:66,w:66},
  {id:'c3tbc',kind:'cap',t_:'c3tbc',sc:'pen',a:6.175,perch:true,l:10,t:80,w:80},
- /* ===== capítulo 5 (nuevo): la ficha de personaje. Un paso cada 62vh desde el inicio de 'rpg' ===== */
- {id:'t12',kind:'title',ch:12,nfs:15,drop:true,long:true,sc:'rpg',a:0.000,perch:true,l:7,t:62,w:86},
- {id:'k1',kind:'cap',t_:'k1',sc:'rpg',a:0.121,perch:true,l:7,t:66,w:76},
- {id:'pika',kind:'sfx',text:'ピコーン',fs:10,sc:'rpg',a:0.177,perch:true,l:46,t:62},
- {id:'k2',kind:'bub',t_:'k2',sc:'rpg',a:0.232,perch:true,l:6,t:70,w:66},
- {id:'k3',kind:'bub',t_:'k3',sc:'rpg',a:0.288,perch:true,l:30,t:76,w:64},
- {id:'k4',kind:'cap',t_:'k4',sc:'rpg',a:0.344,perch:true,l:7,t:66,w:66},
- {id:'k5',kind:'bub',t_:'k5',sc:'rpg',a:0.399,perch:true,l:32,t:74,w:60},
- {id:'jaki',kind:'sfx',text:'ジャキーン',fs:10,sc:'rpg',a:0.455,perch:true,l:8,t:64},
- {id:'k6',kind:'bub',t_:'k6',sc:'rpg',a:0.510,perch:true,l:30,t:72,w:64},
- {id:'k7',kind:'bub',t_:'k7',sc:'rpg',a:0.566,perch:true,l:6,t:76,w:66},
- {id:'k8',kind:'cap',t_:'k8',sc:'rpg',a:0.622,perch:true,l:24,t:66,w:70},
- {id:'gusa',kind:'sfx',text:'グサッ',fs:14,sc:'rpg',a:0.677,perch:true,l:10,t:64},
- {id:'k9',kind:'bub',t_:'k9',sc:'rpg',a:0.733,perch:true,l:30,t:74,w:64},
- {id:'lvup',kind:'sfx',text:'テッテレー',fs:10,sc:'rpg',a:0.788,perch:true,l:40,t:64},
- {id:'k10',kind:'bub',t_:'k10',sc:'rpg',a:0.844,perch:true,l:6,t:72,w:64},
- {id:'k11',kind:'bub',t_:'k11',sc:'rpg',a:0.900,perch:true,l:30,t:76,w:64},
- {id:'c12tbc',kind:'cap',t_:'c12tbc',sc:'rpg',a:0.955,perch:true,l:10,t:82,w:80},
+ /* ===== capítulo 5 (nuevo): la ficha de personaje. Cada globo cae cuando aparece la skill de la que habla (SK_T, en pantallas) ===== */
+ {id:'t12',kind:'title',ch:12,nfs:15,drop:true,long:true,sc:'rpg',a:0.0000,perch:true,l:7,t:62,w:86},
+ {id:'k1',kind:'cap',t_:'k1',sc:'rpg',a:0.0538,perch:true,l:7,t:66,w:76},
+ {id:'pika',kind:'sfx',text:'ピコーン',fs:10,sc:'rpg',a:0.1000,perch:true,l:46,t:62},
+ {id:'k2',kind:'bub',t_:'k2',sc:'rpg',a:0.1423,perch:true,l:6,t:70,w:66},
+ {id:'k3',kind:'bub',t_:'k3',sc:'rpg',a:0.2962,perch:true,l:30,t:72,w:64},
+ {id:'k3b',kind:'bub',t_:'k3b',sc:'rpg',a:0.3385,perch:true,l:6,t:72,w:64},
+ {id:'k4',kind:'cap',t_:'k4',sc:'rpg',a:0.3769,perch:true,l:7,t:66,w:66},
+ {id:'k5',kind:'bub',t_:'k5',sc:'rpg',a:0.4192,perch:true,l:32,t:72,w:60},
+ {id:'k5b',kind:'bub',t_:'k5b',sc:'rpg',a:0.4577,perch:true,l:6,t:72,w:66},
+ {id:'k5c',kind:'bub',t_:'k5c',sc:'rpg',a:0.4962,perch:true,l:30,t:74,w:64},
+ {id:'jaki',kind:'sfx',text:'ジャキーン',fs:10,sc:'rpg',a:0.5346,perch:true,l:8,t:64},
+ {id:'k6',kind:'bub',t_:'k6',sc:'rpg',a:0.5654,perch:true,l:30,t:72,w:64},
+ {id:'k6b',kind:'bub',t_:'k6b',sc:'rpg',a:0.6038,perch:true,l:6,t:74,w:64},
+ {id:'k7',kind:'bub',t_:'k7',sc:'rpg',a:0.6423,perch:true,l:30,t:72,w:66},
+ {id:'k8',kind:'cap',t_:'k8',sc:'rpg',a:0.6846,perch:true,l:7,t:66,w:72},
+ {id:'gusa',kind:'sfx',text:'グサッ',fs:14,sc:'rpg',a:0.7231,perch:true,l:10,t:64},
+ {id:'k9',kind:'bub',t_:'k9',sc:'rpg',a:0.7577,perch:true,l:30,t:72,w:64},
+ {id:'k9b',kind:'bub',t_:'k9b',sc:'rpg',a:0.8000,perch:true,l:6,t:72,w:68},
+ {id:'lvup',kind:'sfx',text:'テッテレー',fs:10,sc:'rpg',a:0.8423,perch:true,l:40,t:64},
+ {id:'k10',kind:'bub',t_:'k10',sc:'rpg',a:0.8808,perch:true,l:6,t:72,w:64},
+ {id:'k11',kind:'bub',t_:'k11',sc:'rpg',a:0.9231,perch:true,l:30,t:76,w:64},
+ {id:'c12tbc',kind:'cap',t_:'c12tbc',sc:'rpg',a:0.9654,perch:true,l:10,t:82,w:80},
  /* ===== chapter 5: one step every 62vh, timed from the start of 'street' (span 100vh) ===== */
  {id:'t4',kind:'title',onart:true,ch:4,nfs:13,stack:true,drop:true,long:true,sc:'ch6open',a:0.065,perch:true,l:7,t:60,w:86},
  {id:'v51',kind:'cap',t_:'v51',sc:'ch6open',a:0.739,perch:true,l:7,t:66,w:64},
@@ -1373,26 +1386,26 @@ function paso3D(){const s=scenes.mkpaso; if(!s||!PA.cam) return; const y=scrollY
 /* el chibi dibujo por dibujo: el plato con sus cuatro vistas gira con el scroll,
    y el salto se dibuja cuadro a cuadro, de boceto a tinta, sobre el mismo arco del código */
 const MK={cam:$('#mkCam'),plato:$('#mkPlato'),g:$$('#mkCam .mk-g'),f:$$('#mkCam .mk-f')}; let mkLast='';
-/* capítulo 5: la ficha de personaje. Arriba, la ficha chica con sus huecos; en el centro, una skill por vez en grande, en 2,5D:
-   llega desde el fondo, se llena con el scroll y vuela a encajar en su hueco. Al final la ficha sube de nivel en el centro */
+/* capítulo 5: la ficha de personaje. Arriba, la ficha (plana) con sus huecos; en el centro, una skill por vez en grande, en 2,5D:
+   llega desde el fondo, se llena con el scroll y vuela a encajar en su hueco. Los tramos (en pantallas desde el inicio de la escena)
+   son los mismos de los globos de ITEMS, así cada comentario sale con su skill */
+const SK_T={ficha:0.7,grupos:[1.25, 4.85, 6.9, 8.85],lv:10.9,v:[[1.25, 1.8], [1.8, 2.35], [2.35, 2.85], [2.85, 3.35], [3.35, 3.8], [3.8, 4.35], [4.35, 4.85], [4.85, 5.9], [5.9, 6.4], [6.4, 6.9], [6.9, 7.8], [7.8, 8.3], [8.3, 8.85], [8.85, 9.8], [9.8, 10.35], [10.35, 10.9]]};
 const SK={r:$('#sk3d'),vu:$('#skVuelo'),big:$$('#sk3d .sk-big'),slot:$$('#sk3d [data-slot]'),et:$$('#sk3d .sk-et'),c:$$('#sk3d .rp-c'),n:$('#rpNiv'),xp:$('#rpXp')}; let skY=-1;
 function fichaRPG(){const s=scenes.rpg; if(!s||!SK.r) return; const y=scrollY, vh=innerHeight; if(y===skY) return; skY=y;
-  const T=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at-vh*.35:Infinity};
-  const seg=[[T('pika'),T('k4'),7],[T('k4'),T('jaki'),3],[T('jaki'),T('k8'),3],[T('k8'),T('lvup'),3]];
-  const on=y>=T('k1')+vh*.31, lv=y>=T('lvup'); let grupo=-1; seg.forEach((g,i)=>{if(y>=g[0]) grupo=i});
+  const Y=v=>s.top+v*vh, on=y>=Y(SK_T.ficha), lv=y>=Y(SK_T.lv); let grupo=-1; SK_T.grupos.forEach((g,i)=>{if(y>=Y(g)) grupo=i});
   SK.r.classList.toggle('on',on); SK.r.classList.toggle('lvup',lv);
   SK.et.forEach((e,i)=>e.classList.toggle('on',on&&!lv&&i===grupo));
-  const vr=SK.vu.getBoundingClientRect(), cx=vr.left+vr.width/2, cy=vr.top+vr.height/2; let k=0;
-  seg.forEach(([a,b,n])=>{const w=(b-a)/n; for(let j=0;j<n;j++,k++){const el=SK.big[k], sl=SK.slot[k]; if(!el||!sl) continue; const p=(y-(a+j*w))/w;
+  const vr=SK.vu.getBoundingClientRect(), cx=vr.left+vr.width/2, cy=vr.top+vr.height/2;
+  SK_T.v.forEach(([a,b],k)=>{const el=SK.big[k], sl=SK.slot[k]; if(!el||!sl) return; const p=(y-Y(a))/Math.max(1,Y(b)-Y(a));
     sl.classList.toggle('lleno',p>=.97);
-    if(p<0||p>=.97){el.classList.remove('vis'); continue}
+    if(p<0||p>=.97){el.classList.remove('vis'); return}
     el.classList.add('vis');
-    const ei=1-Math.pow(1-Math.min(1,p/.22),3), f=ease(Math.max(0,Math.min(1,(p-.2)/.42))), g0=Math.max(0,Math.min(1,(p-.7)/.27)), g=g0*g0*(3-2*g0);
+    const ei=1-Math.pow(1-Math.min(1,p/.2),3), f=ease(Math.max(0,Math.min(1,(p-.18)/.4))), g0=Math.max(0,Math.min(1,(p-.74)/.23)), g=g0*g0*(3-2*g0);
     el.style.setProperty('--f',f.toFixed(3));
     if(el.dataset.v){const em=el.querySelector('em'), v=Math.round(f*+el.dataset.v); if(em.textContent!==String(v)) em.textContent=v}
     const sr=sl.getBoundingClientRect(), dx=(sr.left+sr.width/2-cx)*g, dy=(sr.top+sr.height/2-cy)*g, sc=1-(1-Math.max(.06,sr.width/vr.width))*g, r=1-ei;
     el.style.transform=reduced?`translate(${dx.toFixed(1)}px,${dy.toFixed(1)}px) scale(${sc.toFixed(3)})`
-      :`translate3d(${dx.toFixed(1)}px,${dy.toFixed(1)}px,${(-900*r+140*Math.sin(g*Math.PI)).toFixed(0)}px) rotateY(${(-70*r+(.5-f)*16*(1-g)+g*-20).toFixed(1)}deg) rotateX(${(28*r+g*10).toFixed(1)}deg) scale(${sc.toFixed(3)})`}});
+      :`translate3d(${dx.toFixed(1)}px,${dy.toFixed(1)}px,${(-900*r+140*Math.sin(g*Math.PI)).toFixed(0)}px) rotateY(${(-70*r+(.5-f)*16*(1-g)+g*-20).toFixed(1)}deg) rotateX(${(28*r+g*10).toFixed(1)}deg) scale(${sc.toFixed(3)})`});
   const xp=Math.max(0,Math.min(1,(y-s.top)/s.span)); SK.xp.style.transform=`scaleX(${(lv?1:xp*.9).toFixed(3)})`;
   const cara=lv?2:grupo<0?3:[6,1,4,5][grupo]; SK.c.forEach(c=>c.classList.toggle('on',+c.dataset.c===cara));   /* sorprendido, con sueño, satisfecho, decidido, sudando, feliz */
   SK.n.textContent=lv?'16':'15'}
