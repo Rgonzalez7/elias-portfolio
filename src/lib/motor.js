@@ -477,13 +477,8 @@ const ITEMS=[
  /* down to the napkin */
  {id:'c2i',kind:'cap',t_:'c2i',sc:'slot',a:1.11,perch:true,l:8,t:40,w:76},
  {id:'c2j',kind:'bub',t_:'c2j',sc:'slot',a:1.38,perch:true,l:34,t:54,w:62},
- {id:'f1',kind:'bub',t_:'f1',sc:'slot',a:1.65,perch:true,l:8,t:68,w:56},
- {id:'fuwa',kind:'sfx',text:'フワッ',sc:'rise',a:.03,perch:true,l:46,t:82,fs:14},
- {id:'c2k',kind:'bub',t_:'c2k',sc:'rise',a:.34,perch:true,l:8,t:72,w:64},
- {id:'r1',kind:'bub',t_:'r1',sc:'rise',a:.65,perch:true,l:34,t:60,w:60},
  /* ===== chapter 3 (cont.): back in the pocket, then the storm on the phone, then the rest of the pocket ===== */
  {id:'dosu',kind:'sfx',text:'ドスッ',fs:15,sc:'pocket7',a:0.259,perch:true,l:48,t:20},
- {id:'w7a',kind:'cap',t_:'w7a',night:true,sc:'pocket7',a:0.496,perch:true,l:7,t:66,w:74},
  {id:'w7b',kind:'cap',t_:'w7b',night:true,sc:'pocket7',a:0.733,perch:true,l:24,t:76,w:70},
  {id:'w7c',kind:'bub',t_:'w7c',sc:'pocket7',a:0.970,perch:true,l:6,t:66,w:70},
  {id:'m1',kind:'cap',t_:'m1',sc:'phone4',a:-0.180,perch:true,l:7,t:66,w:64},
