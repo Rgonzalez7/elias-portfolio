@@ -410,7 +410,7 @@ Object.assign(T.es,{
   rpTag:"FICHA DE PERSONAJE",rpNivL:"NV.",rpClase:"Clase: arquitecto de software",rpRaza:"Raza: humano (con café)",rpXp:"EXP",
   rpH0:"STATS",rpH1:"HABILIDADES PASIVAS",rpH2:"EQUIPO",rpH3:"DEBILIDADES",
   rpS1:"ARQUITECTURA",rpS1d:"Sistemas que aguantan el éxito",rpS2:"FRONTEND",rpS2d:"React · Next.js · TypeScript",rpS3:"BACKEND",rpS3d:"Node · MongoDB · APIs · pagos",
-  rpS4:"IA Y AUTOMATIZACIÓN",rpS4d:"Que la IA trabaje. En producción",rpS5:"APPS (PWA)",rpS5d:"Se instalan sin App Store",
+  rpS4:"IA Y AUTOMATIZACIÓN",rpS4c:"IA",rpS6c:"PACIENCIA",rpS4d:"Que la IA trabaje. En producción",rpS5:"APPS (PWA)",rpS5d:"Se instalan sin App Store",
   rpS6:"PACIENCIA CON «ES UN CAMBIO PEQUEÑITO»",rpS6d:"Crítica",rpS7:"HORAS DE SUEÑO",rpS7d:"Sin cambios desde 2011",
   rpP1:"Entiende lo que querías decir, no lo que dijiste.",rpP2:"Traduce «que se vea más moderno» a algo que se pueda programar.",rpP3:"Explica la nube sin dibujar una nube. Casi nunca.",
   rpE1n:"COMPÁS",rpE1t:"Arma legendaria",rpE1d:"+50 precisión. Corta el aire y el alcance del proyecto.",
@@ -438,7 +438,7 @@ Object.assign(T.en,{
   rpTag:"CHARACTER SHEET",rpNivL:"LV.",rpClase:"Class: software architect",rpRaza:"Race: human (with coffee)",rpXp:"EXP",
   rpH0:"STATS",rpH1:"PASSIVE SKILLS",rpH2:"EQUIPMENT",rpH3:"WEAKNESSES",
   rpS1:"ARCHITECTURE",rpS1d:"Systems that survive success",rpS2:"FRONTEND",rpS2d:"React · Next.js · TypeScript",rpS3:"BACKEND",rpS3d:"Node · MongoDB · APIs · payments",
-  rpS4:"AI & AUTOMATION",rpS4d:"AI that works. In production",rpS5:"APPS (PWA)",rpS5d:"Installed without an App Store",
+  rpS4:"AI & AUTOMATION",rpS4c:"AI",rpS6c:"PATIENCE",rpS4d:"AI that works. In production",rpS5:"APPS (PWA)",rpS5d:"Installed without an App Store",
   rpS6:"PATIENCE WITH ‘IT’S A TINY CHANGE’",rpS6d:"Critical",rpS7:"HOURS OF SLEEP",rpS7d:"Unchanged since 2011",
   rpP1:"Understands what you meant, not what you said.",rpP2:"Translates ‘make it look more modern’ into something you can actually build.",rpP3:"Explains the cloud without drawing a cloud. Almost never.",
   rpE1n:"COMPASS",rpE1t:"Legendary weapon",rpE1d:"+50 precision. Cuts the air and the project scope.",
@@ -1373,24 +1373,29 @@ function paso3D(){const s=scenes.mkpaso; if(!s||!PA.cam) return; const y=scrollY
 /* el chibi dibujo por dibujo: el plato con sus cuatro vistas gira con el scroll,
    y el salto se dibuja cuadro a cuadro, de boceto a tinta, sobre el mismo arco del código */
 const MK={cam:$('#mkCam'),plato:$('#mkPlato'),g:$$('#mkCam .mk-g'),f:$$('#mkCam .mk-f')}; let mkLast='';
-/* capítulo 5: la ficha de personaje, en 2,5D. Una cámara la recorre (cada página con su ángulo y un vaivén con el scroll),
-   las páginas se dan vuelta como las de un libro y quedan giradas al costado, y al subir de nivel la ficha da la vuelta entera */
-const RP={cam:$('#rpCam'),f:$('#rpFicha'),c:$$('#rpFicha .rp-c'),p:$$('#rpFicha .rp-pag'),b:$$('#rpFicha .rp-st'),n:$('#rpNiv'),xp:$('#rpXp')}; let rpLast='';
-const RP_ANG=[[-8,12],[24,-20],[-14,18],[16,-24],[-10,22],[6,0]];   /* rotateX, rotateY: antes de la primera página y en cada una */
-function fichaRPG(){const s=scenes.rpg; if(!s||!RP.f) return; const y=scrollY, vh=innerHeight;
-  const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:Infinity};
-  const t=['pika','k4','jaki','k8','lvup'].map(id=>at(id)-vh*.35), fin=at('c12tbc'); let pg=-1; t.forEach((v,i)=>{if(y>=v) pg=i});
-  const on=y>=at('k1')-vh*.04, q=Math.max(0,Math.min(1,(y-t[0])/Math.max(1,at('k3')-vh*.35-t[0])));
-  const llenas=pg<0?0:pg>0?RP.b.length:Math.min(RP.b.length,1+Math.floor(q*RP.b.length));
-  const a=pg<0?at('k1')-vh*.04:t[pg], b=pg<0?t[0]:pg<4?t[pg+1]:fin, d=Math.max(0,Math.min(1,(y-a)/Math.max(1,b-a)))-.5;
-  const [ax,ay]=RP_ANG[pg+1], rx=reduced?0:ax-d*8, ry=reduced?0:ay+d*16;
-  const xp=Math.max(0,Math.min(1,(y-s.top)/s.span)), key=[on?1:0,pg,llenas,Math.round(xp*40),rx.toFixed(1),ry.toFixed(1)].join('|'); if(key===rpLast) return; rpLast=key;
-  RP.cam.classList.toggle('on',on); RP.cam.classList.toggle('lvup',pg>=4); RP.cam.dataset.pg=pg;
-  RP.cam.style.transform=`rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
-  RP.p.forEach((p,i)=>{p.classList.toggle('on',i===Math.max(0,pg)); p.classList.toggle('ido',i<pg); p.style.setProperty('--k',pg-i)});
-  RP.b.forEach((b,i)=>b.classList.toggle('lleno',i<llenas));
-  const cara=pg<0?3:[6,1,4,5,2][pg]; RP.c.forEach(c=>c.classList.toggle('on',+c.dataset.c===cara));   /* sorprendido, con sueño, satisfecho, decidido, sudando, feliz */
-  RP.n.textContent=pg>=4?'16':'15'; RP.xp.style.transform=`scaleX(${(pg>=4?1:xp*.9).toFixed(3)})`}
+/* capítulo 5: la ficha de personaje. Arriba, la ficha chica con sus huecos; en el centro, una skill por vez en grande, en 2,5D:
+   llega desde el fondo, se llena con el scroll y vuela a encajar en su hueco. Al final la ficha sube de nivel en el centro */
+const SK={r:$('#sk3d'),vu:$('#skVuelo'),big:$$('#sk3d .sk-big'),slot:$$('#sk3d [data-slot]'),et:$$('#sk3d .sk-et'),c:$$('#sk3d .rp-c'),n:$('#rpNiv'),xp:$('#rpXp')}; let skY=-1;
+function fichaRPG(){const s=scenes.rpg; if(!s||!SK.r) return; const y=scrollY, vh=innerHeight; if(y===skY) return; skY=y;
+  const T=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at-vh*.35:Infinity};
+  const seg=[[T('pika'),T('k4'),7],[T('k4'),T('jaki'),3],[T('jaki'),T('k8'),3],[T('k8'),T('lvup'),3]];
+  const on=y>=T('k1')+vh*.31, lv=y>=T('lvup'); let grupo=-1; seg.forEach((g,i)=>{if(y>=g[0]) grupo=i});
+  SK.r.classList.toggle('on',on); SK.r.classList.toggle('lvup',lv);
+  SK.et.forEach((e,i)=>e.classList.toggle('on',on&&!lv&&i===grupo));
+  const vr=SK.vu.getBoundingClientRect(), cx=vr.left+vr.width/2, cy=vr.top+vr.height/2; let k=0;
+  seg.forEach(([a,b,n])=>{const w=(b-a)/n; for(let j=0;j<n;j++,k++){const el=SK.big[k], sl=SK.slot[k]; if(!el||!sl) continue; const p=(y-(a+j*w))/w;
+    sl.classList.toggle('lleno',p>=.97);
+    if(p<0||p>=.97){el.classList.remove('vis'); continue}
+    el.classList.add('vis');
+    const ei=1-Math.pow(1-Math.min(1,p/.22),3), f=ease(Math.max(0,Math.min(1,(p-.2)/.42))), g0=Math.max(0,Math.min(1,(p-.7)/.27)), g=g0*g0*(3-2*g0);
+    el.style.setProperty('--f',f.toFixed(3));
+    if(el.dataset.v){const em=el.querySelector('em'), v=Math.round(f*+el.dataset.v); if(em.textContent!==String(v)) em.textContent=v}
+    const sr=sl.getBoundingClientRect(), dx=(sr.left+sr.width/2-cx)*g, dy=(sr.top+sr.height/2-cy)*g, sc=1-(1-Math.max(.06,sr.width/vr.width))*g, r=1-ei;
+    el.style.transform=reduced?`translate(${dx.toFixed(1)}px,${dy.toFixed(1)}px) scale(${sc.toFixed(3)})`
+      :`translate3d(${dx.toFixed(1)}px,${dy.toFixed(1)}px,${(-900*r+140*Math.sin(g*Math.PI)).toFixed(0)}px) rotateY(${(-70*r+(.5-f)*16*(1-g)+g*-20).toFixed(1)}deg) rotateX(${(28*r+g*10).toFixed(1)}deg) scale(${sc.toFixed(3)})`}});
+  const xp=Math.max(0,Math.min(1,(y-s.top)/s.span)); SK.xp.style.transform=`scaleX(${(lv?1:xp*.9).toFixed(3)})`;
+  const cara=lv?2:grupo<0?3:[6,1,4,5][grupo]; SK.c.forEach(c=>c.classList.toggle('on',+c.dataset.c===cara));   /* sorprendido, con sueño, satisfecho, decidido, sudando, feliz */
+  SK.n.textContent=lv?'16':'15'}
 function making3D(){const s=scenes.mkof; if(!s||!MK.cam) return; const y=scrollY, vh=innerHeight;
   const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:0};
   const a1=at('mk1')-vh*.6, a3=at('mk3')-vh*.3, a4=at('mk4')-vh*.3, ac=at('code')-vh*.3;
