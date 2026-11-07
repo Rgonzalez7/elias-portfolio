@@ -758,7 +758,7 @@ function build(){ITEMS.forEach(x=>{if(x.kind==='chat'){x.done=false; x.t0=null}}
     else if(it.kind==='end'){el=document.createElement('div');
       el.innerHTML=`<p>${tx('end')}</p><a href="#" class="write">${T[lang].fWrite}</a> <a href="#" class="again">${T[lang].again}</a>`;
       el.querySelector('.again').addEventListener('click',e=>{e.preventDefault(); scrollTo({top:0,behavior:'auto'})});
-      el.querySelector('.write').addEventListener('click',e=>{e.preventDefault(); const c=ITEMS.find(x=>x.id==='chat10'); state.skipGate=true; scrollTo({top:c.at+2,behavior:'auto'})});
+      el.querySelector('.write').addEventListener('click',e=>{e.preventDefault(); const c=ITEMS.find(x=>x.id==='chat10'); freeScroll(); state.skipGate=true; gateHold(false); scrollTo({top:c.at+2,behavior:'auto'})});
       it.perchEl=()=>el.querySelector('p')}
     else{el=document.createElement('p');
       const txt=it.text||(it.id==='resp'?(state.route?T[lang]['r_'+state.route]:''):it.byRoute?(state.route?T[lang][it.t_+'_'+state.route]:''):tx(it.t_));
@@ -1083,7 +1083,7 @@ $('#legal').addEventListener('click',e=>{if(e.target.id==='legal') closeDoc()});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#legal').hidden) closeDoc()});
 $('#fTop').addEventListener('click',()=>scrollTo({top:0,behavior:'auto'}));
 $('#fMenu').addEventListener('click',()=>openMenu());
-$('#fWrite').addEventListener('click',()=>{const c=ITEMS.find(x=>x.id==='chat10'); state.skipGate=true; scrollTo({top:c.at+2,behavior:'auto'})});
+$('#fWrite').addEventListener('click',()=>{const c=ITEMS.find(x=>x.id==='chat10'); freeScroll(); state.skipGate=true; gateHold(false); scrollTo({top:c.at+2,behavior:'auto'})});
 
 /* ---------- sarcastic table of contents ---------- */
 const MT={
@@ -1123,7 +1123,7 @@ $('#rail').addEventListener('click',e=>{const b=e.target.closest('.ritem'); if(b
 let progT=0; addEventListener('scroll',()=>{if(progT) return; progT=requestAnimationFrame(()=>{progT=0; const was=state.earned; progreso(); if(state.earned!==was) renderRail()})},{passive:true});
 /* firmar enseña el avance, el índice del costado y el atajo al contacto */
 function alFirmar(){$('#saltar').hidden=false; renderRail(); progreso()}
-$('#saltar').addEventListener('click',()=>{const c=ITEMS.find(x=>x.id==='chat10'); state.skipGate=true; gateHold(false); scrollTo({top:c.at+2,behavior:'auto'}); setTimeout(()=>{const i=$('#chatInput'); i&&i.focus({preventScroll:true})},400)});
+$('#saltar').addEventListener('click',()=>{const c=ITEMS.find(x=>x.id==='chat10'); freeScroll(); state.skipGate=true; gateHold(false); scrollTo({top:c.at+2,behavior:'auto'}); setTimeout(()=>{const i=$('#chatInput'); i&&i.focus({preventScroll:true})},400)});
 
 /* ---------- las hojas (índice, frascos, tienda, legal): el foco no se escapa y la página de atrás queda inerte ---------- */
 const HOJAS=['#menu','#potion','#demo','#legal'];
@@ -1151,7 +1151,7 @@ function irACapitulo(n,b,cerrar){const c=CH.find(x=>x.n===n), m=MT[lang];
   if(!state.signed){const q=$('#menuQuip'); q.textContent=m.sign; q.classList.remove('nudge'); void q.offsetWidth; q.classList.add('nudge'); return false}
   if(c.locked&&!state.earned){if(b) b.querySelector('.mq').textContent=m.nope; return false}
   if(!c.id){if(b) b.querySelector('.mq').textContent=m.note; return false}
-  const it=ITEMS.find(x=>x.id===c.id); if(!it) return false; if(cerrar) closeMenu(); gateHold(false); if(n>2) state.skipGate=true; scrollTo({top:Math.max(0,it.at+2),behavior:'auto'}); return true}
+  const it=ITEMS.find(x=>x.id===c.id); if(!it) return false; if(cerrar) closeMenu(); freeScroll(); gateHold(false); if(n>2) state.skipGate=true; scrollTo({top:Math.max(0,it.at+2),behavior:'auto'}); return true}
 $('#mlist').addEventListener('click',e=>{const b=e.target.closest('.mitem'); if(!b) return; irACapitulo(+b.dataset.n,b,true)});
 $('#menuVersion').addEventListener('click',()=>{if(state.short){location.href='/'; return}
   if(!state.signed){const q=$('#menuQuip'); q.textContent=MT[lang].sign; q.classList.remove('nudge'); void q.offsetWidth; q.classList.add('nudge'); return}
