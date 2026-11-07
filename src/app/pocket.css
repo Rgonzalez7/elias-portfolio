@@ -54,6 +54,8 @@ body{margin:0;color:var(--ink);-webkit-tap-highlight-color:transparent}
   linear-gradient(to bottom right,transparent calc(50% - 1px),var(--tone) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px)),var(--paper)}
 .pn.bleed{border-left:0;border-right:0}
 .pn.full{border:0}
+/* capítulo 3, sobre negro: las viñetas que no ocupan toda la pantalla llevan el borde blanco */
+:is([data-sc="pocket2"],[data-sc="apps"],[data-sc="slot"],[data-sc="pocket7"],[data-sc="phone4"],[data-sc="blast"],[data-sc="finally7"]) .pn:not(.full){border-color:#fff}
 .pn.art{background-color:#fff}
 .potpn{background:#fff center/cover no-repeat}
 [data-cerca] .potpn.p-bp{background-image:url(/img/c70e5d621e0a0be6cce00686cf1e3ffa.webp)}[data-cerca] .potpn.p-mv{background-image:url(/img/80a513aadaf58cdd5af6840cad4a4978.webp)}[data-cerca] .potpn.p-m1{background-image:url(/img/dd07a55a42ed27ea5da4434bf0b6e6aa.webp)}
