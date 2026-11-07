@@ -18,6 +18,11 @@ body{margin:0;color:var(--ink);-webkit-tap-highlight-color:transparent}
     linear-gradient(rgba(120,112,160,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(120,112,160,.07) 1px,transparent 1px);
   background-size:120px 120px,120px 120px,24px 24px,24px 24px}
 #depthFar.off{background-image:none}
+/* el capítulo 3, sobre negro: el papel se apaga y las onomatopeyas del fondo pasan a trazo claro */
+#depthFar.negro{background-color:#000;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px)}
+#depthFar.negro.off{background-image:none}
+#depthFar.negro .amb{color:rgba(255,255,255,.13);-webkit-text-stroke:2px rgba(255,255,255,.1)}
+#depthFar.negro .boc,#depthFar.negro .fig{opacity:0}
 .col>.bglayer{position:absolute;left:0;top:0;width:100%;z-index:-1;pointer-events:none;overflow:hidden}
 #depthFar .plx{position:absolute;left:0;top:0;width:100%;will-change:transform}
 .plx .boc,.bglayer .boc{position:absolute;max-width:none;opacity:.55;pointer-events:none;user-select:none}

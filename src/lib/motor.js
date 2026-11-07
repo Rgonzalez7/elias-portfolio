@@ -840,7 +840,7 @@ const G={
  napkin:()=>`<svg viewBox="0 0 40 40"><path d="M6 8l26-2 2 26-28 2z" fill="#fff" stroke="${GL}" stroke-width="2"/><rect x="12" y="12" width="9" height="15" rx="2" fill="none" stroke="${GL}" stroke-width="1.6"/><path d="M23 16q5 0 6 5" stroke="${HLc}" stroke-width="2" fill="none"/></svg>`
 };
 const CHG=[null,['steam','shaving','napkin'],['coin','lint'],['screw','gear'],['notif'],['leaf'],['star'],['spark'],['photo','leaf'],['bubble'],['ring','shaving'],['napkin','leaf']];
-const TITLES=['t8','title','t2','t3','t7','t4','t9','t10','t11'];   /* scroll order: the origin comes first */
+const TITLES=['t8','title','t2','t3','t4','t9','t10','t11'];   /* scroll order: the origin comes first */
 let FLO=[]; const FAR=$('#depthFar'), NEAR=$('#depthNear'), SHADOW=$('#cshadow');
 function seeded(n){let s=n*9301+49297; return()=>{s=(s*9301+49297)%233280; return s/233280}}
 const DEPTH_ON=true;
@@ -864,7 +864,7 @@ function nemuPage(seed,W,Hp){const r=seeded(seed); let s=`<svg viewBox="0 0 ${W}
     y+=rh+g; if(y>Hp-m-40) break}
   return s+'</svg>'}
 /* ambient sound effects: huge, faint, the mood of each chapter */
-const AMB=[null,['ゴゴゴ','ジーン'],['ザワザワ','シーン'],['ゴゴゴ','シーン'],['ガチャガチャ','カチカチ'],['ドドド','キラキラ'],['ピロン','ザワザワ'],['コポコポ','ゴクリ'],['リーン','ドキドキ'],['キラキラ','ジーン']];
+const AMB=[null,['ゴゴゴ','ジーン'],['ザワザワ','シーン'],['ゴゴゴ','シーン'],['ガチャガチャ','カチカチ'],['ピロン','ザワザワ'],['コポコポ','ゴクリ'],['リーン','ドキドキ'],['キラキラ','ジーン']];
 let NEMU=null, AMBS=[];
 /* hand-drawn sketches (from ChatGPT) and ambient sound effects behind the page, in parallax */
 const BOC={contrato:['/img/fed8f6edcb640ff89df286d9d37bd663.webp',1525/1031],p13:['/img/c0c5f41eaeabd4046828f4b3b487c5e1.webp',867/1300],dialogo:['/img/797f6ff9d86899c3c8738e86566096d6.webp',1707/921],
@@ -894,7 +894,8 @@ function buildDepth(){FAR.innerHTML=''; NEAR.innerHTML=''; FLO=[]; AMBS=[]; SKEL
   const cover=y=>{let c=0; for(const p of PINS){const dark=p.st.style.background.includes('#000')||p.st.querySelector('.pn.full'); if(!dark) continue;
       const top=y<p.top?p.top-y:(y>p.top+p.span?p.top+p.span-y:0), a=Math.max(0,top), b2=Math.min(vh,top+vh); if(b2>a) c+=(b2-a)}
     $$('.sc.gap').forEach(g=>{if(!g.style.background.includes('#000')) return; const a=Math.max(0,g.offsetTop-y), b2=Math.min(vh,g.offsetTop+g.offsetHeight-y); if(b2>a) c+=(b2-a)});
-    const f=$('#foot'); if(f){const a=Math.max(0,f.offsetTop-y); if(a<vh) c+=vh-a} return Math.min(1,c/vh)};
+    const f=$('#foot'); if(f){const a=Math.max(0,f.offsetTop-y); if(a<vh) c+=vh-a}
+    const n=tramoNegro(); if(n){const a=Math.max(n[0],y), b2=Math.min(n[1],y+vh); if(b2>a) c+=(b2-a)} return Math.min(1,c/vh)};
   const white=y=>cover(y)<.4;
   const used=[];
   const free=y=>used.every(u=>Math.abs(u-y)*(PLX?.3:1)>vh*.95);   /* spacing measured where they are drawn, so two never overlap */
@@ -910,9 +911,9 @@ function buildDepth(){FAR.innerHTML=''; NEAR.innerHTML=''; FLO=[]; AMBS=[]; SKEL
     el.style.backgroundImage=`url(${FIG.u})`; el.style.backgroundSize=`${Math.round(FIG.W*sc)}px ${Math.round(FIG.H*sc)}px`; el.style.backgroundPosition=`${-Math.round(fx*sc)}px ${-Math.round(fy*sc)}px`;
     el.style.transform=`rotate(${((flip?1:-1)*(2+r()*3)).toFixed(1)}deg)`; flip^=1; SL.appendChild(el); used.push(anchor)};
   /* one whole sketch per chapter, at the first white moment of the chapter */
-  const FULL=[null,'p13','dialogo','p32','p36','caras','arq','p74','chibiA','salto','contrato','footer'];
+  const FULL=[null,'p13','dialogo','p32','p36','arq','p74','chibiA','salto','contrato','footer'];
   const BOC_ON=false;   /* sketches parked for now: set to true to bring them back */
-  for(let c=1;c<=11&&BOC_ON;c++){const from=c===1?vh*.2:tAt[c-1]-vh*.3, to=c<11?tAt[c]-vh:maxS; if(!isFinite(from)) continue;
+  for(let c=1;c<=TITLES.length&&BOC_ON;c++){const from=c===1?vh*.2:tAt[c-1]-vh*.3, to=c<TITLES.length?tAt[c]-vh:maxS; if(!isFinite(from)) continue;
     for(let y=Math.max(0,from); y<to; y+=vh*.2){if(white(y)&&free(y)){putFull(FULL[c],y); break}}}
   /* single character figures in the remaining white stretches, any pose, any chapter */
   const names=Object.keys(FIG.f); let ni=Math.floor(r()*names.length);
@@ -1075,6 +1076,10 @@ function pinFrame(){const y=scrollY; for(const p of PINS){const m=y<p.top?'befor
 addEventListener('scroll',pinFrame,{passive:true});
 
 /* scene geometry */
+/* el capítulo 3 va entero sobre negro: el fondo fijo de la página se apaga mientras se lee (las escenas son transparentes) */
+function tramoNegro(){const a=scenes.pocket2, b=scenes.pen; return a&&b?[a.top,b.top]:null}
+let negroOn=null; function fondoNegro(){const n=tramoNegro(), on=!!n&&scrollY>=n[0]&&scrollY<n[1]; if(on===negroOn) return; negroOn=on; FAR&&FAR.classList.toggle('negro',on)}
+addEventListener('scroll',fondoNegro,{passive:true}); addEventListener('resize',()=>{negroOn=null; fondoNegro()});
 const scenes={}; function measure(){$$('.sc').forEach(s=>{scenes[s.dataset.sc]={top:s.offsetTop,span:Math.max(1,s.offsetHeight-innerHeight),el:s}});
   ITEMS.forEach(it=>{const s=scenes[it.sc]; it.at=s.top+it.a*s.span; it.until=it.e!=null?s.top+it.e*s.span:null});
   /* he hops onto the footer as soon as it rises past the middle of the screen */
@@ -1441,7 +1446,7 @@ function aimTails(){const hx=S.x, hy=S.y-H*.62;
 /* titles shrink until every word fits on its line */
 function fitTitles(){ITEMS.forEach(it=>{if(it.kind!=='title') return; const h=it.el.querySelector('.tname'); let fs=it.nfs||20; h.style.fontSize=fs+'cqw';
   let guard=40; while(guard--&&[...h.querySelectorAll('.word')].some(w=>w.scrollWidth>it.el.clientWidth+1)){fs-=.5; h.style.fontSize=fs+'cqw'}})}
-function layout(){size(); fitTitles(); measure(); measurePins(); pinFrame(); cbLast=-1; tls.forEach(t=>{t.w=t.h=0}); buildDepth(); frame(true); progreso()}
+function layout(){size(); fitTitles(); measure(); measurePins(); pinFrame(); cbLast=-1; tls.forEach(t=>{t.w=t.h=0}); buildDepth(); frame(true); progreso(); negroOn=null; fondoNegro()}
 function aCorta(){if(state.short) return; state.short=true;
   $$('#col > .sc').forEach(s=>{if(!CORTA_SC.has(s.dataset.sc)){delete scenes[s.dataset.sc]; s.remove()}});
   recortar();
