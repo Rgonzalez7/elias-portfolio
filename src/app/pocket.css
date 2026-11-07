@@ -616,37 +616,37 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 /* ---------- capítulo 5: la ficha de personaje. La ficha es chica; las skills llegan en grande, en 2,5D, y vuelan a su hueco ---------- */
 .sk3d{--u:min(1cqw,.43lvh);position:absolute;top:0;right:0;bottom:0;left:0;perspective:calc(220*var(--u));perspective-origin:50% 45%;pointer-events:none;font-family:var(--letter);color:var(--ink)}
 /* la ficha chica, arriba, un poco tumbada hacia atrás */
-.sk-mini{position:absolute;left:7%;right:7%;top:10%;padding:calc(2*var(--u)) calc(2.4*var(--u));background:#fff;border:4px solid var(--ink);
+.sk-mini{position:absolute;left:6%;right:6%;top:9.5%;padding:calc(3*var(--u)) calc(3.4*var(--u));background:#fff;border:4px solid var(--ink);
   box-shadow:calc(1.2*var(--u)) calc(1.2*var(--u)) 0 var(--ink);visibility:hidden;opacity:0;transform:translateY(-12%) rotate(-1.2deg);
   transition:transform .5s cubic-bezier(.2,.9,.25,1.05),opacity .3s ease-out,visibility 0s linear .5s}
 .sk3d.on .sk-mini{visibility:visible;opacity:1;transform:rotate(-1.2deg);transition:transform .5s cubic-bezier(.2,.9,.25,1.05),opacity .3s ease-out,visibility 0s}
-.sk-cab{display:flex;align-items:center;gap:calc(2*var(--u));padding-bottom:calc(1.6*var(--u));border-bottom:3px solid var(--ink)}
+.sk-cab{display:flex;align-items:center;gap:calc(2.8*var(--u));padding-bottom:calc(2.4*var(--u));border-bottom:3px solid var(--ink)}
 .sk-foto{position:relative;flex:none;width:calc(14*var(--u));aspect-ratio:1;border:3px solid var(--ink);background:var(--hl);overflow:hidden}
 .rp-c{position:absolute;left:-9%;top:-3%;width:118%;height:118%;object-fit:contain;opacity:0;transform:scale(.7) rotate(-8deg);transition:opacity .12s steps(2),transform .4s cubic-bezier(.2,1.6,.4,1)}
 .rp-c.on{opacity:1;transform:none}
 .sk-dat{flex:1;min-width:0}
 .sk-nom{margin:0;font:calc(5.2*var(--u))/.95 var(--title);letter-spacing:.02em}
 .sk-cl{margin:calc(.5*var(--u)) 0 0;font-size:calc(2.5*var(--u));font-weight:700}
-.sk-xp{display:flex;align-items:center;gap:calc(1.2*var(--u));margin:calc(1*var(--u)) 0 0;font:calc(2.6*var(--u))/1 var(--title)}
+.sk-xp{display:flex;align-items:center;gap:calc(1.2*var(--u));margin:calc(1.4*var(--u)) 0 0;font:calc(2.6*var(--u))/1 var(--title)}
 .sk-xp i{flex:1;height:calc(1.5*var(--u));border:2px solid var(--ink);background:#fff}
 .sk-xp i b{display:block;height:100%;background:#53b4ff;transform-origin:0 50%;transform:scaleX(0);transition:transform .4s ease-out}
 .sk-niv{flex:none;align-self:flex-start;padding:calc(.8*var(--u)) calc(1.4*var(--u));background:var(--ink);color:var(--hl);font:calc(4*var(--u))/1 var(--title)}
 .sk-niv i{font-style:normal;color:#fff}
 .sk3d.lvup .sk-niv i{color:var(--hl);display:inline-block;animation:rpnv .5s steps(4)}
 @keyframes rpnv{0%,50%{transform:scale(1.7)}100%{transform:scale(1)}}
-.sk-sts{display:grid;grid-template-columns:1fr 1fr;gap:calc(1*var(--u)) calc(3*var(--u));margin:calc(1.6*var(--u)) 0}
+.sk-sts{display:grid;grid-template-columns:1fr 1fr;gap:calc(2*var(--u)) calc(4.4*var(--u));margin:calc(2.6*var(--u)) 0}
 .sk-ms{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:calc(1*var(--u));font:calc(2.6*var(--u))/1 var(--title);letter-spacing:.03em}
 .sk-ms span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sk-ms em{font-style:normal;opacity:0;transform:scale(2);transition:opacity .15s,transform .35s cubic-bezier(.2,1.6,.4,1)}
-.sk-ms i{grid-column:1/3;display:block;height:calc(1.5*var(--u));margin-top:calc(.4*var(--u));border:2px dashed #9a9a9a;background:#fff}
+.sk-ms i{grid-column:1/3;display:block;height:calc(1.6*var(--u));margin-top:calc(.8*var(--u));border:2px dashed #9a9a9a;background:#fff}
 .sk-ms i b{display:block;height:100%;width:0;background:var(--hl);transition:width .45s cubic-bezier(.2,.8,.25,1)}
 .sk-ms.lleno em{opacity:1;transform:none}
 .sk-ms.lleno i{border-style:solid;border-color:var(--ink)}
 .sk-ms.lleno i b{width:calc(var(--v)*100%)}
 .sk-ms.mal i b{background:#e2453c}.sk-ms.mal em{color:#c42a22}
-.sk-slots{display:flex;align-items:center;justify-content:space-between;gap:calc(.8*var(--u));padding-top:calc(1.6*var(--u));border-top:3px solid var(--ink)}
+.sk-slots{display:flex;align-items:center;justify-content:space-between;gap:calc(.8*var(--u));padding-top:calc(2.6*var(--u));border-top:3px solid var(--ink)}
 .sk-sep{flex:none;width:2px;height:calc(5*var(--u));background:var(--ink);opacity:.3}
-.sk-sl{position:relative;flex:none;display:grid;place-items:center;width:calc(7.6*var(--u));aspect-ratio:1;border:2.5px dashed #9a9a9a;background:#fff}
+.sk-sl{position:relative;flex:none;display:grid;place-items:center;width:calc(7.2*var(--u));aspect-ratio:1;border:2.5px dashed #9a9a9a;background:#fff}
 .sk-sl>*{opacity:0;transform:scale(2.2) rotate(-20deg);transition:opacity .15s,transform .4s cubic-bezier(.2,1.6,.4,1)}
 .sk-sl b{font:calc(3.4*var(--u))/1 var(--title)}
 .sk-sl svg{position:absolute;left:14%;top:14%;width:72%;height:72%;fill:none;stroke:var(--ink);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
@@ -655,11 +655,11 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 .sk-sl.lleno>*{opacity:1;transform:none}
 @keyframes skpop{0%{transform:scale(1.5)}100%{transform:scale(1)}}
 /* el rótulo de lo que viene */
-.sk-et{position:absolute;left:8%;top:35.5%;margin:0;padding:calc(.6*var(--u)) calc(2*var(--u));background:var(--hl);border:3px solid var(--ink);font:calc(4.4*var(--u))/1 var(--title);letter-spacing:.05em;
+.sk-et{position:absolute;left:8%;top:41%;margin:0;padding:calc(.6*var(--u)) calc(2*var(--u));background:var(--hl);border:3px solid var(--ink);font:calc(4.4*var(--u))/1 var(--title);letter-spacing:.05em;
   visibility:hidden;transform:translateX(-30%) rotate(-3deg);opacity:0;transition:transform .4s cubic-bezier(.2,1.4,.4,1),opacity .2s,visibility 0s linear .4s}
 .sk-et.on{visibility:visible;opacity:1;transform:rotate(-3deg);transition:transform .4s cubic-bezier(.2,1.4,.4,1),opacity .2s,visibility 0s}
 /* las skills en grande, sin cuadro, en el espacio */
-.sk-vuelo{position:absolute;left:6%;right:6%;top:42%;height:20%;transform-style:preserve-3d}
+.sk-vuelo{position:absolute;left:6%;right:6%;top:46.5%;height:18%;transform-style:preserve-3d}
 .sk-big{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;flex-direction:column;justify-content:center;transform-style:preserve-3d;visibility:hidden;will-change:transform}
 .sk-big.vis{visibility:visible}
 .sk-big *{transform-style:preserve-3d}
@@ -698,7 +698,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
   -webkit-mask:radial-gradient(closest-side,#000 35%,transparent 100%);mask:radial-gradient(closest-side,#000 35%,transparent 100%);transform:translateZ(calc(-80*var(--u)))}
 .sk3d.lvup .sk-rayos{visibility:visible;animation:skrayos 14s linear infinite}
 @keyframes skrayos{from{transform:translateZ(calc(-80*var(--u))) rotate(0)}to{transform:translateZ(calc(-80*var(--u))) rotate(360deg)}}
-.sk-lv{position:absolute;left:0;right:0;top:39%;display:flex;flex-direction:column;align-items:center;text-align:center;transform-style:preserve-3d;visibility:hidden}
+.sk-lv{position:absolute;left:0;right:0;top:45%;display:flex;flex-direction:column;align-items:center;text-align:center;transform-style:preserve-3d;visibility:hidden}
 .sk-lv *{transform-style:preserve-3d}
 .sk3d.lvup .sk-lv{visibility:visible}
 .rp-big{margin:0;font:calc(14*var(--u))/.9 var(--title);color:var(--hl);-webkit-text-stroke:calc(.9*var(--u)) var(--ink);paint-order:stroke fill;text-shadow:calc(.8*var(--u)) calc(.8*var(--u)) 0 var(--ink);transform:translateZ(calc(20*var(--u))) rotate(-5deg)}
