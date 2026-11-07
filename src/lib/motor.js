@@ -1373,17 +1373,23 @@ function paso3D(){const s=scenes.mkpaso; if(!s||!PA.cam) return; const y=scrollY
 /* el chibi dibujo por dibujo: el plato con sus cuatro vistas gira con el scroll,
    y el salto se dibuja cuadro a cuadro, de boceto a tinta, sobre el mismo arco del código */
 const MK={cam:$('#mkCam'),plato:$('#mkPlato'),g:$$('#mkCam .mk-g'),f:$$('#mkCam .mk-f')}; let mkLast='';
-/* capítulo 5: la ficha de personaje. Cada página entra con su globo, las barras se llenan una a una y al final sube de nivel */
-const RP={f:$('#rpFicha'),c:$$('#rpFicha .rp-c'),p:$$('#rpFicha .rp-pag'),b:$$('#rpFicha .rp-st'),n:$('#rpNiv'),xp:$('#rpXp')}; let rpLast='';
+/* capítulo 5: la ficha de personaje, en 2,5D. Una cámara la recorre (cada página con su ángulo y un vaivén con el scroll),
+   las páginas se dan vuelta como las de un libro y quedan giradas al costado, y al subir de nivel la ficha da la vuelta entera */
+const RP={cam:$('#rpCam'),f:$('#rpFicha'),c:$$('#rpFicha .rp-c'),p:$$('#rpFicha .rp-pag'),b:$$('#rpFicha .rp-st'),n:$('#rpNiv'),xp:$('#rpXp')}; let rpLast='';
+const RP_ANG=[[-8,12],[24,-20],[-14,18],[16,-24],[-10,22],[6,0]];   /* rotateX, rotateY: antes de la primera página y en cada una */
 function fichaRPG(){const s=scenes.rpg; if(!s||!RP.f) return; const y=scrollY, vh=innerHeight;
   const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:Infinity};
-  const t=['pika','k4','jaki','k8','lvup'].map(id=>at(id)-vh*.35); let pg=0; t.forEach((v,i)=>{if(y>=v) pg=i});
+  const t=['pika','k4','jaki','k8','lvup'].map(id=>at(id)-vh*.35), fin=at('c12tbc'); let pg=-1; t.forEach((v,i)=>{if(y>=v) pg=i});
   const on=y>=at('k1')-vh*.04, q=Math.max(0,Math.min(1,(y-t[0])/Math.max(1,at('k3')-vh*.35-t[0])));
-  const llenas=y<t[0]?0:pg>0?RP.b.length:Math.min(RP.b.length,1+Math.floor(q*RP.b.length));
-  const xp=Math.max(0,Math.min(1,(y-s.top)/s.span)), key=[on?1:0,y<t[0]?1:0,pg,llenas,Math.round(xp*40)].join('|'); if(key===rpLast) return; rpLast=key;
-  RP.f.classList.toggle('on',on); RP.f.classList.toggle('lvup',pg>=4);
-  RP.p.forEach((p,i)=>p.classList.toggle('on',i===pg)); RP.b.forEach((b,i)=>b.classList.toggle('lleno',i<llenas));
-  const cara=y<t[0]?3:[6,1,4,5,2][pg]; RP.c.forEach(c=>c.classList.toggle('on',+c.dataset.c===cara));   /* sorprendido, con sueño, satisfecho, decidido, sudando, feliz */
+  const llenas=pg<0?0:pg>0?RP.b.length:Math.min(RP.b.length,1+Math.floor(q*RP.b.length));
+  const a=pg<0?at('k1')-vh*.04:t[pg], b=pg<0?t[0]:pg<4?t[pg+1]:fin, d=Math.max(0,Math.min(1,(y-a)/Math.max(1,b-a)))-.5;
+  const [ax,ay]=RP_ANG[pg+1], rx=reduced?0:ax-d*8, ry=reduced?0:ay+d*16;
+  const xp=Math.max(0,Math.min(1,(y-s.top)/s.span)), key=[on?1:0,pg,llenas,Math.round(xp*40),rx.toFixed(1),ry.toFixed(1)].join('|'); if(key===rpLast) return; rpLast=key;
+  RP.cam.classList.toggle('on',on); RP.cam.classList.toggle('lvup',pg>=4); RP.cam.dataset.pg=pg;
+  RP.cam.style.transform=`rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+  RP.p.forEach((p,i)=>{p.classList.toggle('on',i===Math.max(0,pg)); p.classList.toggle('ido',i<pg); p.style.setProperty('--k',pg-i)});
+  RP.b.forEach((b,i)=>b.classList.toggle('lleno',i<llenas));
+  const cara=pg<0?3:[6,1,4,5,2][pg]; RP.c.forEach(c=>c.classList.toggle('on',+c.dataset.c===cara));   /* sorprendido, con sueño, satisfecho, decidido, sudando, feliz */
   RP.n.textContent=pg>=4?'16':'15'; RP.xp.style.transform=`scaleX(${(pg>=4?1:xp*.9).toFixed(3)})`}
 function making3D(){const s=scenes.mkof; if(!s||!MK.cam) return; const y=scrollY, vh=innerHeight;
   const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:0};
