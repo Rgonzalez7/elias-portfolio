@@ -591,26 +591,26 @@ const ITEMS=[
  {id:'c3tbc',kind:'cap',t_:'c3tbc',sc:'pen',a:6.175,perch:true,l:10,t:80,w:80},
  /* ===== capítulo 5 (nuevo): la ficha de personaje. Cada globo cae cuando aparece la skill de la que habla (SK_T, en pantallas) ===== */
  {id:'t12',kind:'title',ch:12,nfs:15,drop:true,long:true,sc:'rpg',a:0.0000,perch:true,l:7,t:62,w:86},
- {id:'k1',kind:'cap',t_:'k1',sc:'rpg',a:0.0538,perch:true,l:7,t:66,w:76},
- {id:'pika',kind:'sfx',text:'ピコーン',fs:10,sc:'rpg',a:0.1000,perch:true,l:46,t:62},
- {id:'k2',kind:'bub',t_:'k2',sc:'rpg',a:0.1423,perch:true,l:6,t:70,w:66},
- {id:'k3',kind:'bub',t_:'k3',sc:'rpg',a:0.2962,perch:true,l:30,t:72,w:64},
- {id:'k3b',kind:'bub',t_:'k3b',sc:'rpg',a:0.3385,perch:true,l:6,t:72,w:64},
- {id:'k4',kind:'cap',t_:'k4',sc:'rpg',a:0.3769,perch:true,l:7,t:66,w:66},
- {id:'k5',kind:'bub',t_:'k5',sc:'rpg',a:0.4192,perch:true,l:32,t:72,w:60},
- {id:'k5b',kind:'bub',t_:'k5b',sc:'rpg',a:0.4577,perch:true,l:6,t:72,w:66},
- {id:'k5c',kind:'bub',t_:'k5c',sc:'rpg',a:0.4962,perch:true,l:30,t:74,w:64},
- {id:'jaki',kind:'sfx',text:'ジャキーン',fs:10,sc:'rpg',a:0.5346,perch:true,l:8,t:64},
- {id:'k6',kind:'bub',t_:'k6',sc:'rpg',a:0.5654,perch:true,l:30,t:72,w:64},
- {id:'k6b',kind:'bub',t_:'k6b',sc:'rpg',a:0.6038,perch:true,l:6,t:74,w:64},
- {id:'k7',kind:'bub',t_:'k7',sc:'rpg',a:0.6423,perch:true,l:30,t:72,w:66},
- {id:'k8',kind:'cap',t_:'k8',sc:'rpg',a:0.6846,perch:true,l:7,t:66,w:72},
- {id:'gusa',kind:'sfx',text:'グサッ',fs:14,sc:'rpg',a:0.7231,perch:true,l:10,t:64},
- {id:'k9',kind:'bub',t_:'k9',sc:'rpg',a:0.7577,perch:true,l:30,t:72,w:64},
- {id:'k9b',kind:'bub',t_:'k9b',sc:'rpg',a:0.8000,perch:true,l:6,t:72,w:68},
- {id:'lvup',kind:'sfx',text:'テッテレー',fs:10,sc:'rpg',a:0.8423,perch:true,l:40,t:64},
- {id:'k10',kind:'bub',t_:'k10',sc:'rpg',a:0.8808,perch:true,l:6,t:72,w:64},
- {id:'k11',kind:'bub',t_:'k11',sc:'rpg',a:0.9231,perch:true,l:30,t:76,w:64},
+ {id:'k1',kind:'cap',t_:'k1',sc:'rpg',a:0.0538,perch:true,l:7,t:74,w:76},
+ {id:'pika',kind:'sfx',text:'ピコーン',fs:10,sc:'rpg',a:0.1000,perch:true,l:46,t:84},
+ {id:'k2',kind:'bub',t_:'k2',sc:'rpg',a:0.1423,perch:true,l:6,t:78,w:66},
+ {id:'k3',kind:'bub',t_:'k3',sc:'rpg',a:0.2962,perch:true,l:30,t:80,w:64},
+ {id:'k3b',kind:'bub',t_:'k3b',sc:'rpg',a:0.3385,perch:true,l:6,t:78,w:64},
+ {id:'k4',kind:'cap',t_:'k4',sc:'rpg',a:0.3769,perch:true,l:7,t:74,w:66},
+ {id:'k5',kind:'bub',t_:'k5',sc:'rpg',a:0.4192,perch:true,l:32,t:80,w:60},
+ {id:'k5b',kind:'bub',t_:'k5b',sc:'rpg',a:0.4577,perch:true,l:6,t:78,w:66},
+ {id:'k5c',kind:'bub',t_:'k5c',sc:'rpg',a:0.4962,perch:true,l:30,t:80,w:64},
+ {id:'jaki',kind:'sfx',text:'ジャキーン',fs:10,sc:'rpg',a:0.5346,perch:true,l:8,t:84},
+ {id:'k6',kind:'bub',t_:'k6',sc:'rpg',a:0.5654,perch:true,l:30,t:78,w:64},
+ {id:'k6b',kind:'bub',t_:'k6b',sc:'rpg',a:0.6038,perch:true,l:6,t:80,w:64},
+ {id:'k7',kind:'bub',t_:'k7',sc:'rpg',a:0.6423,perch:true,l:30,t:78,w:66},
+ {id:'k8',kind:'cap',t_:'k8',sc:'rpg',a:0.6846,perch:true,l:7,t:74,w:72},
+ {id:'gusa',kind:'sfx',text:'グサッ',fs:14,sc:'rpg',a:0.7231,perch:true,l:10,t:84},
+ {id:'k9',kind:'bub',t_:'k9',sc:'rpg',a:0.7577,perch:true,l:30,t:80,w:64},
+ {id:'k9b',kind:'bub',t_:'k9b',sc:'rpg',a:0.8000,perch:true,l:6,t:78,w:68},
+ {id:'lvup',kind:'sfx',text:'テッテレー',fs:10,sc:'rpg',a:0.8423,perch:true,l:40,t:84},
+ {id:'k10',kind:'bub',t_:'k10',sc:'rpg',a:0.8808,perch:true,l:6,t:78,w:64},
+ {id:'k11',kind:'bub',t_:'k11',sc:'rpg',a:0.9231,perch:true,l:30,t:80,w:64},
  {id:'c12tbc',kind:'cap',t_:'c12tbc',sc:'rpg',a:0.9654,perch:true,l:10,t:82,w:80},
  /* ===== chapter 5: one step every 62vh, timed from the start of 'street' (span 100vh) ===== */
  {id:'t4',kind:'title',onart:true,ch:4,nfs:13,stack:true,drop:true,long:true,sc:'ch6open',a:0.065,perch:true,l:7,t:60,w:86},
@@ -1391,11 +1391,15 @@ const MK={cam:$('#mkCam'),plato:$('#mkPlato'),g:$$('#mkCam .mk-g'),f:$$('#mkCam 
    son los mismos de los globos de ITEMS, así cada comentario sale con su skill */
 const SK_T={ficha:0.7,grupos:[1.25, 4.85, 6.9, 8.85],lv:10.9,v:[[1.25, 1.8], [1.8, 2.35], [2.35, 2.85], [2.85, 3.35], [3.35, 3.8], [3.8, 4.35], [4.35, 4.85], [4.85, 5.9], [5.9, 6.4], [6.4, 6.9], [6.9, 7.8], [7.8, 8.3], [8.3, 8.85], [8.85, 9.8], [9.8, 10.35], [10.35, 10.9]]};
 const SK={r:$('#sk3d'),vu:$('#skVuelo'),big:$$('#sk3d .sk-big'),slot:$$('#sk3d [data-slot]'),et:$$('#sk3d .sk-et'),c:$$('#sk3d .rp-c'),n:$('#rpNiv'),xp:$('#rpXp')}; let skY=-1;
-function fichaRPG(){const s=scenes.rpg; if(!s||!SK.r) return; const y=scrollY, vh=innerHeight; if(y===skY) return; skY=y;
+function fichaRPG(){const s=scenes.rpg; if(!s||!SK.r) return; const y=scrollY, vh=innerHeight; if(y===skY&&!window.__skMedir) return; skY=y;
   const Y=v=>s.top+v*vh, on=y>=Y(SK_T.ficha), lv=y>=Y(SK_T.lv); let grupo=-1; SK_T.grupos.forEach((g,i)=>{if(y>=Y(g)) grupo=i});
   SK.r.classList.toggle('on',on); SK.r.classList.toggle('lvup',lv);
   SK.et.forEach((e,i)=>e.classList.toggle('on',on&&!lv&&i===grupo));
-  const vr=SK.vu.getBoundingClientRect(), cx=vr.left+vr.width/2, cy=vr.top+vr.height/2;
+  /* las posiciones se miden una vez (no en cada cuadro: leer el diseño después de mover cosas congela el scroll en Safari) */
+  if(window.__skMedir){SK.pos=null; window.__skMedir=false}
+  if(!SK.pos){const rel=el=>{let x=0,y2=0,n=el; while(n&&n!==SK.r){x+=n.offsetLeft; y2+=n.offsetTop; n=n.offsetParent} return {x,y:y2,w:el.offsetWidth,h:el.offsetHeight}};
+    const v=rel(SK.vu); SK.pos={cx:v.x+v.w/2,cy:v.y+v.h/2,w:v.w,s:SK.slot.map(sl=>{const r=rel(sl); return {cx:r.x+r.w/2,cy:r.y+r.h/2,w:r.w}})}}
+  const P=SK.pos, cx=P.cx, cy=P.cy;
   SK_T.v.forEach(([a,b],k)=>{const el=SK.big[k], sl=SK.slot[k]; if(!el||!sl) return; const p=(y-Y(a))/Math.max(1,Y(b)-Y(a));
     sl.classList.toggle('lleno',p>=.97);
     if(p<0||p>=.97){el.classList.remove('vis'); return}
@@ -1403,7 +1407,7 @@ function fichaRPG(){const s=scenes.rpg; if(!s||!SK.r) return; const y=scrollY, v
     const ei=1-Math.pow(1-Math.min(1,p/.2),3), f=ease(Math.max(0,Math.min(1,(p-.18)/.4))), g0=Math.max(0,Math.min(1,(p-.74)/.23)), g=g0*g0*(3-2*g0);
     el.style.setProperty('--f',f.toFixed(3));
     if(el.dataset.v){const em=el.querySelector('em'), v=Math.round(f*+el.dataset.v); if(em.textContent!==String(v)) em.textContent=v}
-    const sr=sl.getBoundingClientRect(), dx=(sr.left+sr.width/2-cx)*g, dy=(sr.top+sr.height/2-cy)*g, sc=1-(1-Math.max(.06,sr.width/vr.width))*g, r=1-ei;
+    const sr=P.s[k], dx=(sr.cx-cx)*g, dy=(sr.cy-cy)*g, sc=1-(1-Math.max(.06,sr.w/P.w))*g, r=1-ei;
     el.style.transform=reduced?`translate(${dx.toFixed(1)}px,${dy.toFixed(1)}px) scale(${sc.toFixed(3)})`
       :`translate3d(${dx.toFixed(1)}px,${dy.toFixed(1)}px,${(-900*r+140*Math.sin(g*Math.PI)).toFixed(0)}px) rotateY(${(-70*r+(.5-f)*16*(1-g)+g*-20).toFixed(1)}deg) rotateX(${(28*r+g*10).toFixed(1)}deg) scale(${sc.toFixed(3)})`});
   const xp=Math.max(0,Math.min(1,(y-s.top)/s.span)); SK.xp.style.transform=`scaleX(${(lv?1:xp*.9).toFixed(3)})`;
@@ -1559,7 +1563,7 @@ function aimTails(){const hx=S.x, hy=S.y-H*.62;
 /* titles shrink until every word fits on its line */
 function fitTitles(){ITEMS.forEach(it=>{if(it.kind!=='title') return; const h=it.el.querySelector('.tname'); let fs=it.nfs||20; h.style.fontSize=fs+'cqw';
   let guard=40; while(guard--&&[...h.querySelectorAll('.word')].some(w=>w.scrollWidth>it.el.clientWidth+1)){fs-=.5; h.style.fontSize=fs+'cqw'}})}
-function layout(){size(); fitTitles(); measure(); measurePins(); pinFrame(); cbLast=-1; tls.forEach(t=>{t.w=t.h=0}); buildDepth(); frame(true); progreso(); negroOn=null; fondoNegro()}
+function layout(){window.__skMedir=true; size(); fitTitles(); measure(); measurePins(); pinFrame(); cbLast=-1; tls.forEach(t=>{t.w=t.h=0}); buildDepth(); frame(true); progreso(); negroOn=null; fondoNegro()}
 function aCorta(){if(state.short) return; state.short=true;
   $$('#col > .sc').forEach(s=>{if(!CORTA_SC.has(s.dataset.sc)){delete scenes[s.dataset.sc]; s.remove()}});
   recortar();
