@@ -612,3 +612,69 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:
 .pa-big{transition:opacity .3s ease-out,visibility 0s linear 0s}
 .pa-cam.codigo .pa-big{opacity:0;visibility:hidden;transition:opacity .3s ease-out,visibility 0s linear .3s}
 .it.code .cd-camina .cd-chibi{transform-origin:50% 50%}
+
+/* ---------- capítulo 5: la ficha de personaje (RPG) ---------- */
+.rp-ficha{--u:min(1cqw,.43lvh);position:absolute;left:5%;right:5%;top:11.5%;height:52%;display:flex;flex-direction:column;background:#fff;border:4px solid var(--ink);
+  box-shadow:calc(1.6*var(--u)) calc(1.6*var(--u)) 0 var(--ink);font-family:var(--letter);color:var(--ink);overflow:hidden;
+  opacity:0;transform:translateY(5%) rotate(-3deg) scale(.96);transition:opacity .35s ease-out,transform .5s cubic-bezier(.2,.8,.25,1)}
+.rp-ficha.on{opacity:1;transform:rotate(-1.2deg)}
+.rp-cab{display:flex;justify-content:space-between;align-items:center;padding:calc(1.4*var(--u)) calc(3*var(--u));background:var(--ink);color:var(--hl);font:calc(5*var(--u))/1 var(--title);letter-spacing:.04em}
+.rp-niv i{font-style:normal;display:inline-block;min-width:1.4em;text-align:right;color:#fff}
+.lvup .rp-niv i{color:var(--hl);animation:rpnv .5s steps(4)}
+@keyframes rpnv{0%,50%{transform:scale(1.5)}100%{transform:scale(1)}}
+.rp-quien{display:flex;gap:calc(3*var(--u));align-items:center;padding:calc(2.2*var(--u)) calc(3*var(--u));border-bottom:3px solid var(--ink)}
+.rp-foto{flex:none;width:calc(20*var(--u));aspect-ratio:1;border:3px solid var(--ink);background:var(--hl);overflow:hidden}
+.rp-foto{position:relative}
+.rp-c{position:absolute;left:-9%;top:-3%;width:118%;height:118%;object-fit:contain;opacity:0;transform:scale(.85);transition:opacity .15s steps(2),transform .3s cubic-bezier(.2,.8,.25,1)}
+.rp-c.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rp-c{transition:none;transform:none}}
+.rp-dat{flex:1;min-width:0}
+.rp-nom{margin:0;font:calc(6.2*var(--u))/.95 var(--title);letter-spacing:.02em}
+.rp-cl{margin:calc(.6*var(--u)) 0 0;font-size:calc(2.9*var(--u));font-weight:700;line-height:1.15}
+.rp-xp{display:flex;align-items:center;gap:calc(1.4*var(--u));margin:calc(1.2*var(--u)) 0 0;font:calc(3*var(--u))/1 var(--title)}
+.rp-xp i{flex:1;height:calc(1.8*var(--u));border:2px solid var(--ink);background:#fff}
+.rp-xp i b{display:block;height:100%;background:#53b4ff;transform-origin:0 50%;transform:scaleX(0);transition:transform .4s ease-out}
+.rp-pags{position:relative;flex:1}
+.rp-pag{position:absolute;top:0;right:0;bottom:0;left:0;padding:calc(2*var(--u)) calc(3*var(--u));opacity:0;visibility:hidden;transform:translateX(6%);
+  transition:opacity .25s ease-out,transform .35s cubic-bezier(.2,.8,.25,1),visibility 0s linear .35s}
+.rp-pag.on{opacity:1;visibility:visible;transform:none;transition:opacity .25s ease-out,transform .35s cubic-bezier(.2,.8,.25,1),visibility 0s}
+.rp-h{display:inline-block;margin:0 0 calc(1.6*var(--u));padding:calc(.5*var(--u)) calc(1.8*var(--u));background:var(--hl);border:3px solid var(--ink);font:calc(4.2*var(--u))/1 var(--title);letter-spacing:.05em;transform:rotate(-2deg)}
+/* stats */
+.rp-sts{display:flex;flex-direction:column;gap:calc(1.5*var(--u))}
+.rp-st{display:grid;grid-template-columns:1fr auto;column-gap:calc(2*var(--u));row-gap:calc(.5*var(--u));align-items:center}
+.rp-sl{grid-column:1/3;display:flex;justify-content:space-between;align-items:baseline;gap:calc(2*var(--u));margin:0;min-width:0}
+.rp-sn{font:calc(3.9*var(--u))/1 var(--title);letter-spacing:.03em;white-space:nowrap}
+.rp-sv{grid-column:2/3;grid-row:2;align-self:center;font:calc(4.4*var(--u))/1 var(--title);min-width:1.4em;text-align:right;opacity:0;transition:opacity .2s}
+.rp-bar{grid-column:1/2;grid-row:2;display:block;height:calc(2.2*var(--u));border:2px solid var(--ink);background:#fff}
+.rp-bar b{display:block;height:100%;background:var(--hl);transform-origin:0 50%;transform:scaleX(0);transition:transform .6s cubic-bezier(.2,.8,.25,1)}
+.rp-sd{font-family:var(--letter);font-size:calc(2.7*var(--u));font-weight:700;line-height:1;text-align:right;opacity:.75;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rp-st.lleno .rp-bar b{transform:scaleX(var(--v))}
+.rp-st.lleno .rp-sv{opacity:1}
+.rp-st.mal .rp-bar b{background:#e2453c}
+.rp-st.mal .rp-sv,.rp-st.mal .rp-sd{color:#c42a22}
+.rp-st.mal .rp-sd{opacity:1}
+.rp-sl .rp-sd{flex:1;min-width:0}
+/* pasivas, equipo y debilidades */
+.rp-pas,.rp-eq,.rp-de{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:calc(3.4*var(--u))}
+.rp-pas li{display:flex;gap:calc(2.4*var(--u));align-items:center;font-size:calc(4.5*var(--u));font-weight:700;line-height:1.2}
+.rp-pas li b{flex:none;display:grid;place-items:center;width:calc(7*var(--u));aspect-ratio:1;border:3px solid var(--ink);background:var(--hl);font:calc(3.4*var(--u))/1 var(--title)}
+.rp-eq li,.rp-de li{display:flex;gap:calc(2.4*var(--u));align-items:center}
+.rp-ico{flex:none;width:calc(12*var(--u));aspect-ratio:1;border:3px solid var(--ink);background:var(--hl);display:grid;place-items:center}
+.rp-ico svg{width:72%;height:72%;fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.rp-eq b,.rp-de b{display:block;font:calc(4.8*var(--u))/1 var(--title);letter-spacing:.03em}
+.rp-eq em{display:inline-block;margin:calc(.5*var(--u)) 0;padding:calc(.3*var(--u)) calc(1.2*var(--u));background:var(--ink);color:var(--hl);font:calc(3*var(--u))/1.1 var(--title);font-style:normal;letter-spacing:.06em}
+.rp-eq span,.rp-de span{display:block;font-size:calc(3.7*var(--u));font-weight:700;line-height:1.2}
+.rp-x{flex:none;display:grid;place-items:center;width:calc(10*var(--u));aspect-ratio:1;background:#e2453c;color:#fff;border:3px solid var(--ink);font:calc(5*var(--u))/1 var(--title)}
+.rp-de b{margin-top:calc(.6*var(--u));color:#c42a22}
+.rp-x svg{width:60%;height:60%;fill:none;stroke:#fff;stroke-width:3.4;stroke-linecap:round}
+/* subida de nivel */
+.rp-lv{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  background:repeating-conic-gradient(from 0deg at 50% 45%,#fff3b0 0 9deg,#fff 9deg 18deg)}
+.rp-big{margin:0;font:calc(13*var(--u))/.9 var(--title);color:var(--hl);-webkit-text-stroke:calc(.9*var(--u)) var(--ink);paint-order:stroke fill;text-shadow:calc(.8*var(--u)) calc(.8*var(--u)) 0 var(--ink);transform:rotate(-5deg)}
+.rp-salto{margin:calc(2*var(--u)) 0 0;font:calc(6*var(--u))/1 var(--title)}
+.rp-salto b{color:#e2453c;font-weight:400}
+.rp-lvt{margin:calc(2*var(--u)) 0 calc(1*var(--u));font-size:calc(3.4*var(--u));font-weight:700}
+.rp-lvh{margin:0;padding:calc(1*var(--u)) calc(3*var(--u));background:var(--ink);color:var(--hl);font:calc(5.5*var(--u))/1 var(--title);letter-spacing:.04em;transform:rotate(2deg)}
+.rp-pag.rp-lv.on .rp-big{animation:rpbig .55s cubic-bezier(.2,.8,.25,1)}
+@keyframes rpbig{0%{transform:rotate(-5deg) scale(.4);opacity:0}70%{transform:rotate(-5deg) scale(1.12);opacity:1}100%{transform:rotate(-5deg) scale(1)}}
+@media (prefers-reduced-motion:reduce){.rp-ficha,.rp-pag,.rp-bar b,.rp-xp i b{transition:none}.rp-pag.rp-lv.on .rp-big,.lvup .rp-niv i{animation:none}}

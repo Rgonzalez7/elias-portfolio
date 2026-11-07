@@ -30,7 +30,7 @@ export function Controles() {
           </div>
           <p className="mquip" id="menuQuip"></p>
           <ol className="mlist" id="mlist"></ol>
-          <button className="mversion" id="menuVersion" type="button">Versión corta: 5 capítulos</button>
+          <button className="mversion" id="menuVersion" type="button">Versión corta: 6 capítulos</button>
           <span className="msfx" aria-hidden="true">バッ</span>
         </div>
       </div>

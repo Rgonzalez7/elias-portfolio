@@ -17,30 +17,30 @@ const T={
   r_business:"Bien. Gente con dinero.",r_founder:"Valiente. O sin un peso. Ya veremos.",r_3d:"Honesto. Lo respeto. Raro, pero lo respeto.",
   q0_business:"Un negocio. Perfecto: tus clientes ya tienen el móvil en la mano.",q0_founder:"Un producto. Perfecto: una demo que funciona convence más que cien diapositivas.",q0_3d:"Vale. Para ti hay capas. Muchas capas.",
   q1:"Ya sé quién eres. Tú todavía no sabes quién soy yo.",q2:"Spoiler: el tipo que dibuja en servilletas y después las convierte en apps.",q3:"Pero antes, la servilleta. ¿Te acuerdas? Te dije que la guardaras.",q4:"Las buenas ideas no se tiran. Se doblan y van al bolsillo.",pk2:"Ahí se queda, calentita, hasta que le llegue su momento.",who0:"Pero antes de seguir, tienes que decirme quién eres.",who0b:"Es para personalizar tu experiencia. Suena a empresa grande, ¿no? Somos yo y un café.",
-  tbc:"Continúa en el capítulo 3. Sí, dentro de un bolsillo.",end:"Fin. Ocho capítulos, un contrato firmado y un chibi esperando. Te toca.",
+  tbc:"Continúa en el capítulo 3. Sí, dentro de un bolsillo.",end:"Fin. Nueve capítulos, un contrato firmado y un chibi esperando. Te toca.",
     tr1x:"Shh. No hagas ruido. Nos vamos a meter en un bolsillo.",tr4x:"¿Quieres ver cómo se vería? Justo tengo seis ejemplos.",tr5x:"Esta puerta la abro yo. Y te pido un favor: lee despacio.",
   ftag:"Tu negocio, siempre en el bolsillo de tu cliente.",fh1:"El manga",fh2:"Proyectos",fh3:"En otra parte",fTop:"Volver al contrato",fMenu:"Índice de capítulos",fWrite:"Escríbeme",
   dLegal:"Aviso legal",dPrivacy:"Política de privacidad",dCookies:"Política de cookies",close:"Cerrar",fcopy:"© 2026 Elias González. Dibujado a mano, programado a mano. Ningún pelo fue cortado en el proceso.",
-  chapter10:"CAPÍTULO 7",name10:"LA|LLAMADA",dim10:"4 preguntas. Cero formularios eternos.",
+  chapter10:"CAPÍTULO 8",name10:"LA|LLAMADA",dim10:"4 preguntas. Cero formularios eternos.",
   y1n:"Escríbeme. Respondo más rápido que tu último developer. La vara está baja, lo sé.",l102:"Nada de formularios de veinte campos. Cuatro preguntas y listo.",
   l103:"Te respondo en 24–48 h. Si hoy no te animas, el chat te espera aquí.",l104:"…¿Sigues aquí? Hay un capítulo más. Pero ese te lo tienes que ganar.",
-  c10tbc:"Siguiente: capítulo 8. ???",
+  c10tbc:"Siguiente: capítulo 9. ???",
   cpick:"Buen gusto: {N}. Anotado.",cq_founder:"¿Qué estás construyendo?",cq_business:"¿Qué vende tu negocio?",cname:"Bien. ¿Y con quién tengo el gusto?",
   cmail:"Un email, para demostrarte que respondo rápido.",cbad:"Eso no parece un email. Soy sarcástico, no adivino.",cbud:"¿Presupuesto? Opcional. «Ni idea» es una respuesta válida.",
   cnobud:"¿Sin presupuesto? Valiente. Hablamos.",cbudok:"Anotado. No te juzgo. En voz alta.",cready:"Listo. Dale a «Enviarlo» y se abre tu app de correo con todo rellenado.",
   cdone:"Recibido. Te respondo en 24–48 h. Ve a tomar agua.",ph:"Escribe aquí…",msgLabel:"Tu mensaje",send:"Enviar",skip:"Saltar",sendmail:"Enviarlo",cagain:"Empezar de nuevo",
   mWhat:"Qué",mSvc:"Servicio",mName:"Nombre",mBudget:"Presupuesto",mRoute:"Ruta",mSubj:"Desde el manga",
-  chapter11:"CAPÍTULO 8",name11:"ESCENA|POSTCRÉDITOS",dim11:"Te quedaste. Respeto.",
+  chapter11:"CAPÍTULO 9",name11:"ESCENA|POSTCRÉDITOS",dim11:"Te quedaste. Respeto.",
   z1:"¿Sigues aquí? Esto es una escena postcréditos. Solo la ve el 3% de la gente.",z2:"El otro 97% ya me escribió. Es broma. Todavía no me ha escrito nadie.",z3:"¿Te acuerdas de la servilleta del capítulo 2? Mírala ahora.",
   z5:"Del garabato a una app de verdad. Mismo café. Otro final.",z6:"Esto es lo que pasa cuando una mala idea se encuentra con alguien terco.",z7:"Si no escribes, no pasa nada grave. Solo que él se queda aquí esperando. Para siempre. Sin pestañear.",
   final:"Cláusula 1 del contrato: si llegas al final, me escribes. Llegaste. Lo firmaste. Hay testigos (yo).",
   write:"Cumplir el contrato",z4:"Continuará… en mi bandeja de entrada.",
   w101:"El teléfono suena sobre la mesa de dibujo",w102:"Llamada entrante · ¿TÚ?",w111:"La servilleta otra vez, con el edificio que quería dibujar de niño",
-  chapter9:"CAPÍTULO 6",name9:"ELIGE TU|VENENO",dim9:"3 frascos. Sin letra pequeña.",
+  chapter9:"CAPÍTULO 7",name9:"ELIGE TU|VENENO",dim9:"3 frascos. Sin letra pequeña.",
   x91:"Elige tu veneno.",x92:"Tres frascos. Nada de «contáctanos para precios». Eres adulto.",x93:"El orden depende de lo que me dijiste en el capítulo 2. Sí, me acuerdo.",
-  x94:"Cada frasco dice lo que trae. Sin asteriscos.",x95:"Si dudas entre dos, escríbeme. Para eso está el capítulo 7.",
+  x94:"Cada frasco dice lo que trae. Sin asteriscos.",x95:"Si dudas entre dos, escríbeme. Para eso está el capítulo 8.",
   x96:"Efectos secundarios: un producto de verdad.",x97:"Y no, no hay frasco de «hazlo gratis y te doy visibilidad».",
-  x98:"¿Oyes eso? Alguien está llamando.",c9tbc:"Siguiente: capítulo 7. Escríbeme. Respondo más rápido que tu último developer.",
+  x98:"¿Oyes eso? Alguien está llamando.",c9tbc:"Siguiente: capítulo 8. Escríbeme. Respondo más rápido que tu último developer.",
   uncork:"DESTAPAR",pick:"Este mismo",keep:"Sigo mirando",
   bpN:"EL PLANO",bpP:"DESDE $3.500",bpQ:"Tengo una idea (y una servilleta)",bpL:"Discovery: lo que quieres vs. lo que de verdad necesitas|Alcance, pantallas y arquitectura en papel|Un presupuesto real. Sin sorpresas después",
   mvN:"EL MVP",mvP:"DESDE $6.500 · 10–21 DÍAS",mvQ:"Construye la cosa",mvL:"Diseño y construcción de la primera versión real|Web y/o móvil, desplegada y funcionando|Entrega con código y documentación. Es tuyo",
@@ -57,7 +57,7 @@ const T={
   o7:"Técnicamente ahora soy arquitecto. De software. Y predico código limpio a clientes que no escuchan. Casi lo mismo.",
   o8:"Y sí, ahora tengo el pelo largo. En el manga, por lo menos. Paso a paso.",o9:"Pero esta historia no va de mí. Va de una servilleta.",o10:"Y de una idea que, como casi todas, empezó en un café.",c8tbc:"Siguiente: capítulo 2. La servilleta.",
   w81:"Flashback · el niño dibujando edificios",w82:"Los padres, enormes, y las tijeras",w83:"El ingeniero con ganas de comerse el mundo",w84:"La línea de tiempo, año por año",w85:"Hoy · España, arquitecto de software",
-  chapter7:"CAPÍTULO 5",name7:"NOTIFICACIONES",dim7:"Muchas. No son tuyas. Todavía.",
+  chapter7:"CAPÍTULO 6",name7:"NOTIFICACIONES",dim7:"Muchas. No son tuyas. Todavía.",
   w7a:"De vuelta en el bolsillo. Misma oscuridad, misma pelusa. Pero ahora tu app vive aquí.",w7b:"Giro de guion: entrar al bolsillo es lo fácil.",
   w7c:"Lo difícil es que la abran. Aquí viven un montón de apps sin pagar alquiler. Nadie las abre. Nadie las extraña.",w7d:"El truco no es estar ahí. Es destacar. Como mi magnífico pelo.",
   c7T_business:"TU NEGOCIO",c7B_business:"Tu pedido está listo.",c7T_founder:"TU APP",c7B_founder:"Tu app acaba de tener su primer usuario.",
@@ -68,16 +68,16 @@ const T={
   w7i:"Ahora, lo que nadie ve: todo lo que hay que construir para que esa notificación llegue.",
   c7tbc:"Siguiente: capítulo 4. Parece fácil. No lo es.",
   w71:"Dentro del bolsillo del cliente · a color",w72:"El arquitecto de espaldas, el pelo al viento · a color",w73:"El teléfono brilla: ya está dentro · a color",w74:"El compás corta el aire · a color",
-  chapter6:"CAPÍTULO 5",name6:"ASUNTO|SERIO",dim6:"1 producto real",
+  chapter6:"CAPÍTULO 6",name6:"ASUNTO|SERIO",dim6:"1 producto real",
   g61:"Esta es Güibbo: práctica clínica con IA. Ningún paciente real sale traumatizado.",g62:"Una sesión de práctica: un estudiante y un paciente simulado.",
   g63:"Cada palabra se convierte en texto, en tiempo real.",live:"TRANSCRIPCIÓN EN VIVO",
   tr1:"ESTUDIANTE: ¿Cómo ha sido esta semana?",tr2:"PACIENTE: Cansada. Siempre voy atrasada.",tr3:"ESTUDIANTE: ¿Atrasada en qué, sobre todo?",tr4:"PACIENTE: En todo. Trabajo, casa…",tr5:"ESTUDIANTE: Suena agotador.",
   g64:"Así se practica antes de sentarse frente a una persona real.",g65:"Después la IA da feedback: fortalezas, qué mejorar y qué probar después.",
   fb1t:"FORTALEZA",fb1:"Pregunta abierta. Bien.",fb2t:"A MEJORAR",fb2:"Interrumpiste en el 03:12.",fb3t:"PRUEBA",fb3:"Refleja primero la emoción.",
   g66:"Las capturas van difuminadas. Este producto es privado.",priv:"PRIVADO",g67:"Esta no lleva chistes. Lleva resultados.",u5btn:"Pedir demo",
-  g68:"Bueno. Se acabó lo serio. Volvemos al bolsillo.",g69:"Ya. Puedes volver a respirar.",g6a:"Prometí cero chistes y lo cumplí. Casi. Bueno, no.",g6b:"Ya sabes de dónde vengo y lo que construyo. Falta lo más incómodo: hablar de dinero.",c6tbc:"Siguiente: capítulo 6. Elige tu veneno.",
+  g68:"Bueno. Se acabó lo serio. Volvemos al bolsillo.",g69:"Ya. Puedes volver a respirar.",g6a:"Prometí cero chistes y lo cumplí. Casi. Bueno, no.",g6b:"Ya sabes de dónde vengo y lo que construyo. Falta lo más incómodo: hablar de dinero.",c6tbc:"Siguiente: capítulo 7. Elige tu veneno.",
   w61:"Sala de práctica de noche · ventana con luna",w62:"La onda de la voz y la transcripción en vivo",w63:"El feedback de la IA después de la sesión",w64:"Capturas de Güibbo, difuminadas",
-  chapter5:"CAPÍTULO 5",name5:"MINIMAL|ONE",dim5:"6 negocios falsos. Ellos todavía no lo saben.",
+  chapter5:"CAPÍTULO 6",name5:"MINIMAL|ONE",dim5:"6 negocios falsos. Ellos todavía no lo saben.",
  v51:"Negocio real número 1: Minimal One. Es mi otra empresa. Sí, tengo dos. No, no duermo mucho.",mo1:"Es mi otra empresa. Sí, tengo dos. No, no duermo mucho.",
   mo2:"Minimal One le da a cada negocio su propia web y su propia app. Con su logo, sus colores y su forma de hablar.",
   pc1t:"LA WEB",pc1:"Para que te encuentren y sepan qué ofreces.",pc2t:"LA APP",pc2:"Pedidos, reservas y puntos. Tus clientes la guardan en el teléfono.",
@@ -90,10 +90,10 @@ const T={
   dm4:"Pan con problemas de paciencia. De los buenos.",dm5:"Una hora en la que nadie te encuentra.",dm6:"Como la de la abuela. Con menos platos que lavar.",
   gagN:"Abriste {n} de 6. Las otras {m} están ofendidas. Solo digo.",gag6:"Abriste las seis. O te interesa o estás procrastinando. Las dos me sirven.",
  v56:"Y al final de la calle…",v57:"…hay una puerta que no es demo.",mat:"SOLO PERSONAL. Prohibido bromear a partir de aquí.",
-  c5tbc:"Siguiente: capítulo 5. El capítulo serio. Sin chistes. Lo prometo.",
+  c5tbc:"Siguiente: capítulo 6. El capítulo serio. Sin chistes. Lo prometo.",
   dbt1:"MENÚ",dbt2:"RESERVAR",dbt3:"PUNTOS",dlink:"Verla en Minimal One",dclose:"Salir de la tienda",
   w51:"La calle de demos · seis tiendas en fila",w58:"La puerta de Güibbo · SOLO PERSONAL",
-  chapter4:"CAPÍTULO 5",name4:"NEGOCIOS|REALES",dim4:"Sin chistes. Nah, sí hay chistes.",
+  chapter4:"CAPÍTULO 6",name4:"NEGOCIOS|REALES",dim4:"Sin chistes. Nah, sí hay chistes.",
   m1:"Aun así, así se ve un bolsillo un jueves por la mañana…",st1:"Todas quieren atención. Ninguna es tuya. Todavía.",n0T:"1 NOTIFICACIÓN NUEVA",n0B:"…y 47 más. Agárrate.",
   m3:"Y cuando todas se callan… solo hace falta una.",m4:"¿Y qué tienen todos en común? Viven dentro de lo mismo.",
   nf1T:"CAFETERÍA",nf1B:"Tu pedido está listo. Quema, cuidado.",nf2T:"BARBERÍA",nf2B:"Turno confirmado: sábado, 10:30.",
@@ -102,7 +102,7 @@ const T={
   m8:"(Y contando. Lo actualizo, lo juro por mi teclado.)",
   m10:"¿Quiénes son? No te puedo decir. A ellos les gusta su privacidad.",m11:"A mí me gusta que me paguen. Todos ganamos.",
   m12:"Ahora imagina el tuyo.",openT:"ABIERTO AHORA",openB:"Pasa. Haz como que solo estás mirando.",
-  m14:"Tu negocio. Siempre en el bolsillo de tu cliente.",c4tbc:"Siguiente: capítulo 5. Minimal One. Seis negocios falsos, casi de verdad.",
+  m14:"Tu negocio. Siempre en el bolsillo de tu cliente.",c4tbc:"Siguiente: capítulo 6. Minimal One. Seis negocios falsos, casi de verdad.",
   w41:"Un teléfono y una notificación amarilla",w42:"Lluvia de notificaciones de negocios reales",w43:"El cuaderno: el 9 tachado, el 10+ resaltado",w44:"Notificaciones censuradas",w45:"La vitrina con forma de teléfono: tu negocio",
   chapter3:"CAPÍTULO 4",name3:"PARECE FÁCIL. NO LO ES.",dim3:"40.000 decisiones",
   s31:"Paso uno: que parezca fácil.",s32:"Paso dos: no contarle a nadie lo difícil que fue.",s33:"Esto es lo que ve tu cliente. Un dibujo bonito.",
@@ -113,7 +113,7 @@ const T={
   L3:"El motor (backend, datos, seguridad y despliegue): lo que la mantiene viva a las 3 a.m. mientras duermo. Casi siempre.",L3b:"Nadie lo ve. Todo el mundo nota cuando falla.",
   s38:"Ahora la volvemos a cerrar.",s39:"Con cuidado. Siempre sobran tornillos.",
   s310:"Tú ves una app. Yo veo 40.000 decisiones. Y al menos 12 crisis existenciales.",s311:"Bueno, 11. Una fue sobre tabs o espacios.",
-  s312:"Por eso parece fácil. Porque alguien se encargó de que lo pareciera. Y no lo digo de memoria: tengo pruebas.",c3tbc:"Siguiente: capítulo 5. Negocios reales. Dos apps mías, funcionando de verdad.",
+  s312:"Por eso parece fácil. Porque alguien se encargó de que lo pareciera. Y no lo digo de memoria: tengo pruebas.",c3tbc:"Siguiente: capítulo 5. Skills para probarlo. Con barras y todo.",
   w31:"La plumilla entinta el boceto del teléfono",w32:"El teléfono explota en sus tres capas",w33:"La cara",w34:"El cerebro",w35:"El motor",w36:"El teléfono se rearma · contador 40.000",
   chapter2:"CAPÍTULO 3",name2:"BOLSILLOS AJENOS",dim2:"1 bolsillo ajeno. 48 notificaciones.",
   c2a:"Dentro de un bolsillo. Está oscuro, hay pelusa y una moneda de 2019. Aquí nadie pasa la aspiradora.",
@@ -144,30 +144,30 @@ const T={
   r_business:"Good. Money people.",r_founder:"Brave. Or broke. Let’s find out.",r_3d:"Honest. I respect that. Weirdo.",
   q0_business:"A business. Perfect: your customers already have their phones out.",q0_founder:"A product. Perfect: a working demo beats a hundred slides.",q0_3d:"Fine. For you there are layers. Lots of layers.",
   q1:"Now I know who you are. You still don’t know who I am.",q2:"Spoiler: the guy who draws on napkins and then turns them into apps.",q3:"But first, the napkin. Remember? I told you to keep it.",q4:"Good ideas don’t go in the trash. They get folded and go in a pocket.",pk2:"And there it stays, nice and warm, until its moment comes.",who0:"But first, you have to tell me who you are.",who0b:"It’s to personalize your experience. Sounds like a big company, right? It’s me and a coffee.",
-  tbc:"To be continued in chapter 3. Yes, inside a pocket.",end:"The end. Eight chapters, one signed contract and a chibi waiting. Your move.",
+  tbc:"To be continued in chapter 3. Yes, inside a pocket.",end:"The end. Nine chapters, one signed contract and a chibi waiting. Your move.",
     tr1x:"Shh. Don’t make a sound. We’re climbing into a pocket.",tr4x:"Want to see what it would look like? I happen to have six examples.",tr5x:"I’ll open this one myself. One favor: read slowly.",
   ftag:"Your business. Always in your customer’s pocket.",fh1:"The manga",fh2:"Projects",fh3:"Elsewhere",fTop:"Back to the contract",fMenu:"Chapter index",fWrite:"Write me",
   dLegal:"Legal notice",dPrivacy:"Privacy policy",dCookies:"Cookie policy",close:"Close",fcopy:"© 2026 Elias González. Drawn by hand, coded by hand. No hair was cut in the process.",
-  chapter10:"CHAPTER 7",name10:"THE|CALL",dim10:"4 questions. Zero endless forms.",
+  chapter10:"CHAPTER 8",name10:"THE|CALL",dim10:"4 questions. Zero endless forms.",
   y1n:"Write me. I reply faster than your last developer. Low bar, I know.",l102:"No twenty-field forms. Four questions and done.",
   l103:"I reply within 24–48 h. Not feeling it today? The chat will wait right here.",l104:"…Still here? There’s one more chapter. But you have to earn that one.",
-  c10tbc:"Next: chapter 8. ???",
+  c10tbc:"Next: chapter 9. ???",
   cpick:"Good taste: {N}. Noted.",cq_founder:"So, what are you building?",cq_business:"So, what does your business sell?",cname:"Nice. And who do I have the pleasure of talking to?",
   cmail:"An email, so I can prove I reply fast.",cbad:"That doesn’t look like an email. I’m sarcastic, not psychic.",cbud:"Budget? Optional. ‘No idea’ is a valid answer.",
   cnobud:"No budget? Brave. We’ll talk.",cbudok:"Noted. I won’t judge. Out loud.",cready:"Ready. Hit ‘Send it’ and your email app opens with everything filled in.",
   cdone:"Got it. I’ll reply within 24–48 h. Go drink some water.",ph:"Type here…",msgLabel:"Your message",send:"Send",skip:"Skip",sendmail:"Send it",cagain:"Start over",
   mWhat:"What",mSvc:"Service",mName:"Name",mBudget:"Budget",mRoute:"Route",mSubj:"From the manga",
-  chapter11:"CHAPTER 8",name11:"POST-CREDITS|SCENE",dim11:"You stayed. Respect.",
+  chapter11:"CHAPTER 9",name11:"POST-CREDITS|SCENE",dim11:"You stayed. Respect.",
   z1:"Still here? This is a post-credits scene. Only 3% of people see it.",z2:"The other 97% already wrote me. Kidding. Nobody has written me yet.",z3:"Remember the napkin from chapter 2? Look at it now.",
   z5:"From a doodle to a real app. Same coffee. Different ending.",z6:"This is what happens when a bad idea meets someone stubborn.",z7:"If you don’t write, nothing bad happens. He just stays here waiting. Forever. Without blinking.",
   final:"Contract, clause 1: if you reach the end, you write me. You reached it. You signed. There are witnesses (me).",
   write:"Honor the contract",z4:"To be continued… in my inbox.",
   w101:"The phone rings on the drawing table",w102:"Incoming call · YOU?",w111:"The napkin again, with the building I wanted to draw as a kid",
-  chapter9:"CHAPTER 6",name9:"PICK YOUR|POISON",dim9:"3 bottles. No fine print.",
+  chapter9:"CHAPTER 7",name9:"PICK YOUR|POISON",dim9:"3 bottles. No fine print.",
   x91:"Pick your poison.",x92:"Three bottles. No ‘contact us for pricing’ nonsense. You’re an adult.",x93:"The order depends on what you told me in chapter 2. Yes, I remember.",
-  x94:"Each bottle says what’s inside. No asterisks.",x95:"Torn between two? Write me. That’s what chapter 7 is for.",
+  x94:"Each bottle says what’s inside. No asterisks.",x95:"Torn between two? Write me. That’s what chapter 8 is for.",
   x96:"Side effects may include: an actual product.",x97:"And no, there’s no ‘do it for exposure’ bottle.",
-  x98:"Hear that? Someone’s calling.",c9tbc:"Next: chapter 7. Write me. I reply faster than your last developer.",
+  x98:"Hear that? Someone’s calling.",c9tbc:"Next: chapter 8. Write me. I reply faster than your last developer.",
   uncork:"UNCORK",pick:"This one",keep:"Keep browsing",
   bpN:"THE BLUEPRINT",bpP:"FROM $3,500",bpQ:"I have an idea (and a napkin)",bpL:"Discovery: what you want vs. what you actually need|Scope, screens and architecture on paper|A real estimate. No surprises later",
   mvN:"THE MVP",mvP:"FROM $6,500 · 10–21 DAYS",mvQ:"Build the thing",mvL:"Design and build of the first real version|Web and/or mobile, deployed and working|Handoff with code and docs. It’s yours",
@@ -184,7 +184,7 @@ const T={
   o7:"Technically I’m an architect now. Of software. And I preach clean code to clients who don’t listen. Close enough.",
   o8:"And yes, the hair is long now. In the manga, at least. Baby steps.",o9:"But this story isn’t about me. It’s about a napkin.",o10:"And an idea that, like almost all of them, started in a café.",c8tbc:"Next: chapter 2. The napkin.",
   w81:"Flashback · the kid drawing buildings",w82:"The parents, huge, and the scissors",w83:"The engineer hungry to eat the world",w84:"The timeline, year by year",w85:"Today · Spain, software architect",
-  chapter7:"CHAPTER 5",name7:"NOTIFICATIONS",dim7:"A lot of them. Not yours. Yet.",
+  chapter7:"CHAPTER 6",name7:"NOTIFICATIONS",dim7:"A lot of them. Not yours. Yet.",
   w7a:"Back in the pocket. Same dark, same lint. But now your app lives here.",w7b:"Plot twist: getting into the pocket is the easy part.",
   w7c:"The hard part is getting opened. Plenty of apps live in here rent-free. Nobody opens them. Nobody misses them.",w7d:"The trick isn’t being there. It’s standing out. Like my magnificent hair.",
   c7T_business:"YOUR BUSINESS",c7B_business:"Your order is ready.",c7T_founder:"YOUR APP",c7B_founder:"Your app just got its first user.",
@@ -195,16 +195,16 @@ const T={
   w7i:"Now, the part nobody sees: everything it takes to build the thing that sends that notification.",
   c7tbc:"Next: chapter 4. Looks simple. Isn’t.",
   w71:"Inside the customer’s pocket · in colour",w72:"The architect from behind, hair in the wind · in colour",w73:"The phone sparkles: it’s in · in colour",w74:"The compass slices the air · in colour",
-  chapter6:"CHAPTER 5",name6:"SERIOUS|BUSINESS",dim6:"1 real product",
+  chapter6:"CHAPTER 6",name6:"SERIOUS|BUSINESS",dim6:"1 real product",
   g61:"This is Güibbo: clinical practice with AI. No real patients get traumatized.",g62:"A practice session: a student and a simulated patient.",
   g63:"Every word becomes text, in real time.",live:"LIVE TRANSCRIPT",
   tr1:"STUDENT: How has this week been for you?",tr2:"PATIENT: Tiring. I always feel behind.",tr3:"STUDENT: Behind on what, mostly?",tr4:"PATIENT: Everything. Work, home…",tr5:"STUDENT: That sounds exhausting.",
   g64:"That’s how you practice before sitting across from a real person.",g65:"Then the AI gives feedback: strengths, what to improve and what to try next.",
   fb1t:"STRENGTH",fb1:"Open question. Good.",fb2t:"TO IMPROVE",fb2:"Interrupted at 03:12.",fb3t:"TRY NEXT",fb3:"Reflect the emotion first.",
   g66:"Screenshots stay blurred. This product is private.",priv:"PRIVATE",g67:"This one doesn’t get jokes. It gets results.",u5btn:"Request a demo",
-  g68:"Okay. Serious part over. Back to the pocket.",g69:"There. You can breathe again.",g6a:"I promised zero jokes and I kept it. Almost. Okay, no.",g6b:"Now you know where I come from and what I build. Only the awkward part is left: talking about money.",c6tbc:"Next: chapter 6. Pick your poison.",
+  g68:"Okay. Serious part over. Back to the pocket.",g69:"There. You can breathe again.",g6a:"I promised zero jokes and I kept it. Almost. Okay, no.",g6b:"Now you know where I come from and what I build. Only the awkward part is left: talking about money.",c6tbc:"Next: chapter 7. Pick your poison.",
   w61:"Night practice room · window with a moon",w62:"The voice waveform and the live transcript",w63:"The AI feedback after the session",w64:"Güibbo screenshots, blurred",
-  chapter5:"CHAPTER 5",name5:"MINIMAL|ONE",dim5:"6 fake businesses. They don’t know yet.",
+  chapter5:"CHAPTER 6",name5:"MINIMAL|ONE",dim5:"6 fake businesses. They don’t know yet.",
  v51:"Real business number 1: Minimal One. My other company. Yes, I have two. No, I don’t sleep much.",mo1:"It’s my other company. Yes, I have two. No, I don’t sleep much.",
   mo2:"Minimal One gives every business its own website and its own app. With its logo, its colors and its way of talking.",
   pc1t:"THE WEBSITE",pc1:"So people find you and know what you offer.",pc2t:"THE APP",pc2:"Orders, bookings and rewards. Your customers keep it on their phone.",
@@ -217,10 +217,10 @@ const T={
   dm4:"Bread with patience issues. The good kind.",dm5:"One hour where nobody can find you.",dm6:"Like grandma’s. Fewer dishes.",
   gagN:"You opened {n} of 6. The other {m} are offended. Just saying.",gag6:"You opened all six. Either you’re interested or you’re procrastinating. Both work for me.",
  v56:"And at the end of the street…",v57:"…there’s a door that isn’t a demo.",mat:"STAFF ONLY. No jokes beyond this point.",
-  c5tbc:"Next: chapter 5. The serious chapter. No jokes. I promise.",
+  c5tbc:"Next: chapter 6. The serious chapter. No jokes. I promise.",
   dbt1:"MENU",dbt2:"BOOK",dbt3:"REWARDS",dlink:"See it on Minimal One",dclose:"Leave the shop",
   w51:"Demo street · six shops in a row",w58:"Güibbo’s door · STAFF ONLY",
-  chapter4:"CHAPTER 5",name4:"REAL|BUSINESSES",dim4:"No jokes. Nah, yes jokes.",
+  chapter4:"CHAPTER 6",name4:"REAL|BUSINESSES",dim4:"No jokes. Nah, yes jokes.",
   m1:"Even so, this is what a pocket looks like on a Thursday morning…",st1:"They all want attention. None of them is yours. Yet.",n0T:"1 NEW NOTIFICATION",n0B:"…and 47 more. Brace yourself.",
   m3:"And when they all go quiet… it only takes one.",m4:"And what do they all have in common? They live inside the same thing.",
   nf1T:"CAFÉ",nf1B:"Your order is ready. It’s hot. Be careful.",nf2T:"BARBERSHOP",nf2B:"Appointment confirmed: Saturday, 10:30.",
@@ -229,7 +229,7 @@ const T={
   m8:"(And counting. I update this, I swear on my keyboard.)",
   m10:"Who are they? Can’t tell you. They like their privacy.",m11:"I like getting paid. Everybody wins.",
   m12:"Now picture yours.",openT:"OPEN NOW",openB:"Come in. Pretend you’re just looking.",
-  m14:"Your business. Always in your customer’s pocket.",c4tbc:"Next: chapter 5. Minimal One. Six fake businesses, almost real.",
+  m14:"Your business. Always in your customer’s pocket.",c4tbc:"Next: chapter 6. Minimal One. Six fake businesses, almost real.",
   w41:"A phone and one yellow notification",w42:"A rain of notifications from real businesses",w43:"The notebook: 9 crossed out, 10+ highlighted",w44:"Redacted notifications",w45:"The phone-shaped shop window: your business",
   chapter3:"CHAPTER 4",name3:"LOOKS SIMPLE. ISN’T.",dim3:"40,000 decisions",
   s31:"Step one: make it look easy.",s32:"Step two: never tell anyone how hard it was.",s33:"This is what your customer sees. A pretty drawing.",
@@ -240,7 +240,7 @@ const T={
   L3:"The engine (backend, data, security, deploy): what keeps it alive at 3 a.m. while I sleep. Mostly.",L3b:"Nobody sees it. Everybody notices when it breaks.",
   s38:"Now we close it back up.",s39:"Carefully. There are always leftover screws.",
   s310:"You see an app. I see 40,000 decisions. And at least 12 existential crises.",s311:"Fine, 11. One was about tabs vs. spaces.",
-  s312:"That’s why it looks easy. Because someone made sure it would. And I’m not guessing: I have proof.",c3tbc:"Next: chapter 5. Real businesses. Two apps of mine, actually running.",
+  s312:"That’s why it looks easy. Because someone made sure it would. And I’m not guessing: I have proof.",c3tbc:"Next: chapter 5. Skills to prove it. Health bars included.",
   w31:"The dip pen inks the phone sketch",w32:"The phone explodes into its three layers",w33:"The face",w34:"The brain",w35:"The engine",w36:"The phone snaps back together · 40,000 counter",
   chapter2:"CHAPTER 3",name2:"OTHER PEOPLE’S POCKETS",dim2:"1 pocket, not yours. 48 notifications.",
   c2a:"Inside a pocket. It’s dark, there’s lint and a coin from 2019. Nobody vacuums in here.",
@@ -269,7 +269,7 @@ const state={signed:false,inked:false,route:null,short:false};
 /* textos que se suman: los de la versión corta llevan «_r» y mandan sobre el original solo en ella */
 Object.assign(T.es,{
   ctWho:"Elias González · Arquitecto de software",langLabel:"Cambiar a inglés",
-  vcorta:"¿Poco tiempo? Versión corta: 5 capítulos",
+  vcorta:"¿Poco tiempo? Versión corta: 6 capítulos",
   c_team:"Vengo a contratarte",r_team:"Bien. Esto también es un currículum, solo que con dibujos.",
   q0_team:"Si vas con prisa, abre el índice y elige «Versión corta». No me ofendo. Mucho.",
   nagFree:"Vale, sigue. No elegiste, pero que conste en acta.",
@@ -278,22 +278,22 @@ Object.assign(T.es,{
   cdir:"¿Prefieres escribir tú?",copiar:"Copiar",copiado:"Copiado",
   o9_r:"Esta es la versión corta. Vamos directo a lo que construyo.",
   o10_r:"Dos proyectos, unos precios y una forma de escribirme. Rápido, prometido.",
-  c8tbc_r:"Siguiente: capítulo 5. Mis dos proyectos.",
+  c8tbc_r:"Siguiente: capítulo 5. Mis skills, en formato videojuego.",
   name4_r:"DOS|PROYECTOS",dim4_r:"Los dos grandes. Con chistes, pero menos.",
   v51_r:"Proyecto 1: Minimal One. Una de mis dos empresas. Sí, dos. No, no duermo mucho.",
   mo6_r:"Proyecto 2: Güibbo. Este va en serio. Bueno… casi en serio.",
-  g6b_r:"Esos son mis dos proyectos grandes. Si buscas a alguien así para tu equipo, el capítulo 7 es tuyo.",
-  c6tbc_r:"Siguiente: capítulo 6. Precios, por si vienes con un proyecto.",
-  x93_r:"Si vienes a contratarme para tu equipo, puedes saltarte esto: el capítulo 7 es tuyo.",
+  g6b_r:"Esos son mis dos proyectos grandes. Si buscas a alguien así para tu equipo, el capítulo 8 es tuyo.",
+  c6tbc_r:"Siguiente: capítulo 7. Precios, por si vienes con un proyecto.",
+  x93_r:"Si vienes a contratarme para tu equipo, puedes saltarte esto: el capítulo 8 es tuyo.",
   z3_r:"¿Ves esta servilleta? Ahí empezó Minimal One. Mírala ahora.",
-  end_r:"Fin. Cinco capítulos, un contrato firmado y un chibi esperando. Te toca.",
+  end_r:"Fin. Seis capítulos, un contrato firmado y un chibi esperando. Te toca.",
   ftag:"Arquitecto de software. Hago productos que caben en un bolsillo.",
   fMail:"rmngzps@gmail.com",saltar:"Saltar al contacto",
   progreso:"CAP.",de:"DE"
 });
 Object.assign(T.en,{
   ctWho:"Elias González · Software architect",langLabel:"Switch to Spanish",
-  vcorta:"Short on time? Short version: 5 chapters",
+  vcorta:"Short on time? Short version: 6 chapters",
   c_team:"I’m here to hire you",r_team:"Good. This is a résumé too, just with drawings.",
   q0_team:"In a hurry? Open the contents and pick ‘Short version’. I won’t be offended. Much.",
   nagFree:"Fine, go on. You didn’t pick, but it’s on the record.",
@@ -302,15 +302,15 @@ Object.assign(T.en,{
   cdir:"Rather write yourself?",copiar:"Copy",copiado:"Copied",
   o9_r:"This is the short version. Straight to what I build.",
   o10_r:"Two projects, some prices and a way to write me. Quick, I promise.",
-  c8tbc_r:"Next: chapter 5. My two projects.",
+  c8tbc_r:"Next: chapter 5. My skills, video game style.",
   name4_r:"TWO|PROJECTS",dim4_r:"The big two. Jokes included, fewer of them.",
   v51_r:"Project 1: Minimal One. One of my two companies. Yes, two. No, I don’t sleep much.",
   mo6_r:"Project 2: Güibbo. This one is serious. Well… almost serious.",
-  g6b_r:"Those are my two big projects. If you need someone like that on your team, chapter 7 is yours.",
-  c6tbc_r:"Next: chapter 6. Prices, in case you have a project.",
-  x93_r:"If you’re here to hire me for your team, skip this: chapter 7 is yours.",
+  g6b_r:"Those are my two big projects. If you need someone like that on your team, chapter 8 is yours.",
+  c6tbc_r:"Next: chapter 7. Prices, in case you have a project.",
+  x93_r:"If you’re here to hire me for your team, skip this: chapter 8 is yours.",
   z3_r:"See this napkin? Minimal One started there. Look at it now.",
-  end_r:"The end. Five chapters, one signed contract and a chibi waiting. Your move.",
+  end_r:"The end. Six chapters, one signed contract and a chibi waiting. Your move.",
   ftag:"Software architect. I build products that fit in a pocket.",
   fMail:"rmngzps@gmail.com",saltar:"Skip to contact",
   progreso:"CH.",de:"OF"
@@ -330,7 +330,7 @@ Object.assign(T.en,{
   gblink:"Meet Güibbo"
 });
 Object.assign(T.es,{
-  chapter11:"CAPÍTULO 8",name11:"MAKING|OF",dim11:"Cómo se hizo. Spoiler: a mano.",
+  chapter11:"CAPÍTULO 9",name11:"MAKING|OF",dim11:"Cómo se hizo. Spoiler: a mano.",
   z1:"¿Sigues aquí? Esto es el making of. Solo lo ve el 3% de la gente.",
   pcmk1t:"EL LÁPIZ",pcmk1:"Primero, a lápiz azul. Cuatro vistas, para que al girar no le crezca otra nariz.",
   mk2:"Sí, gira con tu scroll. No, no se marea. Yo sí.",
@@ -342,7 +342,7 @@ Object.assign(T.es,{
   codeC:["// El salto: una curva de Bézier.","const k = (ahora - inicio) / 430;","const cx = (x0 + x1) / 2;","const cy = Math.min(y0, y1) - 70;","x = (1-k)**2*x0 + 2*k*(1-k)*cx + k*k*x1;","y = (1-k)**2*y0 + 2*k*(1-k)*cy + k*k*y1;","","// Qué dibujo toca en cada momento:","pose = k < .12 ? 'salto-1'","     : k < .5  ? 'salto-2'","     : k < .72 ? 'salto-3' : 'salto-4';"]
 });
 Object.assign(T.en,{
-  chapter11:"CHAPTER 8",name11:"MAKING|OF",dim11:"How it was made. Spoiler: by hand.",
+  chapter11:"CHAPTER 9",name11:"MAKING|OF",dim11:"How it was made. Spoiler: by hand.",
   z1:"Still here? This is the making of. Only 3% of people see it.",
   pcmk1t:"THE PENCIL",pcmk1:"First, blue pencil. Four views, so he doesn’t grow a second nose when he turns.",
   mk2:"Yes, he spins with your scroll. No, he doesn’t get dizzy. I do.",
@@ -391,6 +391,64 @@ const tx=k=>{const d=T[lang]; return (state.short&&d[k+'_r']!=null)?d[k+'_r']:d[
    perch: the tiny architect can stand on it · drop: the previous perch leaves first, he falls
    l/t/w: position on screen (% of the column and of the screen height)
 ------------------------------------------------------------------- */
+
+Object.assign(T.es,{
+  chapter12:"CAPÍTULO 5",name12:"SKILLS PARA|PROBARLO",dim12:"1 ficha de personaje. 0 horas de sueño.",
+  k1:"El capítulo anterior terminó con «tengo pruebas». Aquí están. En formato videojuego, porque puedo.",
+  k1_r:"Versión corta, así que directo a la ficha. Sin rodeos. Bueno, con algunos.",
+  k2:"Sí, los números me los puse yo. Como todo el mundo en LinkedIn. La diferencia es que los míos se pueden comprobar.",
+  k3:"La paciencia está en 3. Iba a ponerle 5, pero alguien me pidió «un cambio pequeñito» mientras la dibujaba.",
+  k4:"Habilidades pasivas. Funcionan solas, como el café.",
+  k5:"La primera es tan rara que algunos clientes juran que no existe.",
+  k6:"El compás es mi arma legendaria. Mide, corta y, si hace falta, señala el presupuesto.",
+  k7:"El pelo da +10 de carisma. Mis padres le restarían 30. Ya lo hablamos en el capítulo 1.",
+  k8:"Toda ficha honesta tiene debilidades. Estas son las mías. Úsalas con responsabilidad.",
+  k9:"Si me dices «es un cambio rápido», pierdo 50 puntos de vida. Tú pierdes una semana.",
+  k10:"Subí de nivel. Nueva habilidad desbloqueada: hacer tu app.",
+  k11:"Bonita ficha, ¿no? Ahora la pregunta incómoda: ¿dónde la usé de verdad?",
+  c12tbc:"Siguiente: capítulo 6. Negocios reales. Sin chistes. Nah, sí hay chistes.",c12tbc_r:"Siguiente: capítulo 6. Mis dos proyectos.",
+  rpTag:"FICHA DE PERSONAJE",rpNivL:"NV.",rpClase:"Clase: arquitecto de software",rpRaza:"Raza: humano (con café)",rpXp:"EXP",
+  rpH0:"STATS",rpH1:"HABILIDADES PASIVAS",rpH2:"EQUIPO",rpH3:"DEBILIDADES",
+  rpS1:"ARQUITECTURA",rpS1d:"Sistemas que aguantan el éxito",rpS2:"FRONTEND",rpS2d:"React · Next.js · TypeScript",rpS3:"BACKEND",rpS3d:"Node · MongoDB · APIs · pagos",
+  rpS4:"IA Y AUTOMATIZACIÓN",rpS4d:"Que la IA trabaje. En producción",rpS5:"APPS (PWA)",rpS5d:"Se instalan sin App Store",
+  rpS6:"PACIENCIA CON «ES UN CAMBIO PEQUEÑITO»",rpS6d:"Crítica",rpS7:"HORAS DE SUEÑO",rpS7d:"Sin cambios desde 2011",
+  rpP1:"Entiende lo que querías decir, no lo que dijiste.",rpP2:"Traduce «que se vea más moderno» a algo que se pueda programar.",rpP3:"Explica la nube sin dibujar una nube. Casi nunca.",
+  rpE1n:"COMPÁS",rpE1t:"Arma legendaria",rpE1d:"+50 precisión. Corta el aire y el alcance del proyecto.",
+  rpE2n:"CAFÉ",rpE2t:"Consumible infinito",rpE2d:"+40 concentración. −20 pulso.",
+  rpE3n:"PELO LARGO",rpE3t:"Accesorio prohibido",rpE3d:"+10 carisma. −30 visibilidad. Equipado igual.",
+  rpD1:"«¿Y si lo hacemos como Uber, pero para perros?»",rpD1t:"ALERGIA GRAVE",rpD2:"«Es un cambio rápido, no te va a llevar nada.»",rpD2t:"DAÑO CRÍTICO ×3",
+  rpD3:"Reuniones que podían ser un correo",rpD3t:"VENENO LENTO",
+  rpLvT:"Nueva habilidad desbloqueada",rpLvH:"HACER TU APP"
+});
+Object.assign(T.en,{
+  chapter12:"CHAPTER 5",name12:"SKILLS TO|PROVE IT",dim12:"1 character sheet. 0 hours of sleep.",
+  k1:"Last chapter ended with ‘I have proof’. Here it is. As a video game, because I can.",
+  k1_r:"Short version, so straight to the sheet. No detours. Well, a few.",
+  k2:"Yes, I gave myself these numbers. Like everyone on LinkedIn. The difference is mine can be checked.",
+  k3:"Patience is at 3. I was going to give it 5, but someone asked for ‘a tiny change’ while I was drawing it.",
+  k4:"Passive skills. They work on their own, like coffee.",
+  k5:"The first one is so rare some clients swear it doesn’t exist.",
+  k6:"The compass is my legendary weapon. It measures, it cuts and, if needed, it points at the budget.",
+  k7:"The hair gives +10 charisma. My parents would take 30 off. We covered this in chapter 1.",
+  k8:"Every honest sheet has weaknesses. Here are mine. Use them responsibly.",
+  k9:"Tell me ‘it’s a quick change’ and I lose 50 HP. You lose a week.",
+  k10:"Level up. New skill unlocked: building your app.",
+  k11:"Nice sheet, right? Now the awkward question: where did I actually use it?",
+  c12tbc:"Next: chapter 6. Real businesses. No jokes. Nah, yes jokes.",c12tbc_r:"Next: chapter 6. My two projects.",
+  rpTag:"CHARACTER SHEET",rpNivL:"LV.",rpClase:"Class: software architect",rpRaza:"Race: human (with coffee)",rpXp:"EXP",
+  rpH0:"STATS",rpH1:"PASSIVE SKILLS",rpH2:"EQUIPMENT",rpH3:"WEAKNESSES",
+  rpS1:"ARCHITECTURE",rpS1d:"Systems that survive success",rpS2:"FRONTEND",rpS2d:"React · Next.js · TypeScript",rpS3:"BACKEND",rpS3d:"Node · MongoDB · APIs · payments",
+  rpS4:"AI & AUTOMATION",rpS4d:"AI that works. In production",rpS5:"APPS (PWA)",rpS5d:"Installed without an App Store",
+  rpS6:"PATIENCE WITH ‘IT’S A TINY CHANGE’",rpS6d:"Critical",rpS7:"HOURS OF SLEEP",rpS7d:"Unchanged since 2011",
+  rpP1:"Understands what you meant, not what you said.",rpP2:"Translates ‘make it look more modern’ into something you can actually build.",rpP3:"Explains the cloud without drawing a cloud. Almost never.",
+  rpE1n:"COMPASS",rpE1t:"Legendary weapon",rpE1d:"+50 precision. Cuts the air and the project scope.",
+  rpE2n:"COFFEE",rpE2t:"Infinite consumable",rpE2d:"+40 focus. −20 pulse.",
+  rpE3n:"LONG HAIR",rpE3t:"Forbidden accessory",rpE3d:"+10 charisma. −30 visibility. Equipped anyway.",
+  rpD1:"‘What if we do it like Uber, but for dogs?’",rpD1t:"SEVERE ALLERGY",rpD2:"‘It’s a quick change, it won’t take you long.’",rpD2t:"CRITICAL HIT ×3",
+  rpD3:"Meetings that could have been an email",rpD3t:"SLOW POISON",
+  rpLvT:"New skill unlocked",rpLvH:"BUILDING YOUR APP"
+});
+
 const ITEMS=[
  {id:'contract',kind:'contract',sc:'contract',a:0,perch:true,l:7,t:12,w:86,cond:()=>!state.contractGone},
  {id:'hint',kind:'hint',t_:'hint',sc:'contract',a:0,perch:true,l:9,t:34,w:82,cond:()=>state.hintShown},
@@ -523,6 +581,24 @@ const ITEMS=[
  {id:'s11',kind:'bub',t_:'s311',sc:'pen',a:5.683,perch:true,l:34,t:80,w:60},
  {id:'s12',kind:'bub',t_:'s312',sc:'pen',a:5.929,perch:true,l:8,t:66,w:66},
  {id:'c3tbc',kind:'cap',t_:'c3tbc',sc:'pen',a:6.175,perch:true,l:10,t:80,w:80},
+ /* ===== capítulo 5 (nuevo): la ficha de personaje. Un paso cada 62vh desde el inicio de 'rpg' ===== */
+ {id:'t12',kind:'title',ch:12,nfs:15,drop:true,long:true,sc:'rpg',a:0.000,perch:true,l:7,t:62,w:86},
+ {id:'k1',kind:'cap',t_:'k1',sc:'rpg',a:0.121,perch:true,l:7,t:66,w:76},
+ {id:'pika',kind:'sfx',text:'ピコーン',fs:10,sc:'rpg',a:0.177,perch:true,l:46,t:62},
+ {id:'k2',kind:'bub',t_:'k2',sc:'rpg',a:0.232,perch:true,l:6,t:70,w:66},
+ {id:'k3',kind:'bub',t_:'k3',sc:'rpg',a:0.288,perch:true,l:30,t:76,w:64},
+ {id:'k4',kind:'cap',t_:'k4',sc:'rpg',a:0.344,perch:true,l:7,t:66,w:66},
+ {id:'k5',kind:'bub',t_:'k5',sc:'rpg',a:0.399,perch:true,l:32,t:74,w:60},
+ {id:'jaki',kind:'sfx',text:'ジャキーン',fs:10,sc:'rpg',a:0.455,perch:true,l:8,t:64},
+ {id:'k6',kind:'bub',t_:'k6',sc:'rpg',a:0.510,perch:true,l:30,t:72,w:64},
+ {id:'k7',kind:'bub',t_:'k7',sc:'rpg',a:0.566,perch:true,l:6,t:76,w:66},
+ {id:'k8',kind:'cap',t_:'k8',sc:'rpg',a:0.622,perch:true,l:24,t:66,w:70},
+ {id:'gusa',kind:'sfx',text:'グサッ',fs:14,sc:'rpg',a:0.677,perch:true,l:10,t:64},
+ {id:'k9',kind:'bub',t_:'k9',sc:'rpg',a:0.733,perch:true,l:30,t:74,w:64},
+ {id:'lvup',kind:'sfx',text:'テッテレー',fs:10,sc:'rpg',a:0.788,perch:true,l:40,t:64},
+ {id:'k10',kind:'bub',t_:'k10',sc:'rpg',a:0.844,perch:true,l:6,t:72,w:64},
+ {id:'k11',kind:'bub',t_:'k11',sc:'rpg',a:0.900,perch:true,l:30,t:76,w:64},
+ {id:'c12tbc',kind:'cap',t_:'c12tbc',sc:'rpg',a:0.955,perch:true,l:10,t:82,w:80},
  /* ===== chapter 5: one step every 62vh, timed from the start of 'street' (span 100vh) ===== */
  {id:'t4',kind:'title',onart:true,ch:4,nfs:13,stack:true,drop:true,long:true,sc:'ch6open',a:0.065,perch:true,l:7,t:60,w:86},
  {id:'v51',kind:'cap',t_:'v51',sc:'ch6open',a:0.739,perch:true,l:7,t:66,w:64},
@@ -599,7 +675,7 @@ const ITEMS=[
 /* ---------- la versión corta (para quien contrata): capítulos 1, 6, 7, 8 y 9 ----------
    Es el mismo manga sin los capítulos 2 a 5. En /corta ya llega recortada desde el servidor;
    desde la portada se recorta aquí mismo, sin recargar, al tocar «Versión corta». */
-const CORTA_SC=new Set(['contract','kid8','parents8','eng8','timeline8','today8','ch6open','mnml','guibbo','back6','shelf9','bottles9','phone9','call10','desk10','gap10','quiet11','mkof','mkpaso','cont11','end']);
+const CORTA_SC=new Set(['contract','kid8','parents8','eng8','timeline8','today8','rpg','ch6open','mnml','guibbo','back6','shelf9','bottles9','phone9','call10','desk10','gap10','quiet11','mkof','mkpaso','cont11','end']);
 const TODOS=ITEMS.slice();
 state.short=document.getElementById('col').dataset.version==='corta';
 function recortar(){
@@ -840,7 +916,7 @@ const G={
  napkin:()=>`<svg viewBox="0 0 40 40"><path d="M6 8l26-2 2 26-28 2z" fill="#fff" stroke="${GL}" stroke-width="2"/><rect x="12" y="12" width="9" height="15" rx="2" fill="none" stroke="${GL}" stroke-width="1.6"/><path d="M23 16q5 0 6 5" stroke="${HLc}" stroke-width="2" fill="none"/></svg>`
 };
 const CHG=[null,['steam','shaving','napkin'],['coin','lint'],['screw','gear'],['notif'],['leaf'],['star'],['spark'],['photo','leaf'],['bubble'],['ring','shaving'],['napkin','leaf']];
-const TITLES=['t8','title','t2','t3','t4','t9','t10','t11'];   /* scroll order: the origin comes first */
+const TITLES=['t8','title','t2','t3','t12','t4','t9','t10','t11'];   /* scroll order: the origin comes first */
 let FLO=[]; const FAR=$('#depthFar'), NEAR=$('#depthNear'), SHADOW=$('#cshadow');
 function seeded(n){let s=n*9301+49297; return()=>{s=(s*9301+49297)%233280; return s/233280}}
 const DEPTH_ON=true;
@@ -864,7 +940,7 @@ function nemuPage(seed,W,Hp){const r=seeded(seed); let s=`<svg viewBox="0 0 ${W}
     y+=rh+g; if(y>Hp-m-40) break}
   return s+'</svg>'}
 /* ambient sound effects: huge, faint, the mood of each chapter */
-const AMB=[null,['ゴゴゴ','ジーン'],['ザワザワ','シーン'],['ゴゴゴ','シーン'],['ガチャガチャ','カチカチ'],['ピロン','ザワザワ'],['コポコポ','ゴクリ'],['リーン','ドキドキ'],['キラキラ','ジーン']];
+const AMB=[null,['ゴゴゴ','ジーン'],['ザワザワ','シーン'],['ゴゴゴ','シーン'],['ガチャガチャ','カチカチ'],['ピコーン','ドヤッ'],['ピロン','ザワザワ'],['コポコポ','ゴクリ'],['リーン','ドキドキ'],['キラキラ','ジーン']];
 let NEMU=null, AMBS=[];
 /* hand-drawn sketches (from ChatGPT) and ambient sound effects behind the page, in parallax */
 const BOC={contrato:['/img/fed8f6edcb640ff89df286d9d37bd663.webp',1525/1031],p13:['/img/c0c5f41eaeabd4046828f4b3b487c5e1.webp',867/1300],dialogo:['/img/797f6ff9d86899c3c8738e86566096d6.webp',1707/921],
@@ -911,7 +987,7 @@ function buildDepth(){FAR.innerHTML=''; NEAR.innerHTML=''; FLO=[]; AMBS=[]; SKEL
     el.style.backgroundImage=`url(${FIG.u})`; el.style.backgroundSize=`${Math.round(FIG.W*sc)}px ${Math.round(FIG.H*sc)}px`; el.style.backgroundPosition=`${-Math.round(fx*sc)}px ${-Math.round(fy*sc)}px`;
     el.style.transform=`rotate(${((flip?1:-1)*(2+r()*3)).toFixed(1)}deg)`; flip^=1; SL.appendChild(el); used.push(anchor)};
   /* one whole sketch per chapter, at the first white moment of the chapter */
-  const FULL=[null,'p13','dialogo','p32','p36','arq','p74','chibiA','salto','contrato','footer'];
+  const FULL=[null,'p13','dialogo','p32','p36','caras','arq','p74','chibiA','salto','contrato','footer'];
   const BOC_ON=false;   /* sketches parked for now: set to true to bring them back */
   for(let c=1;c<=TITLES.length&&BOC_ON;c++){const from=c===1?vh*.2:tAt[c-1]-vh*.3, to=c<TITLES.length?tAt[c]-vh:maxS; if(!isFinite(from)) continue;
     for(let y=Math.max(0,from); y<to; y+=vh*.2){if(white(y)&&free(y)){putFull(FULL[c],y); break}}}
@@ -1008,16 +1084,17 @@ const CH=[
  {n:2,id:'title',en:["The Napkin","Where it all started. Badly."],es:["La servilleta","Donde empezó todo. Mal."]},
  {n:3,id:'t2',en:["Other people’s pockets","Your customers’ phones. And way too many notifications."],es:["Bolsillos ajenos","Los teléfonos de tus clientes. Y demasiadas notificaciones."]},
  {n:4,id:'t3',en:["Looks simple. Isn’t.","What’s inside an app. Spoiler: a lot."],es:["Parece fácil. No lo es.","Lo que hay dentro de una app. Spoiler: mucho."]},
- {n:5,id:'t4',en:["Real businesses","No jokes. Nah, yes jokes."],es:["Negocios reales","Sin chistes. Nah, sí hay chistes."],cs:{en:["Two projects","Minimal One and Güibbo."],es:["Dos proyectos","Minimal One y Güibbo."]}},
- {n:6,id:'t9',en:["Pick your poison","Prices. Yes, already. I see you."],es:["Elige tu veneno","Precios. Sí, ya. Te estoy viendo."]},
- {n:7,id:'t10',en:["Out of ink","The ideas ran out. The form didn’t."],es:["Sin tinta","Se acabaron las ideas. El formulario no."]},
- {n:8,id:'t11',locked:true,en:["???","Nice try. You have to earn this one."],es:["???","Buen intento. Este te lo tienes que ganar."],uen:["Making of","How it was made. By hand."],ues:["Making of","Cómo se hizo. A mano."]}
+ {n:5,id:'t12',en:["Skills to prove it","A character sheet. Health bars included."],es:["Skills para probarlo","Una ficha de personaje. Con barras y todo."]},
+ {n:6,id:'t4',en:["Real businesses","No jokes. Nah, yes jokes."],es:["Negocios reales","Sin chistes. Nah, sí hay chistes."],cs:{en:["Two projects","Minimal One and Güibbo."],es:["Dos proyectos","Minimal One y Güibbo."]}},
+ {n:7,id:'t9',en:["Pick your poison","Prices. Yes, already. I see you."],es:["Elige tu veneno","Precios. Sí, ya. Te estoy viendo."]},
+ {n:8,id:'t10',en:["Out of ink","The ideas ran out. The form didn’t."],es:["Sin tinta","Se acabaron las ideas. El formulario no."]},
+ {n:9,id:'t11',locked:true,en:["???","Nice try. You have to earn this one."],es:["???","Buen intento. Este te lo tienes que ganar."],uen:["Making of","How it was made. By hand."],ues:["Making of","Cómo se hizo. A mano."]}
 ];
 const visibles=()=>CH.filter(c=>!c.id||ITEMS.some(x=>x.id===c.id));
 function capActual(){const y=scrollY; let cur=visibles()[0].n; visibles().forEach(c=>{const it=c.id&&ITEMS.find(x=>x.id===c.id); if(it&&y>=it.at-innerHeight*.5) cur=c.n}); return cur}
 
-Object.assign(MT.es,{corta:"Versión corta: 5 capítulos",larga:"Ver el manga completo",rail:"Capítulos"});
-Object.assign(MT.en,{corta:"Short version: 5 chapters",larga:"Read the full manga",rail:"Chapters"});
+Object.assign(MT.es,{corta:"Versión corta: 6 capítulos",larga:"Ver el manga completo",rail:"Capítulos"});
+Object.assign(MT.en,{corta:"Short version: 6 chapters",larga:"Read the full manga",rail:"Chapters"});
 
 /* ---------- dónde está el lector: el capítulo y la barra de avance (y, en pantallas anchas, el índice al costado) ---------- */
 function progreso(){const p=$('#progreso'); if(!p||!ITEMS.length) return; const t11=ITEMS.find(x=>x.id==='t11'); if(t11&&scrollY>=t11.at-innerHeight*.5) state.earned=true; const vs=visibles().filter(c=>c.id), cur=capActual(), i=Math.max(0,vs.findIndex(c=>c.n===cur)), d=T[lang];
@@ -1228,7 +1305,7 @@ function loop(now){const dt=Math.min(48,now-prev); prev=now;
   SPEED.style.opacity=pose==='freefall'?'.85':pose==='fall'&&S.vy>.6?Math.min(1,S.vy-.6).toFixed(2):'0';
   C.style.transform=`translate(${(S.x-W/2+ox).toFixed(1)}px,${(S.y-H+H*.02).toFixed(1)}px)`;
   IMG.style.transform=`rotate(${rot.toFixed(2)}deg) scaleX(${S.dir<0?-1:1})`;
-  pinFrame(); phone3D(); cork3D(); napkin3D(); apps3D(); storm(); devices3D(); guibbo3D(); making3D(); paso3D(); pan3D(); frame(); aimTails(); typeChat(now); demoSalto(now); frameDepth(); frameShadow();
+  pinFrame(); phone3D(); cork3D(); napkin3D(); apps3D(); storm(); devices3D(); guibbo3D(); making3D(); fichaRPG(); paso3D(); pan3D(); frame(); aimTails(); typeChat(now); demoSalto(now); frameDepth(); frameShadow();
   requestAnimationFrame(loop)}
 /* ---------- the compass shot: a slow pan from left to right with sparks in front ---------- */
 const PZ={w:$('#pzWrap'),img:$('#pzWrap .pz-img'),fx:$('#pzFx'),last:''};
@@ -1296,6 +1373,18 @@ function paso3D(){const s=scenes.mkpaso; if(!s||!PA.cam) return; const y=scrollY
 /* el chibi dibujo por dibujo: el plato con sus cuatro vistas gira con el scroll,
    y el salto se dibuja cuadro a cuadro, de boceto a tinta, sobre el mismo arco del código */
 const MK={cam:$('#mkCam'),plato:$('#mkPlato'),g:$$('#mkCam .mk-g'),f:$$('#mkCam .mk-f')}; let mkLast='';
+/* capítulo 5: la ficha de personaje. Cada página entra con su globo, las barras se llenan una a una y al final sube de nivel */
+const RP={f:$('#rpFicha'),c:$$('#rpFicha .rp-c'),p:$$('#rpFicha .rp-pag'),b:$$('#rpFicha .rp-st'),n:$('#rpNiv'),xp:$('#rpXp')}; let rpLast='';
+function fichaRPG(){const s=scenes.rpg; if(!s||!RP.f) return; const y=scrollY, vh=innerHeight;
+  const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:Infinity};
+  const t=['pika','k4','jaki','k8','lvup'].map(id=>at(id)-vh*.35); let pg=0; t.forEach((v,i)=>{if(y>=v) pg=i});
+  const on=y>=at('k1')-vh*.04, q=Math.max(0,Math.min(1,(y-t[0])/Math.max(1,at('k3')-vh*.35-t[0])));
+  const llenas=y<t[0]?0:pg>0?RP.b.length:Math.min(RP.b.length,1+Math.floor(q*RP.b.length));
+  const xp=Math.max(0,Math.min(1,(y-s.top)/s.span)), key=[on?1:0,y<t[0]?1:0,pg,llenas,Math.round(xp*40)].join('|'); if(key===rpLast) return; rpLast=key;
+  RP.f.classList.toggle('on',on); RP.f.classList.toggle('lvup',pg>=4);
+  RP.p.forEach((p,i)=>p.classList.toggle('on',i===pg)); RP.b.forEach((b,i)=>b.classList.toggle('lleno',i<llenas));
+  const cara=y<t[0]?3:[6,1,4,5,2][pg]; RP.c.forEach(c=>c.classList.toggle('on',+c.dataset.c===cara));   /* sorprendido, con sueño, satisfecho, decidido, sudando, feliz */
+  RP.n.textContent=pg>=4?'16':'15'; RP.xp.style.transform=`scaleX(${(pg>=4?1:xp*.9).toFixed(3)})`}
 function making3D(){const s=scenes.mkof; if(!s||!MK.cam) return; const y=scrollY, vh=innerHeight;
   const at=id=>{const it=ITEMS.find(x=>x.id===id); return it?it.at:0};
   const a1=at('mk1')-vh*.6, a3=at('mk3')-vh*.3, a4=at('mk4')-vh*.3, ac=at('code')-vh*.3;
